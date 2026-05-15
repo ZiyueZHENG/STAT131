@@ -18,7 +18,7 @@ format:
 
 # Instructor
 
-**Sangwon Hyun**  
+## Sangwon Hyun  
 Students can address him as Professor Hyun or Dr. Hyun.
 
 **Office Hours:** Fridays 1:00 PM--2:00 PM, E2-539A  

@@ -162,8 +162,8 @@ csl: references/chicago-author-date.csl
 
 format:
   html:
-    author: Dr. [MY NAME](#)
-    author-meta: Dr. MY NAME
+    author: Dr. [HYUN](#)
+    author-meta: Dr. HYUN
     date-format: "DD MMMM YYYY"
 
     email-obfuscation: javascript

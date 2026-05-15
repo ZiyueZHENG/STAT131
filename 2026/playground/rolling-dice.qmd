@@ -1,0 +1,129 @@
+---
+title: "Rolling Dice"
+---
+
+## Rolling Dice Experiment
+
+Click the button to roll a fair six-sided die. The histogram and sample average update dynamically.
+
+```{=html}
+<div id="dice-demo" style="max-width: 760px; margin-top: 1em;">
+  <button onclick="rollDie()" style="padding: 8px 14px; font-size: 16px;">
+    Roll a die
+  </button>
+
+  <button onclick="resetDiceDemo()" style="padding: 8px 14px; font-size: 16px; margin-left: 8px;">
+    Reset
+  </button>
+
+  <p id="dice-result" style="font-size: 18px; margin-top: 1em;">
+    No rolls yet.
+  </p>
+
+  <p id="dice-counts">
+    Total rolls: 0
+  </p>
+
+  <p id="dice-avg">
+    Average: 0
+  </p>
+
+  <svg id="dice-histogram" width="700" height="330"></svg>
+</div>
+
+<script>
+let diceCounts = [0, 0, 0, 0, 0, 0];
+let diceSum = 0;
+
+function rollDie() {
+  const result = Math.floor(Math.random() * 6) + 1;
+
+  diceSum = diceSum + result;
+  diceCounts[result - 1] += 1;
+
+  document.getElementById("dice-result").innerText = "Latest roll: " + result;
+  updateDiceDisplay();
+}
+
+function resetDiceDemo() {
+  diceCounts = [0, 0, 0, 0, 0, 0];
+  diceSum = 0;
+
+  document.getElementById("dice-result").innerText = "No rolls yet.";
+  updateDiceDisplay();
+}
+
+function updateDiceDisplay() {
+  const total = diceCounts.reduce((a, b) => a + b, 0);
+  const average = total === 0 ? 0 : diceSum / total;
+
+  document.getElementById("dice-counts").innerText =
+    "Total rolls: " + total;
+
+  document.getElementById("dice-avg").innerText =
+    "Average: " + average.toFixed(3);
+
+  drawDiceHistogram();
+}
+
+function drawDiceHistogram() {
+  const svg = document.getElementById("dice-histogram");
+  svg.innerHTML = "";
+
+  const width = 700;
+  const height = 330;
+  const marginLeft = 50;
+  const marginBottom = 55;
+  const chartHeight = 210;
+  const barWidth = 60;
+  const gap = 40;
+  const maxValue = Math.max(...diceCounts, 1);
+
+  for (let i = 0; i < 6; i++) {
+    const value = diceCounts[i];
+    const x = marginLeft + i * (barWidth + gap);
+    const barHeight = (value / maxValue) * chartHeight;
+    const y = height - marginBottom - barHeight;
+
+    const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    rect.setAttribute("x", x);
+    rect.setAttribute("y", y);
+    rect.setAttribute("width", barWidth);
+    rect.setAttribute("height", barHeight);
+    rect.setAttribute("fill", "#4C78A8");
+    svg.appendChild(rect);
+
+    const faceLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    faceLabel.setAttribute("x", x + barWidth / 2);
+    faceLabel.setAttribute("y", height - 25);
+    faceLabel.setAttribute("text-anchor", "middle");
+    faceLabel.textContent = i + 1;
+    svg.appendChild(faceLabel);
+
+    const countLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    countLabel.setAttribute("x", x + barWidth / 2);
+    countLabel.setAttribute("y", y - 8);
+    countLabel.setAttribute("text-anchor", "middle");
+    countLabel.textContent = value;
+    svg.appendChild(countLabel);
+  }
+
+  const axis = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  axis.setAttribute("x1", marginLeft - 10);
+  axis.setAttribute("y1", height - marginBottom);
+  axis.setAttribute("x2", width - 40);
+  axis.setAttribute("y2", height - marginBottom);
+  axis.setAttribute("stroke", "black");
+  svg.appendChild(axis);
+
+  const xAxisLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  xAxisLabel.setAttribute("x", width / 2);
+  xAxisLabel.setAttribute("y", height - 5);
+  xAxisLabel.setAttribute("text-anchor", "middle");
+  xAxisLabel.textContent = "Die outcome";
+  svg.appendChild(xAxisLabel);
+}
+
+drawDiceHistogram();
+</script>
+```

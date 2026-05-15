@@ -1,0 +1,387 @@
+---
+title: "Lecture 10: Distributions of multiple random variables"
+format:
+  html
+---
+
+
+## Marginal Distributions \[DS 3.5\] \[Lec 10\]
+
+Often, we start with a joint distribution of two RVs and we then want to
+find the distribution of just one of them.
+
+The distribution of one random variable $X$ computed from a joint
+distribution is also called the *marginal distribution* of $X$. Each
+random variable will have a marginal cdf as well as a marginal pdf or
+pmf.
+
+First, how do we learn about the distribution of $X$ from the joint cdf
+$F(x,y)$? The *marginal* cdf of $X$ is
+$$F_X(x) = \lim\nolimits_{y \to \infty}F(x,y).$$
+
+1\. If $(X,Y)$ is continuous, the *marginal* pdf of $X$ is
+$$f_X(x)  = \frac{d}{dx}F_X(x)
+= \int^\infty_{-\infty}f(x,y)dy;$$
+
+2\. If $(X,Y)$ is discrete, *marginal* pmf of $X$ is
+$$f_X(x)  =\sum\nolimits_{y} f(x,y).$$
+
+3\. If $(X,Y)$ follow a *mixed* distribution (with $X$ discrete and $Y$
+continuous) with joint pmf/pdf $f$, then the marginal pmf $f_X$ of $X$
+can be obtained by:
+
+$$f_X(x) = \int_y f(x,y) \text{\; for all\;} x.$$
+
+and the marginal pdf $f_Y$ of $Y$ can be obtained by:
+$$f_Y(y) = \sum_x f(x,y) \text{\; for \;}-\infty < y < \infty.$$
+
+::: {.callout-tip title="Example"}
+Recall the example of the joint pmf $f$ of the number of cars $X$ and
+the number of television sets $Y$ for each randomly selected household.
+The joint pmf is as follows (each entry is $f(x,y)$):
+
+::: center
+               $Y$               
+  ------------ ----- ----- ----- -----
+  2 - 5 $X$    1     2     3     4
+  1            0.1   0     0.1   0
+  2            0.3   0     0.1   0.2
+  3            0     0.2   0     0
+:::
+
+What is the marginal distribution of $X$? Of $Y$?
+:::
+
+::: {.callout-tip title="Example"}
+Take the joint cdf $F(x,y)$ that takes values $\frac{1}{16} xy(x+y)$ for
+$x\in [0,2]$ and $y\in
+    [0,2]$. Find the marginal cdf $F_X(x)$ (hint: don't just plug in
+$y=\infty$) and marginal pdf $f_X(x)$.
+:::
+
+**Bivariate Normal distribution.**
+
+::: {.callout-tip title="Example"}
+Suppose the joint pdf of $(X,Y)$ is
+$f(x,y) = c x^2y \cdot \mathbbm{1}_{ x^2 \le y <1}$.
+
+-   Sketch the set of points $(x,y)$ for which $f(x, y)>0$.
+
+-   Find the marginal pdf $f(x)$.
+:::
+
+## Independent Random Variables \[DS 3.6\] \[Lec 10\]
+
+For a pair of events $A$ and $B$, they are independent if and only if
+$$P(A\cap B) =P(A) P(B).$$ We will use the independence of events to
+define the independence of random variables.
+
+::: {.callout-note title="Definition"}
+**two random variables are independent.**
+
+Two random variables $X$ and $Y$ are independent, denoted as
+$X \perp Y$, if
+$$\mathbb{P}(X\in A, Y\in B) = \mathbb{P}(X\in A) \mathbb{P}(Y\in B)$$
+holds for all $A$ and $B$.
+:::
+
+Let $A=(-\infty,x]$ and $B=(-\infty,y]$, then by definition,
+$$F(x,y) = F_X(x)F_Y(y).$$ Since this holds for any $x$ and $y$, the
+implication is: the independence of $X$ and $Y$ *implies* the
+factorization of joint cdf into the product of the marginal cdf's. In
+fact, the reverse direction also holds.
+
+::: {.callout-important title="Theorem"}
+**Factorization of joint cdf.**
+
+[]{#thm:ind-cdf label="thm:ind-cdf"} $X \perp Y$ if and only if *for all
+$x,y \in \R$,* $$F(x,y) = F_X(x)F_Y(y)$$
+:::
+
+Next, the product of pdfs (or pmfs) must also equal the joint pdf or pmf
+(or pdf/pmf) for independent random variables.
+
+::: {.callout-important title="Theorem"}
+**Factorization.**
+
+[]{#thm:ind-pdf label="thm:ind-pdf"} If $X$ and $Y$ have joint pdf,
+joint pmf, or joint pmf/pdf $f_{X,Y}(x,y)$, then
+$$X \perp Y \Leftrightarrow
+  f_{X,Y}(x,y) = f_X(x)f_Y(y), \forall x,y \text{ in their supports}$$
+:::
+
+Let us see this in an example.
+
+::: {.callout-tip title="Example"}
+A carnival game consists of rolling a fair die, tossing a fair coin two
+times, and recording both outcomes. Let $Y$ stand for the number on the
+die, and let $X$ stand for the number of heads in the two tosses.
+
+-   Are random variables $X$ and $Y$ independent?
+
+-   What is the marginal distribution of $X$? Of $Y?$
+
+-   Populate the following table of probabilities
+
+::: center
+:::
+:::
+
+The factorization theorem makes it easier to recognize independence from
+$f$. If you find that $f$ partitions into two parts -- one with only $x$
+in it, and another with only $y$ -- then the two random variables are
+independent.
+
+::: {.callout-important title="Theorem"}
+**Factorization.**
+
+If $f_{X,Y}(x,y)$ satisfies $$f_{X,Y}(x,y) =h(x)g(y)$$ for all
+$x,y \in \bR$, where $h(\cdot)$ and $g(\cdot)$ are two univariate
+functions, then $X\perp Y$.
+:::
+
+(Note, [\[thm:ind-pdf\]](#thm:ind-pdf){reference-type="ref"
+reference="thm:ind-pdf"} is a special case of this, by letting
+$h_X(x)=f_X(x)$ and $h_Y(y) = f_Y(y)$, so that
+$f(x,y) = f_X(x) f_Y(y).$)
+
+::: {.callout-tip title="Example"}
+Examine the following joint pdfs $f$ and determine if $X$ and $Y$ are
+independent.
+
+1.  \(a\) $f(x,y) = cx^2y^2 \cdot \mathbbm{1}_{x^2+y^2\le 1}.$
+
+2.  \(b\) $f(x,y) = c \mathbbm{1}_{x^2 \le 1, y^2\le 1}.$
+
+3.  \(c\) $f(x,y) = c e^{ - x-2y} \cdot \mathbbm{1}_{x\ge 0, y\ge 0}.$
+:::
+
+(Hint: When the support of $(X,Y)$ have boundaries that are curved or
+not parallel to the coordinate axes, you cannot factorize $f(x,y)$. All
+independent RVs have *rectangular* (even if unbounded) support!)
+
+Lastly, any *functions* (or transformations) of independent random
+variables are also independent.
+
+::: {.callout-important title="Theorem"}
+If $X$ and $Y$ are independent, then $g(X)$ and $h(Y)$ are independent
+for any function $g$ and $h$.
+:::
+
+::: {.callout-tip title="Example"}
+Prove that constant $c$ is independent with any random variables.
+:::
+
+**Bivariate Normal distribution.**
+
+## Conditional Distributions \[DS 3.6\] \[Lec 10\]
+
+Recall conditional probability $$P(A|B) =\frac{P(A\cap B) }{P(B)}.$$ We
+generalize the concept of conditional probability to conditional
+*distributions*. Recall that distributions are just collections of
+probabilities of events determined by random variables. Conditional
+distributions will be the probabilities of events determined by some
+random variables conditional on events determined by other random
+variables.
+
+Let us start by defining a conditional probability in terms of discrete
+random variables.
+
+::: {.callout-note title="Definition"}
+**Conditional pmf.**
+
+[]{#eq:condit-pmf label="eq:condit-pmf"} The conditional pmf is
+$$f_{X|Y}(x|y) = \mathbb{P}(X=x|Y=y) = \frac{f_{X,Y}(x,y)}{f_Y(y)},$$
+provided $f_Y(y)>0$.
+:::
+
+A conditional pmf $f_{X|Y}(x | y)$ is a valid probability mass function
+of $x$. Also, the conditional probability of an event $X\in E$ can be
+calculated as: $$P(X\in E|Y=y) = \sum_{x\in E}f_{X|Y}(x|y) .$$
+
+(We can check for ourselves in the next example!)
+
+::: {.callout-tip title="Example"}
+**Auto insurance.**
+
+Suppose we have the following joint pmf:
+
+::: center
+   Stolen   Brand 1   Brand 2   Brand 3   Brand 4   Brand 5   Total
+  -------- --------- --------- --------- --------- --------- -------
+     No      0.129     0.298     0.161     0.280     0.108    0.976
+    Yes      0.010     0.010     0.001     0.002     0.001    0.024
+   Total     0.139     0.308     0.162     0.282     0.109    1.000
+:::
+
+With the joint pmf, we can answer the following questions.
+
+-   What is the probability of a car being stolen?
+
+-   What is the probability of a Brand 3 car being stolen?
+
+-   Given a car is stolen, what is the probability of the stolen car is
+    Brand $k$?
+:::
+
+Next, we introduce conditional probabilities of continuous random
+variables.
+
+::: {.callout-note title="Definition"}
+**Conditional pdf.**
+
+[]{#eq:condit-pdf label="eq:condit-pdf"} The conditional pdf is
+$$f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)},$$ if $f$ is the joint pdf
+provided $f_Y(y)>0$.
+:::
+
+Using this, conditional probability of $X \in E$ for any set $E$ can be
+computed as:
+
+$$\mathbb{P}(X\in E|Y=y) = \int _{E} f_{X|Y}(x|y) dx.$$
+
+That is, for each fixed value of $Y=y$, $f_{X|Y}(x|y)$ is a *valid* pdf
+in $x$. [^1]
+
+::: {.callout-tip title="Example"}
+Suppose the joint pdf of $(X,Y)$ is
+$f(x,y) = e^{-x} \times 1(0\le y \le x
+  <\infty)$. Find $f_{X|Y}(x|y)$.
+:::
+
+**Bivariate Normal distribution.**
+
+::: {.callout-tip title="Example"}
+Suppose $X$ is a randomly chosen point between $0$ and $1$, and
+conditional on $X=x$, $Y$ is a chosen as a random value between $x$ and
+$1$. (We can write this succinctly as $Y|X=x \sim \text{Unif}[x,1]$).
+
+-   \(a\) Find the joint pdf $f(x,y)$.
+
+-   \(b\) Find the marginal distribution of $Y$.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $(X,Y)$ is uniformly distributed on the semicircle
+$$\{(x,y): x^2+y^2 \le 1, x \ge 0\}.$$ Find $f_{X|Y}(x|y)$. In
+particular, what is $f_{X|Y}(x|0)$?
+:::
+
+::: {.callout-note title="Definition"}
+**Conditional pmf or pdf from Mixed Distributions.**
+
+Let $X$ be discrete and let $Y$ be continuous with joint pmf/pdf $f$.
+Then the conditional pmf of $X$ given $Y= y$ is defined by
+[\[eq:condit-pmf\]](#eq:condit-pmf){reference-type="ref"
+reference="eq:condit-pmf"}, and the conditional pdf of $Y$ given $X= x$
+is defined by [\[eq:condit-pdf\]](#eq:condit-pdf){reference-type="ref"
+reference="eq:condit-pdf"}. [^2]
+:::
+
+::: {.callout-tip title="Example"}
+Suppose that a machine produces defective and nondefective parts, but we
+do not know what defection rate (the proportion of defective parts). Let
+$P$ stand for the unknown proportion of defective parts among all
+possible parts produced by the machine. (If we were to learn that $P=p$,
+we might be willing to say that the parts were independent of each other
+and each had probability $p$ of being defective.) Let us say that if $n$
+items will be examined, $X$ is the number of items that would be
+defective.
+
+-   \(a\) What is the conditional pdf of $X$ given $P=p$?
+
+-   \(b\) What is the joint pmf/pdf of $X$ and $P$?
+
+-   \(c\) What is the conditional pdf of $P$ given $X=x$?
+:::
+
+For conditional distributions, similar conclusions to those of
+conditional probability also hold.
+
+Let's say that $X$ and $Y$ are random variables such that $X$ has pmf or
+pdf $f_X$, and $Y$ has pmf or pdf $f_Y$. Then, the joint pdf or joint
+pmf (or if it is a mixed scenario, a pmf/pdf) $f(\cdot, \cdot)$ is
+defined as follows:
+
+::: {.callout-important title="Theorem"}
+**Multiplication rule.**
+
+$$f_{(X,Y)}(x,y)=f_{X|Y}(x|y)f_Y(y) = f_{Y|X}(y|x)f_X(x).$$
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X, Y$ are independent random variables with distribution
+$\text{Unif}(0,1)$. Let $Z=\lfloor{X/Y}\rfloor$ be the floor of the
+ratio $X/Y$. Show the probability
+$$\mathbb{P}(Z \text{ is an odd number}) = \log(2)/2.$$ (Hint: use the
+alternating harmonic series
+$\sum\nolimits^\infty_{k=1}\frac{(-1)^{k-1}}{k} = \log(2).$)
+:::
+
+Next, we learn about the Law of total probability and the Bayes theorem,
+but for random variables $X$ and $Y$.
+
+::: {.callout-important title="Theorem"}
+**Law of total probability.**
+
+Suppose $Y$ is continuous,
+$$f_X(x) = \int  f_{(X,Y)}(x,y) dy = \int  f_{X|Y}(x|y)f_Y(y) dy .$$
+Suppose $Y$ is discrete,
+$$f_X(x) = \sum_y  f_{(X,Y)}(x,y)  = \sum_y  f_{X|Y}(x|y)f_Y(y)  .$$
+:::
+
+Using this, we revisit the Bayes theorem.
+
+::: {.callout-important title="Theorem"}
+**Bayes theorem for random variables.**
+
+$$f_{X|Y}(x,y) = \frac{f_{Y|X}(y|x) f_X(x) }{f_Y(y)}.$$
+:::
+
+::: {.callout-tip title="Example"}
+**Poisson.**
+
+Suppose $X \sim \exp(\lambda)$ for some $\lambda >0$, and given $X=x$,
+$Y\sim \text{Pois}(x)$. Find the conditional density of $X|Y=y$ for some
+$y\in \mathbb{Z}_+$.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose again $X$ is a randomly chosen point between $0$ and $1$, and
+conditional on $X=x$, $Y$ is a chosen as a random value between $x$ and
+$1$. (We can write this succinctly as $Y|X=x \sim \text{Unif}[x,1]$).
+Find the conditional pdf $g(x | y)$ of $X$ given $Y=y$.
+
+(Hint: Plug in $y=0.1$ and $y=0.9$ for a sanity check.)
+:::
+
+Lastly, we will learn if $X$ and $Y$ are independent the conditional
+distribution (the pdf or pmf) of $X|Y$ is the same as the marginal
+distribution (again, the pdf or pmf) of $X$.
+
+::: {.callout-important title="Theorem"}
+$X \perp Y$ $\iff$ $f_{X|Y}(x|y) = f_{X}(x)$ for all $(x,y)$ with
+$f_{Y}(y) >0$.
+:::
+
+## In-class exercise \[Lec 10\] {#in-class-exercise-lec-10 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: If you're wondering about why $Y=y$ (which is a zero-probability
+    event) can be conditioned on.
+
+    1.  Yes, conditioning on a set of probability 0 is generally not
+        allowed. The zero-valued denominator makes conditional
+        probability ill-defined.
+
+    2.  So, the conditional density can be understood as conditioning on
+        that $Y$ is very close to $y$ (but not exactly $y$).
+
+[^2]: Recall we had learned about *mixed* distribution that is consist
+    of both a discrete random variable and a continuous random variable,
+    with a joint pmf/pdf $f$.

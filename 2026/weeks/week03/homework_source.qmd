@@ -1,0 +1,33 @@
+---
+title: "Homework - Week 03"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec3-q5}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec3-q6}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec3-q7}
+:::
+
+::: {.callout-warning title="Problem 4"}
+\useproblem{lec3-q8}
+:::
+
+::: {.callout-warning title="Problem 5"}
+\useproblem{lec3-q9}
+:::
+
+::: {.callout-warning title="Problem 6"}
+\useproblem{lec3-q10}
+:::
+
+::: {.callout-warning title="Problem 7"}
+\useproblem{lec3-q11}
+:::

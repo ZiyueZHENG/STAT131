@@ -1,0 +1,49 @@
+---
+title: "Homework - Week 07"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec7-q5}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec7-q6}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec7-q7}
+:::
+
+::: {.callout-warning title="Problem 4"}
+\useproblem{lec7-q8}
+:::
+
+::: {.callout-warning title="Problem 5"}
+\useproblem{lec7-q9}
+:::
+
+::: {.callout-warning title="Problem 6"}
+\useproblem{lec7-q10}
+:::
+
+::: {.callout-warning title="Problem 7"}
+\useproblem{lec7-q11}
+:::
+
+::: {.callout-warning title="Problem 8"}
+\useproblem{lec7-q12}
+:::
+
+::: {.callout-warning title="Problem 9"}
+\useproblem{lec7-q13}
+:::
+
+::: {.callout-warning title="Problem 10"}
+\useproblem{lec7-q14}
+:::
+
+::: {.callout-warning title="Problem 11"}
+\useproblem{lec7-q15}
+:::

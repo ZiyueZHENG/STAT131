@@ -1,0 +1,67 @@
+---
+title: "Homework - Week 15"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+*confidence % interval*
+
+*at most*
+
+*confidence interval*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that $X$ and $Y$ are iid random variable for which the moment generating
+  function (mgf) is as follows:
+$$\psi(t)=e^{t^2+4t} \ \text{for} \ -\infty < t < \infty $$
+
+a. Find the mean and the variance of $X$.
+b. Find the mgf of $Z=3X-2Y+6$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+Take a Poisson random variable $X$ with parameter $\lambda$.
+
+
+a. What is the mgf of $X$? (Hint: use $\sum_{x=0}^\infty \frac{a^x}{x!} = e^a$.)
+b. Prove that both the mean and variance of $X$ are $\lambda$.
+:::
+
+::: {.callout-warning title="Problem 3"}
+Show that the expectation of the sum of two Poisson random variables
+  $X\sim \text{Pois}(\lambda_1)$ and $Y \sim \text{Pois}(\lambda_2)$ is
+  $\lambda_1 + \lambda_2$, in at least two different ways.
+:::
+
+::: {.callout-warning title="Problem 4"}
+Suppose that $X$ is a random variable for which the mgf is as follows:
+  $$
+  \psi(t)=\frac{1}{4}\left(3 e^t+e^{-t}\right) \quad \text { for
+  }-\infty<t<\infty .
+  $$
+  Find the mean and the variance of $X$.
+:::
+
+::: {.callout-warning title="Problem 5"}
+Suppose it is known that $30$ percent of the items in a large manufactured
+  lot are of poor quality. Suppose also that a random sample of $n$ items is to
+  be taken from the lot, and let $Q_n$ denote the proportion of the items in the
+  sample that are of poor quality.
+
+  Find a value of $n$ such that
+  $\mathbb{P}(0.2 \le Q_n \le 0.4) \ge 0.75$ by using:
+
+a. the Chebyshev inequality and
+b. the exact probabilities of the binomial distribution. (Hint: you may
+  use R code and the functions \texttt{pbinom()} and \texttt{dbinom()}
+  useful. Otherwise, you may choose to use a calculator.)
+c. Which of (a) and (b) tell you a larger $n$? What is your
+  interpretation of this result?
+:::
+
+::: {.callout-warning title="Problem 6"}
+Let $X$ be the number of calls arriving at a call center in the next
+  hour. $X$ is distributed as a Poisson random variable with mean parameter $3$. Use
+  Chebyshev's inequality to show that the probability that there will be more
+  than $6$ calls is smaller than $1/3$.
+:::

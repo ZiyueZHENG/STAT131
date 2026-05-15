@@ -1,0 +1,9 @@
+---
+title: "Discussion - Week 11"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec11-q2}
+:::

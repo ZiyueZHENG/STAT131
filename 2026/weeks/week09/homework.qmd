@@ -1,0 +1,74 @@
+---
+title: "Homework - Week 09"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on % canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that the joint cdf of $X$ and $Y$ has the form
+  $F(x,y) =\frac{1}{16}xy(x+y)$ when for values between $0$ and $2$.
+
+a. Write out the *full* joint cdf -- for *all* values of $x \in \mathbb{R}$ and $y \in \mathbb{R}$?
+b. What is the cdf of $X$?
+c. What is the joint pdf of $X$ and $Y$?
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose that $X$ and $Y$ are random variables such that ( $X, Y$ ) must
+  belong to the rectangle in the $x y$-plane containing all points $(x, y)$ for
+  which $0 \leq x \leq 3$ and $0 \leq y \leq 4$. Suppose also that the joint
+  cdf of $X$ and $Y$ at every point $(x, y)$ in this rectangle is specified
+  as follows:
+
+$$
+F(x, y)=\frac{1}{156} x y\left(x^2+y\right) .
+$$
+
+
+Determine
+
+
+a. $\mathbb{P}(1 \leq X \leq 2$ and $1 \leq Y \leq 2)$.
+b. $\mathbb{P}(2 \leq X \leq 4$ and $2 \leq Y \leq 4)$.
+c. the cdf of $Y$.
+d. the joint pdf of $X$ and $Y$.
+e. $\mathbb{P}(Y \leq X)$.
+:::
+
+::: {.callout-warning title="Problem 3"}
+Consider an illuminated signboard where the top row has three bulbs and
+  the bottom row contains four. Use \(X\) to denote the count of non-working
+  bulbs in the top row at a specific time \(t\), and \(Y\) for the bottom row at
+  that same time. The joint pmf of \(X\) and \(Y\) is shown in this table:
+
+
+| $X ackslash Y$ | 0 | 1 | 2 | 3 | 4 |
+|------------------|---|---|---|---|---|
+| 0 | 0.08 | 0.07 | 0.05 | 0.02 | 0.01 |
+| 1 | 0.06 | 0.10 | 0.12 | 0.05 | 0.02 |
+| 2 | 0.05 | 0.06 | 0.11 | 0.02 | 0.03 |
+| 3 | 0.04 | 0.01 | 0.03 | 0.03 | 0.04 |
+
+
+	a. Calculate $P(X=1)$.
+	b. Calculate $P(Y \geq 1)$.
+	c. Calculate $P(X\leq 1 \text{ and } Y\leq 1)$.
+	d. Calculate $P(X = Y)$.
+	e. Calculate $P(X > Y)$.
+:::
+
+::: {.callout-warning title="Problem 4"}
+Let $Y$ be the rate (calls per hour) at which calls arrive at a
+  switchboard. Let $X$ be the number of calls during a two-hour period. A
+  popular choice of joint pmf/pdf for ($X, Y$) in this example would be
+  one like
+$$
+f(x, y)= \begin{cases}\frac{(2 y)^x}{x!} e^{-3 y} & \text { if } y>0 \text { and
+  } x=0,1, \ldots, \\ 0 & \text { otherwise. }\end{cases}
+$$
+
+
+a. Verify that $f$ is a joint pmf/pdf.
+  (Hint: First, sum over the $x$ values using the well-known formula for the power series expansion of $e^{2 y}$.)
+b. Find $\mathbb{P}(X=0)$.
+:::

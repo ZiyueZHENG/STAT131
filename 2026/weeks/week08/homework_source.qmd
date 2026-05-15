@@ -1,0 +1,35 @@
+---
+title: "Homework - Week 08"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+*Instructions: Show your work for full credit. Submit your scanned homework on % canvas.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec8-q6}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec8-q7}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec8-q8}
+:::
+
+::: {.callout-warning title="Problem 4"}
+\useproblem{lec8-q9}
+:::
+
+::: {.callout-warning title="Problem 5"}
+\useproblem{lec8-q10}
+:::
+
+::: {.callout-warning title="Problem 6"}
+\useproblem{lec8-q11}
+:::
+
+::: {.callout-warning title="Problem 7"}
+\useproblem{lec8-q12}
+:::

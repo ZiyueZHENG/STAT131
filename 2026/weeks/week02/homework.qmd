@@ -1,0 +1,32 @@
+---
+title: "Homework - Week 02"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Let $B \subset A$. Show that $P(A) = P(B) + P(A\cap B^C)$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+A fair die is tossed 6 times, and the number on the uppermost face is
+  recorded each time. What is the probability that the numbers recorded are in
+  the first four rolls are 1, 2, 3, 4 in any order? (Hint: It is useful to
+  invoke the counting rules we learned in class.)
+:::
+
+::: {.callout-warning title="Problem 3"}
+Show that $P(\cup_{i=1}^n E_i) \le \sum_{i=1}^n P(E_i)$, for any sequence
+  of events $\{E_i, i,\cdots, n\}$. (Hint: use induction.)
+:::
+
+::: {.callout-warning title="Problem 4"}
+Take an event $B \subset \Omega$. Rigorously prove the following three using
+  probability axioms (or properties derived from them).
+
+a. $P(B^C) = 1 - P(B)$.
+b. If event $A$ *implies* (In other words, if event $A$ has
+  happened, $B$ has also happened.) event $B$, $B$ is more probable than $A$,
+  i.e., $P(A) \le P(B)$.
+c. $0 \le P(A) \le 1$
+:::

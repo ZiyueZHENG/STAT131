@@ -1,0 +1,16 @@
+---
+title: "Discussion - Week 08"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Draw both a pmf and cdf of the random variable $X\sim \text{Bern}(0.6)$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+What is the median of the following two random variables?
+
+a. $X\sim \text{Bern}(0.6)$.
+b. $X\sim \text{Bern}(0.3)$.
+:::

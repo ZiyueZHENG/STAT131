@@ -1,0 +1,102 @@
+---
+title: "Homework - Week 07"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that a random variable $X$ has the uniform distribution on the
+  interval $[-2, 8]$. Sketch the pdf of $X$ and the value of $\mathbb{P}(0 < X < 7)$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+If a random variable $X$ has a distribution for which the pdf is $f(x)$,
+  then the value of $x$ for which $f(x)$ is maximum is called the *mode* of
+  the distribution. (If this same maximum $f(x)$ is attained at more than one
+  value of $x$, then all such values of $x$ are called modes of the
+  distribution.)
+
+  Find the mode or modes of the gamma distribution with parameters $\alpha$ and
+  $\beta$.
+:::
+
+::: {.callout-warning title="Problem 3"}
+Suppose that the pdf of a random variable $X$ is as follows:
+
+$$
+f(x) =
+    \begin{cases}
+      \frac{c}{(1-\frac{x}{2})^{\frac{1}{2}}} & \text{for }\ 0<x<1,\\
+      0 & \text{otherwise}
+    \end{cases}
+$$
+
+
+a. Find the value of the constant $c$ and sketch the pdf.
+b. Find the value of $P(X\leq \frac{1}{2})$
+:::
+
+::: {.callout-warning title="Problem 4"}
+Evaluate the integral $\int e^{-3x^2} \;dx$. (Hint: see the pdf of a
+  normal distribution).
+:::
+
+::: {.callout-warning title="Problem 5"}
+Sketch the beta pdf with the following parameters (hint: try calculating
+  and plotting some $(x, f(x))$ points).
+
+a. $\alpha=\beta=1$.
+b. $\alpha=\beta=3$.
+c. $\alpha=1$, $\beta=2$.
+:::
+
+::: {.callout-warning title="Problem 6"}
+The *expected value* of a random variable $X$ with pdf $f$ is defined as
+  $\int_{\mathbb{R}} x \cdot f_X(x)\; dx$.  What is the expected value of
+  a beta random variable with parameters $\alpha$, $\beta$?
+:::
+
+::: {.callout-warning title="Problem 7"}
+Let $X$ be a random variable with pdf $f$. The $p$-quantile function
+  $g(p)$ of $X$ is defined as the smallest value $x$ of $X$ for which
+  $\mathbb{P}(X \le x) \ge p$.  (For example, the $0.1$-th quantile is the smallest
+  value $x$ of $X$ for which the probability to the left-hand-side of $x$,
+  $P(X < x)$, is at least $0.1$.)  Compute the quantile function $g(p)$ of the
+  exponential distribution with parameter $\beta$.
+:::
+
+::: {.callout-warning title="Problem 8"}
+**ERROR: Problem `lec7-q12` not found in problem-bank.tex.**
+:::
+
+::: {.callout-warning title="Problem 9"}
+Suppose that a certain test is to be taken by three students independently
+  of one another, and the number of minutes required by any particular student
+  to complete the test has the exponential distribution with parameter
+  $1/40$. (This means that the *expected* value of the wait time is $40$
+  minutes.)
+
+a. Suppose that the test begins at 9:00 a.m. Determine the probability
+  that at least one of the students will complete the test before 9:30 a.m.
+b. Suppose again that the test is taken by three students, and the
+  first student to complete the test finishes at 9:20 a.m. Determine
+  the probability that at least one other student will complete the
+  test before 10:00 a.m.
+c. Suppose again that the test is taken by five students. Determine
+  the probability that no two students will complete the test within 10
+  minutes of each other.
+:::
+
+::: {.callout-warning title="Problem 10"}
+A manufacturer believes that an unknown proportion
+ P of parts produced will be defective. She models P as
+ having a beta distribution. The manufacturer thinks that P
+ should be around 0.05, but if the first 10 observed products
+ were all defective, the mean of P would rise from 0.05 to
+ 0.9. Find the beta distribution that has these properties.
+:::
+
+::: {.callout-warning title="Problem 11"}
+Suppose that X has the beta distribution with parameters α and β. Show
+   that 1− X has the beta distribution with parameters β and α.
+:::

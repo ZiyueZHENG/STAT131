@@ -1,0 +1,260 @@
+---
+title: " Lecture 2: Probability basics, continued"
+format:
+    html
+---
+
+## Probability \[DS 1.1, 1.2, 1.5\] \[Lec 2\]
+
+Let's start with a review.
+
+Recall an experiment from the previous lecture in which we toss a fair
+coin twice. If we were to repeat the experiment over and over again,
+what is the *frequency* of the occurrence of the sequence HT? What about
+the other sequences? What about the frequency of $\{HT\} \cup \{TT\}$?
+We need a way to measure the frequency or probability of an event.
+
+In a given experiment, we must assign to each event $A$ in the sample
+space $\Omega$ a number $$\mathbb{P}(A)$$ that indicates the probability
+that $A$ will occur.
+
+The function $\mathbb{P}(A)$ of event $A$ must satisfy:
+
+-   Axiom 1 (positivity): for every event $A$, $\mathbb{P}(A) \ge 0$.
+
+-   Axiom 2 (unity): $\mathbb{P}(\Omega) =1$.
+
+-   Axiom 3 (countable additivity): For every infinite sequence of
+    disjoint events $A_1, A_2,...$,
+    $$\mathbb{P}(\cup_{i=1}^\infty A_i) = \sum\nolimits_{i=1}^\infty\mathbb{P}(A_i).$$
+
+The first two are intuitive. Let's look at the third. If you have
+disjoint events $A_1$ and $A_2$, the probability of $A_1 \cup A_2$
+occurring should be the sum of the probabilities. This simply extends to
+any *countably infinite* sequence of events $A_1,A_2,\cdots$.
+
+::: {.callout-note title="Definition"}
+A probability measure, or simply a probability, on a sample space
+$\Omega$ is a specification of numbers $\mathbb{P}(A)$ for *all events*
+$A$ that satisfy Axioms 1, 2, and 3.
+:::
+
+By the definition, probability is a *mapping* from sets (events) to
+$[0,1]$. Simply put, probability is a set-valued function, mapping sets
+to real numbers.
+
+::: {.callout-tip title="Example"}
+**Roll one dice.**
+
+Let's say we roll one six-sided dice, and define the probability measure
+to be
+$$\mathbb{P}(A) = \frac{\text{No. of elements in event A}}{\text{No. of elements in
+      sample space}}.$$ Is this a valid probability measure?
+:::
+
+Now, assume we have a probability measure $\mathbb{P}$. Let's build some
+basic properties of probability measures.
+
+::: {.callout-important title="Lemma"}
+**Empty set.**
+
+Some events are impossible. For example, when a die is rolled, it is
+impossible to obtain a negative number. $\mathbb{P}(\emptyset) =0$.
+:::
+
+::: proof
+*Proof.* By Axiom 1 and Axiom 3. ◻
+:::
+
+::: {.callout-important title="Lemma"}
+**Finite additivity.**
+
+For every finite sequence of disjoint events $A_1, A_2,..., A_n$,
+$$\mathbb{P}(\cup_{i=1}^n  A_i) = \sum\nolimits_{i=1}^n \mathbb{P}(A_i).$$
+:::
+
+::: proof
+*Proof.* By Axiom 3 and $\mathbb{P}(\emptyset) =0$. ◻
+:::
+
+#### Properties of probability
+
+The following properties can be shown using the axioms of probability.
+(What do these properties mean, in plain words? Take $A$ to be the event
+that it rains tomorrow.)
+
+-   Complement: $\mathbb{P}(A^C) = 1-\mathbb{P}(A)$.
+
+-   Inclusion: If $A \subset B$, then $\mathbb{P}(A) \le \mathbb{P}(B)$.
+
+-   Regularity: for every event $A$, $\mathbb{P}(A) \in [0,1]$.
+
+::: proof
+*Proof.* For practice, prove these using the probability Axioms. ◻
+:::
+
+Next, what is the probability of the union of two (possibly disjoint)
+events? That is, given $A, B \in \Omega$, what is
+$\mathbb{P}(A \cup B)$? Notice first that $A$ partitions into
+$$A = (A \cap B) \cup (A \cap B^C),$$ and that these two sets are
+disjoint (Why? check this for yourself.). Then, using the third axiom of
+probability (countable additivity):
+
+$$\begin{aligned}
+& \mathbb{P}(A) = \mathbb{P}(A \cap B) + P(A \cap B^C)\\
+& \mathbb{P}(B) = \mathbb{P}(A \cap B) + P(B \cap A^C).
+\end{aligned}$$
+
+Now, since $A \cup B = (A \cap B^C) \cup (A^C \cap B) \cup (A \cap B)$
+(which are all disjoint), we get:
+
+$$\begin{aligned}
+\mathbb{P}(A \cup B) & =\mathbb{P}(A)-\mathbb{P}(A \cap B)+\mathbb{P}(B)-\mathbb{P}(A \cap B)+\mathbb{P}(A \cap B)\\
+& =\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A \cap B)
+\end{aligned}$$
+
+**Q:** How does this formula read when A and B are disjoint? Why is
+$\mathbb{P}(A
+\cap B) = 0$ when $A$ and $B$ are disjoint?
+
+::: {.callout-important title="Lemma"}
+**Decomposition identities.**
+
+For every two events $A$ and $B$,
+
+-   $\mathbb{P}(A \cap B^C) = \mathbb{P}(A) - \mathbb{P}(A\cap B)$.
+
+-   $\mathbb{P}(A\cup B) = \mathbb{P}(A) +\mathbb{P}(B) - \mathbb{P}(A\cap B)$.
+:::
+
+::: {.callout-tip title="Example"}
+**Diagnosing diseases.**
+
+A patient arrives at a doctor's office with a sore throat and low-grade
+fever. After an exam, either bacterial infection ($B$) or viral
+infection ($V$) or both. $\mathbb{P}(B) = 0.7$, $\mathbb{P}(V)=0.4$.
+What is the probability that the disease is due to a bacterial infection
+but not a viral infection?
+:::
+
+This can be extended to more than two events. For instance, given
+$A, B,C \in
+\Omega$, we have
+
+$$\mathbb{P}(A \cup B \cup C) = \mathbb{P}(A) + \mathbb{P}(B) + \mathbb{P}(C) - \mathbb{P}(A \cap B) - \mathbb{P}(A \cap C) - \mathbb{P}(B \cap C) + \mathbb{P}(A \cap B \cap C),$$
+
+and in general, for events $A_1,\cdots, A_n \in \Omega$, we have the so
+called inclusion-exclusion formula (note the alternating signs for the
+summands):
+
+$$\begin{aligned}
+\mathbb{P}\left(\cup_{i=1}^n A_i\right) & =\sum_{i=1}^n \mathbb{P}\left(A_i\right)-\sum_{1 \leq i<j \leq n} \mathbb{P}\left(A_i \cap A_j\right)+\sum_{1 \leq i<j<k \leq n} \mathbb{P}\left(A_i \cap A_j \cap A_k\right)-\ldots \\
+& +(-1)^{n-1} \mathbb{P}\left(A_1 \cap \cdots \cap A_n\right)
+\end{aligned}$$
+
+(We will later revisit this and call this a *finite union*!)
+
+**Continuity of probability.**
+
+Next, we learn about a useful upper bound for unions of events.
+
+::: {.callout-important title="Lemma"}
+**Union bound.**
+
+For events $A_1,...,A_n$,
+$$\mathbb{P}(\cup_{i=1}^nA_i) \le \sum\nolimits_{i=1}^n\mathbb{P}(A_i) .$$
+:::
+
+::: proof
+*Proof.* By induction (This is a useful technique that we will revisit a
+few more times.). ◻
+:::
+
+::: {.callout-important title="Lemma"}
+**Bonferroni inequality:.**
+
+For all events $A_1,...,A_n$,
+$$\mathbb{P}(\cap_{i=1}^nA_i) \ge 1 -\sum\nolimits_{i=1}^n\mathbb{P}(A_i^C)$$
+:::
+
+::: proof
+*Proof.* By induction. ◻
+:::
+
+**Q:** For a given experiment with $m$ possible outcomes, how can we
+compute the probability of an event of interest?
+
+## Probability on finite sample spaces \[DS 1.6\] \[Lec 2\] {#sec:prob-finite-sample}
+
+In classical probability theory, sample spaces are often finite---the
+number of outcomes is finite. For instance, dice rolling, drawing a few
+cards from a deck of cards, etc..
+
+A general probability theory can be established for the experiments with
+*equally likely* outcomes.
+
+::: {.callout-note title="Definition"}
+**Equally likely outcomes.**
+
+Suppose $\Omega = \{\omega_i\}_{i=1}^N$,
+$\mathbb{P}(\omega_i) = \frac{1}{N}$ for $i=1,..,N$.
+:::
+
+With equally likely outcomes, the probability calculation is simply
+counting. The measure $\mathbb{P}$ is called the *counting measure*.
+
+::: {.callout-important title="Theorem"}
+For the finite sample space $\Omega$ with equally likely outcomes, the
+probability of event $E \subset \Omega$ is
+$$\mathbb{P}(E) = \frac{|E|}{|\Omega|},$$ where $|E|$ denotes **the
+number of outcomes** in $E$.
+:::
+
+::: {.callout-tip title="Example"}
+**Tossing coins.**
+
+Suppose three fair coins are tossed simultaneously. What is the
+probability of obtaining exactly two heads?\
+:::
+
+::: {.callout-tip title="Example"}
+**Roll two fair dice.**
+
+Two fair dice are rolled. What are the equally likely outcomes? Which is
+more likely:
+
+::: center
+sum is 11 v.s. sum is 12?
+:::
+:::
+
+::: {.callout-tip title="Example"}
+**Genetics.**
+
+Inherited traits in humans are determined by material in specific
+locations on chromosomes. There are pairs of chromosomes that the child
+inherits from the parents. The material in those two locations make up a
+gene, and can be either *A* or *a*. (These are called *alleles*). Each
+distinct combination of alleles is called a *genotype*.
+
+For example, a parent who has *Aa* can give the the child both *A* and
+*a*. A parent who has *aa* can only give *a*. We also consider *Aa* and
+*aA* to be the same. Also assume that all possible results of the
+parents contributing pairs of alleles are equally likely.
+
+-   If the parents are both *Aa*, what are the possible genotypes? (in
+    other words, what is the sample space?)
+
+-   What is the probability associated with those genotypes?
+
+-   Next, if one parent is *Aa* and the other is *aa*, find the
+    genotypes for an offspring. What is the sample space?
+:::
+
+## In-class exercises \[Lec 2\] {#in-class-exercises-lec-2 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::

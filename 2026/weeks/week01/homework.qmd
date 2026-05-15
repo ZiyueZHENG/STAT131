@@ -1,0 +1,45 @@
+---
+title: "Homework - Week 01"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Show that, for any $A, B_1,\dots,B_n \in
+  \Omega$ with $\cup_{i=1}^n B_i = \Omega$, we have $A = (A \cap B_1) \cup
+  \cdots \cup (A \cap B_n)$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+Consider the following experiments:
+
+a. You have three keys and exactly one of them opens the door that you want
+  to open; at each attempt to open the door, you pick one of the keys completely
+  at random and try to open the door (at each attempt you pick one of the three
+  keys at random, regardless of the fact that you may already have tried some in
+  previous attempts). You count the number of attempts needed to open the
+  door. What is the sample space for this experiment?
+b. You have an urn with 1 red ball, 1 blue ball and 1 white ball. Two
+  times in a row, you draw a ball from the urn, look at its color, take a note of the
+  color on a piece of paper, and put the ball back in the urn. What is the
+  sample space for this experiment? Write out the set corresponding to the event
+  "you observe at least 1 white ball".
+:::
+
+::: {.callout-warning title="Problem 3"}
+If four fair coins are tossed, what is the probability
+  that all four faces will be the same? Also, what is the probability that you
+  will have the same number of both faces?
+:::
+
+::: {.callout-warning title="Problem 4"}
+Suppose a family contains two children of different ages, and we are interested in the gender
+of these children. Let F denote that a child is female and M that the child is male and let a
+pair such as F M denote that the older child is female and the younger is male. There are four
+points in the set $\Omega$ of possible observations:
+$$\Omega = \{FF, FM, MF, MM\}.$$
+Let $A$ denote the subset of possibilities containing no males; $B$, the subset containing two
+males; and $C$, the subset containing at least one male.
+List the elements of $A$, $B$, $C$, $A \cap B$, $A \cup B$, $A \cap C$,
+$A \cup C$, $B \cap C$, $B \cup C$, and $C \cap B^C$.
+:::

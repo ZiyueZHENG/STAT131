@@ -1,0 +1,19 @@
+---
+title: "Discussion - Week 04"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+The probability that any child in a certain family will have curly hair is
+  1/4, and this feature is inherited independently by different children in the
+  family. If there are five children in the family and it is known that at least
+  one of these children has curly hair..
+
+a. What is the probability that at least three of the children have
+  curly hair?
+b. If it is known that the youngest child in the family has curly hair,
+  what is the probability that at least three of the children have curly hair?
+c. Explain why the answer in part (a) is different from the answer in
+  (b).
+:::

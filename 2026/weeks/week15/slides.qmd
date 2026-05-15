@@ -1,0 +1,230 @@
+---
+title: "Lecture 15: MGFs and probability inequalities"
+format:
+  html
+---
+
+
+## Moment Generating Functions \[DS 4.4\] \[Lec 15\] {#sec:moment-gener-funct}
+
+For a random variable $X$, the means (expectations) of powers $X^k$ --
+called *moments* -- have useful theoretical properties, and some of them
+are used for additional summaries of a distribution. The *moment
+generating function* is a related tool that aids in deriving
+distributions of sums of independent random variables and limiting
+properties of distributions.
+
+First of all, we already know about $k=1,2$, i.e. the first and second
+moments. The expectation of $X$ is $\mathbb{E}[X] = \mathbb{E}[X^k]$
+with $k=1$. The variance of $X$ is
+$\mathbb{E}[(X-\mathbb{E}[X])^2] = \mathbb{E}[(X-\mathbb{E}[X])^k]$ with
+$k=2$.
+
+::: {.callout-note title="Definition"}
+**Moments.**
+
+$\mathbb{E}[X^k]$ for $k=1,2,...$
+:::
+
+::: {.callout-note title="Definition"}
+**Central moments.**
+
+$\mathbb{E}[ (X - \mathbb{E}(X))^k]$ for $k=2,3,...$
+:::
+
+Next, we see that if the $k$'th moment exists, all lower moments also
+exist.
+
+::: {.callout-important title="Theorem"}
+If $\mathbb{E}[|X|^k] < \infty$ for some positive integer $k$, then
+$$\mathbb{E}[|X|^j] < \infty$$ for every positive integer $j \le k$.
+:::
+
+The conclusion also holds for non-integer $j$ and $k$. If
+$\mathbb{E}[X^2] < \infty$, then both expectation and variance of $X$
+exist.
+
+::: proof
+*Proof.* Hint: apply Jensen's inequality. ◻
+:::
+
+Is it possible to summarize all the information of moments with one
+function?
+
+How to compute/summarize higher moments in a more general fashion?
+
+::: {.callout-note title="Definition"}
+Moment generating function (mgf) of $X$: for real $t$,
+$$\psi_X(t) = \mathbb{E}(e^{tX}) .$$
+:::
+
+Immediately, $\psi_X(0)=1$ for all random variable $X$.
+
+As the moment generating function is the expectation of a function of
+$X$, it is possible that mgf does not exist for certain random
+variables.
+
+It turns out the moment generating function is a *defining* feature of
+random variables, provided that it exists. The following theorem states
+that if the mgfs of two random variables are finite and identical for
+all values of $t$ near $t = 0$, then they must be distributed the same:
+
+::: {.callout-important title="Theorem"}
+If $\psi_{X_1} (t)=\psi_{X_2}(t)$ for $t$ in some neighborhood around
+$t=0$, then $$X_1 \overset{d}{=} X_2.$$ That is, $X_1$ and $X_2$ have
+the same distribution (up to a null set).
+:::
+
+::: {.callout-tip title="Example"}
+Find the mgf for the following distributions:
+
+-   Bernoulli
+
+-   Exponential
+:::
+
+::: {.callout-important title="Theorem"}
+If $\psi(t)<\infty$ for all values of $t$ in some open interval around
+$t=0$, then $$\mathbb{E}[X^k] < \infty,$$ and, for $k=1,2,...$,
+$$\mathbb{E}[X^k] = \psi^{(k)}(0).$$
+:::
+
+::: {.callout-tip title="Example"}
+Find the first two moments for the following random variables with mgfs.
+
+-   Bernoulli
+
+-   Exponential
+:::
+
+Next, here are some useful properties of moment generating functions:
+
+-   A *linear transformation* of $X$ has mgf:
+    $$\psi_{aX+b}(t) = e^{bt}\psi_{X}(at)  .$$
+
+-   The mgf of a sum of **independent** random variables is:
+    $$\psi_{\sum\nolimits_{i=1}^nX_i}(t) = \prod\nolimits _{i=1}^n
+        \psi_{X_i}(t)  .$$
+
+::: {.callout-tip title="Example"}
+Suppose $\{X_i, i=1,\cdots,n\}$ are independent; what is the mgf of
+$\sum\nolimits_{i=1}^n a_i X_i+b$?
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X \sim Bin(n,p)$. What is the moment generating function
+$\psi_X(t)$ of $X$?
+:::
+
+::: {.callout-tip title="Example"}
+If $X$ has the normal distribution with mean $\mu$ and variance
+$\sigma^2$ and if $Y= aX + b$ for constants $a\neq 0$ and $b$, prove
+that $Y$ (1) has mean $a\mu + b$ and variance $a^2\sigma^2$, and (2) has
+the normal distribution.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X_1$ is the number of heads from $3$ coin flips with a biased
+coin (whose probability of heads is $0.3$). Also repeat the experiment
+with the same coin, but $5$ times, and call $X_2$ the resulting number
+of heads.
+
+-   Prove *directly* that the sum $X_1+X_2$ is distributed the same as
+    if you flipped 8 time in the first place (i.e.
+    $\text{Binom}(8, 0.3)$).
+
+-   Prove this using mgfs.
+:::
+
+## Probability Inequalities \[DS 6.2\] \[Lec 15\] {#sec:prob-inequalities}
+
+Inequalities are useful for *bounding* probabilities that might
+otherwise be hard to compute. They will also be used in the theory of
+convergence in the next section.
+
+::: {.callout-important title="Theorem"}
+**Markov.**
+
+Suppose $X$ is a **non-negative** random variable (and $a>0$); then,
+$$\mathbb{P}(X \ge a) \le \mathbb{E} [X]/a.$$
+:::
+
+Markov inequality is a fundamental inequality and can be used to show
+Chebyshev inequality.
+
+::: {.callout-important title="Theorem"}
+**Chebyshev.**
+
+For random variable $X$ whose variance exists,
+$$\mathbb{P}(|X-\mathbb{E}[X] |>t ) \le V(X)/t^2.$$
+:::
+
+::: proof
+*Proof.* Apply Markov inequality. ◻
+:::
+
+::: {.callout-tip title="Example"}
+$2\sigma$ or $3\sigma$ principle.
+
+The $2\sigma$ or $3\sigma$ principle states that: no matter what the
+distribution is, a minimum of 75% of values must lie within two standard
+deviations of the mean, and 88.89% within three standard deviations.
+:::
+
+**Chernoff.**
+
+**Hoeffding.**
+
+::: {.callout-tip title="Example"}
+Let $X_1,\dots,X_n \sim Bernoulli(p)$. Let $n = 100$ and
+$\epsilon = .2$. Bound the probability that the average will be
+different from $p$ by at least $\epsilon$:
+$$P(|\bar X_n- p| > \epsilon) = ?.$$
+:::
+
+**Mill's inequality.**
+
+::: {.callout-important title="Theorem"}
+**Schwartz inequality.**
+
+Suppose $\mathbb{E}(XY) < \infty$,
+$$[\mathbb{E}(XY)]^2\le \mathbb{E}[X^2] \mathbb{E}[Y^2],$$ where "$=$"
+is attained *if and only if* $X=aY$ for some constant $a\neq 0$ w.p. 1.
+:::
+
+Plugging in $X \leftarrow X-\mathbb{E}[X]$ and
+$Y \leftarrow Y-\mathbb{E}[Y]$, we get the following theorem.
+
+::: {.callout-important title="Theorem"}
+**Cauchy-Schwartz inequality.**
+
+Suppose $\sigma_X^2,\sigma_Y^2 < \infty$,
+$$[cov(X,Y)] ^2 \le  \sigma_X^2 \sigma_Y^2,$$ where "$=$" is attained
+*if and only if* $X=aY+b$ for some constants $a\neq 0, b$, w.p. 1.
+:::
+
+An important consequence of Cauchy-Schwartz inequality is that the
+correlation coefficient is bounded between $-1$ and $1$.
+
+::: {.callout-tip title="Example"}
+If $X$ is the price of gas, and $Y$ is the number of gallons of gas that
+will be used by Bob this month. The average price of gas is $4.00$, with
+a standard deviation of $1$, and the number of gallon of gas Bob uses is
+on average $20$ gallons with a standard devation of $3$. Then, $XY$ is
+how much Bob will spend on gas. What can you say about $XY$ using
+Cauchy-Schwartz?
+:::
+
+**Convex combination.**
+
+**Convex function.**
+
+**Jensen's inequality.**
+
+## In-class exercise \[Lec 15\] {#in-class-exercise-lec-15 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::

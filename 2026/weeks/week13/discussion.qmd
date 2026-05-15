@@ -1,0 +1,19 @@
+---
+title: "Discussion - Week 13"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that $X$ and $Y$ are independent random variables whose variances
+  exist (i.e., are finite) and such that $\mathbb{E}[X]= \mathbb{E}[Y]$.  Show that
+  $\mathbb{E}[(X-Y)^2]= V[X] + V[Y]$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose that $n$ electronic products have been produced; the items are
+  independent, and the length of life of each item has the exponential
+  distribution with parameter $\lambda$. Determine the expected length of time
+  until three items have failed. (Hint: model $Y_i$ to be the time until the
+  $i$'th item fails.)
+:::

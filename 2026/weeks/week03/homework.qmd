@@ -1,0 +1,58 @@
+---
+title: "Homework - Week 03"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Counting and arranging.
+
+a. In how many different ways can the five letters $a$, $b$, $c$, $d$, and
+  $e$ be arranged?
+b. When rolling five dice, what's the probability that all five numbers
+  shown will be different?
+c. If six dice are rolled, what is the probability that each of the six
+  different numbers will appear exactly once?
+:::
+
+::: {.callout-warning title="Problem 2"}
+Calculate the probabilities of each of these (similar-sounding) events:
+- At least one 6 appears when 6 fair dice are rolled.
+- At least two 6's appear when 12 fair dice are rolled.
+
+  Which of the two events has a higher probability?
+:::
+
+::: {.callout-warning title="Problem 3"}
+The STAT 131 final exam has 5 multiple choice questions. Questions 1 to
+  3 and question 5 each have **3** possible choices. Questions 4 has **5** possible
+  choices. Suppose that you haven't studied at all for the exam and you will
+  pick your final exam answers completely at random.
+
+a. What is the probability that you will get a full score at the exam?
+b. What is the probability that you will get a score higher than 70\%?
+:::
+
+::: {.callout-warning title="Problem 4"}
+How many ways there are to put $n$ indistinguishable balls into $k$
+  distinguishable bins? (Hint: you can't simply use a formula from lecture.)
+:::
+
+::: {.callout-warning title="Problem 5"}
+Say we are to randomly distribute distribute $n$ indistinguishable cookies
+  to $k$ distinct kids. Some kids may get zero cookies. How many ways to do
+  this?
+:::
+
+::: {.callout-warning title="Problem 6"}
+Cards are dealt at random and without replacement from a standard 52 card
+  deck. What is the probability that the second king is dealt on the fifth card?
+:::
+
+::: {.callout-warning title="Problem 7"}
+**Practice** In the scenario from the previous problem, what is the probability of
+  these three events?
+
+a. Each kid receives at least one cookie.
+b. Each kid receives at least two cookies. (assume $n\ge 2k$)
+:::

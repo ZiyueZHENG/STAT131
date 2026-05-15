@@ -1,0 +1,195 @@
+---
+title: "Lecture 8: Cumulative distribution functions"
+format:
+  html
+---
+
+
+## Cumulative distribution functions \[DS 3.3\] \[Lec 8\] {#sec:cumul-distr-funct}
+
+So far we've made a clear distinction between continuous RVs (for which
+pdfs are the probability density) and discrete RVs (for which pmfs are
+the density).
+
+We now introduce one concept -- cumulative distribution functions (cdfs)
+-- that can serve as general-purpose descriptions of
+distributions/random variables.
+
+::: {.callout-note title="Definition"}
+**Cumulative Distribution Function.**
+
+For all $x\in \bR$, the cumulative distribution function $F$ is the
+function $$F(x) = \mathbb{P}(X \le x).$$
+:::
+
+discrete continuous random variables $X$ can be defined using a cdf.
+
+Suppose $X$ has pmf $f(\cdot)$, then its cdf is:
+$$F(x) = \sum\nolimits_{y \le x} f(y).$$
+
+Also, suppose $X$ has pdf $f(\cdot)$, then its cdf is:
+$$F(x) = \int\nolimits_{-\infty}^x f(y)dy.$$
+
+::: {.callout-tip title="Example"}
+Find and sketch the cdfs of the following random variables.
+
+-   Bernoulli($p$).
+
+-   Uniform distribution on $[0,1]$.
+:::
+
+Conversely, $f(x) = \frac{d}{dx}F(x)$ at all $x$ where $F$ is
+differentiable.
+
+(note the resemblance to the Fundamental Theorem of Calculus.)
+
+(Also note that sometimes we will include the subscript $X$ in cdfs
+($F_X$) or pdfs or pmfs ($f_X$).)
+
+::: {.callout-tip title="Example"}
+Find the pdf of the following cdf:
+$$F(x)= \begin{cases}0 & \text { for } x<0 \\ x^{2 / 3} & \text { for } 0 \leq x \leq 1 \\ 1 & \text { for } x>1\end{cases}$$
+
+(Hint: draw the cdf. What are all the differentiable points?)
+:::
+
+Next, here are some properties of cdfs:
+
+-   \(1\) A cdf is non-decreasing: $F(x_1) \le F(x_2)$ if $x_1<x_2$.
+
+-   \(2\) A cdf's limits are at $\pm \infty$.
+
+-   \(3\) A cdf is always continuous from the right: $F(x) =F(x^+)$ for
+    all $x \in \bR$.
+
+Here we pause and emphasize that a cdf need not be continuous. In fact,
+the value of $F(x)$ may jump at any finite or countable number of
+points.
+
+You can calculate probabilities regarding random variable $X$ directly
+from its cdf $F$ in the following ways:
+
+-   \(1\) For every $x \in \bR$, $\mathbb{P}(X>x) = 1- F(x)$.
+
+-   \(2\) For all $x_1<x_2$,
+    $\mathbb{P}( x_1 <X \le x_2) = F(x_2) - F(x_1)$.
+
+-   \(3\) For every $x \in \bR$, $\mathbb{P}(X<x) = F(x^-)$.
+
+-   \(4\) For every $x \in \bR$, $\mathbb{P}(X=x) = F(x) - F(x^-)$.
+
+::: {.callout-tip title="Example"}
+Take a random variable $X$ whose cdf $F$ is as follows. [^1]
+
+::: center
+![image](cdf-ds-fig-3.9.png){width=".65\\linewidth"}
+:::
+
+What are these probabilities? (We will do only a few in class.)
+
+::: multicols
+2
+
+-   $\mathbb{P}(X=-1)$
+
+-   $\mathbb{P}(X<0)$
+
+-   $\mathbb{P}(X \leq 0)$
+
+-   $\mathbb{P}(X=1)$
+
+-   $\mathbb{P}(0<X \leq 3)$
+
+-   $\mathbb{P}(0<X<3)$
+
+-   $\mathbb{P}(0 \leq X \leq 3)$
+
+-   $\mathbb{P}(1<X \leq 2)$
+
+-   $\mathbb{P}(1 \leq X \leq 2)$
+
+-   $\mathbb{P}(X>5)$
+
+-   $\mathbb{P}(X \geq 5)$
+
+-   $\mathbb{P}(3 \leq X \leq 4)$
+:::
+:::
+
+Next, we learn about an alternative representation of a random
+variable's distribution, the *quantile* function. A quantile function is
+*roughly* the inverse of the cdf.
+
+::: {.callout-note title="Definition"}
+**Quantile.**
+
+For $p \in (0,1)$, $p-$quantile of $X$, denoted as $F^{-1}(p)$, is the
+smallest value $x$ such that $$F(x) \ge p.$$ a.k.a. $100p$ percentile of
+$X$
+:::
+
+**median.**
+
+::: {.callout-tip title="Example"}
+Sketch is the quantile function of $X\sim \text{Binom}(2,0.5)$.
+:::
+
+One might ask: when is a quantile an exact inverse of a cdf?
+
+::: {.callout-important title="Theorem"}
+When the random variable $X$ is continuous, the quantile function
+$F^{-1}$ is the inverse of $F$.
+:::
+
+::: {.callout-tip title="Example"}
+Find the quantile functions for the following distributions.
+
+-   Uniform on $[0,1]$.
+
+-   Exponential distribution: $f(x) = 2e^{-2x}$ for $x>0$.
+:::
+
+::: {.callout-note title="Definition"}
+**Frequently used quantiles.**
+
+The 1/2 quantile or the 50th percentile of a distribution is called its
+*median*. The 1/4 quantile or 25th percentile is the lower *quartile*.
+The 3/4 quantile or 75th percentile is called the upper quartile.
+:::
+
+The median is the number divides the distribution in half as closely as
+is possible.
+
+(And if there are ties, take the middle value).
+
+A median of a distribution is important because it helps *summarize* the
+distribution of a random variable, answering the question: what is the
+most "representative" value?
+
+::: {.callout-tip title="Example"}
+What are the medians of the following random variables?
+
+-   $X\sim \text{Unif}(0,10)$? (What is the upper quartile?)
+
+-   $X\sim \text{N}(0,1)$?
+
+-   $X\sim \text{Binom}(5,0.5)$?
+:::
+
+(There are other summaries of *central tendency*, like "what is the
+center of gravity?" (mean) or "what is the most frequent value?" (mode).
+We will learn more about these soon.)
+
+## In-class exercise \[Lec 8\] {#in-class-exercise-lec-8 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: Most distributions that are encountered in practical problems are
+    either discrete or continuous. It is sometimes necessary to consider
+    a distribution that is a *mixture* of a discrete distribution and a
+    continuous distribution. Make sure to read DS Example 3.2.5 and
+    3.2.7.

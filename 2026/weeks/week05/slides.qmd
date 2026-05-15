@@ -1,0 +1,333 @@
+---
+title: "Lecture 5: Random variables"
+format:
+  html
+---
+
+
+## Motivation {#motivation .unnumbered}
+
+Let's start with an example. Suppose that you flip a fair coin three
+times. The sample space for this experiment is
+
+$$\Omega=\{H H H, H H T, H T H, H T T, T H H, T H T, T T H, T T T\} .$$
+
+Since the coin is fair, we have that
+
+$$P(\{H H H\})=P(\{H H T\})=\cdots=P(\{T T T\})=\frac{1}{|\Omega|}=\uline{\hspace{3em}}.%\frac{1}{8} .$$
+
+Suppose that we are interested in a particular quantity associated to
+the experiment, say the number of tails that we observe. This is of
+course a random quantity. In particular, we can conveniently define a
+function $X: \Omega \rightarrow \mathbb{R}$ that counts the number of
+tails. Precisely,
+
+$$\begin{aligned}
+& X(H H H)= \uline{\hspace{3em}}\\
+& X(H H T)= \uline{\hspace{3em}}\\
+& X(H T H)= \uline{\hspace{3em}}\\
+& X(H T T)= \uline{\hspace{3em}}\\
+& \vdots \\
+& X(T T T)=\uline{\hspace{3em}}
+\end{aligned}$$
+
+Since the outcome of the experiment is random, the value that the
+function $X$ takes is also random. That's why we call a function like
+$X$ a random variable[^1]. $P$ induces through $X$ a probability
+distribution on $\mathbb{R}$. In particular, we can easily see that the
+probability distribution of the random variable $X$ is
+
+$$\begin{aligned}
+& P(X=0)=P(\{H H H\})=1 / 8 \\
+& P(X=1)=P(\{H H T, H T H, T H H\})=3 / 8 \\
+& P(X=2)=P(\{H T T, T H T, T T H\})=3 / 8 \\
+& P(X=3)=P(\{T T T\})=1 / 8 \\
+& P(X=\text { any other number })=0 .
+\end{aligned}$$
+
+## Introduction \[DS 3.1\] \[Lec 5\] {#sec:introduction}
+
+We have defined probability (measure) for events. In the framework of
+set theory, operations on sets are limited and we are in need of a more
+flexible modeling strategy. In contrast to the set theory, the
+mathematical theory of functions is mature and provides a convenient way
+for characterizing uncertainty and randomness.
+
+::: {.callout-note title="Definition"}
+**Random variable.**
+
+A random variable (r.v.) is defined as a real function from sample space
+$\Omega$ to real numbers $\bR$. Suppose the random variable $X$ is
+associated with the sample space $\Omega$,
+$$X(\omega): \Omega \to \bR.$$
+:::
+
+For any (measurable) event $A$,
+$X(A) = \{X(\omega): \omega\in A\} \subset \bR$.
+
+For any subset $B$ of $\bR$,
+$X^{-1}(B) =\{\omega \in \Omega: X(\omega) \in B\}$ is an event.
+
+::: center
+![image](figures/rv){width=".65\\linewidth"}
+:::
+
+::: {.callout-tip title="Example"}
+Define random variables to represent the outcomes of the experiment.
+
+-   Toss a coin, $\Omega=\{H,T\}$, count the number of heads $X(H) =1$,
+    $X(T)=0$.
+
+-   Toss a coin multiple times, count the number of heads
+    $\Omega=\{HHH,TTT\}$, $X(HHH) =3$, $X(THT)=1$.
+
+-   Roll a die; take the number of 3's.
+
+-   Human height measurement
+:::
+
+**Distribution.**
+
+When a probability measure has been specified on the sample space of an
+experiment, we can determine probabilities associated with the [possible
+values of each random variable $X$]{.underline}.
+
+Let $A$ be a subset of the real line such that $\{X \in A\}$ is an
+event, and let $\mathbb{P}(X \in A)$ denote the probability that the
+value of $X$ will belong to the subset $A$. Then $\mathbb{P}(X \in A)$
+is equal to the probability that the outcome $s$ of the experiment will
+be such that $X(s) \in A$. In symbols,
+$$\mathbb{P}(X \in A) = \mathbb{P}(\{s: X(s) \in A\})$$
+
+The *distribution* of $X$ is the collection of all probabilities of the
+form $\mathbb{P}(X \in A)$ for all sets $A$ of real numbers such that
+$\{X \in A \}$ is an event.
+
+Now equipped with the notion of a distribution, we can consider events
+in terms of values of the random variables, e.g. $E = \{X: X \ge 3\}$.
+
+The theory of random variable is developed in two parts. The first part
+is devoted to the discrete random variables, the second part is devoted
+to the continuous random variables.
+
+## Discrete random variables \[DS 3.1\] \[Lec 5\] {#sec:discr-rand-vari}
+
+### Definition and Properties
+
+::: {.callout-note title="Definition"}
+**discrete distribution.**
+
+We say that a random variable $X$ has a *discrete distribution*, or that
+$X$ is a *discrete random variable* if $X$ can take only a finite number
+of different values.
+:::
+
+(We also sometimes say that $X$ is *distributed as* a discrete random
+variable of a particular name. More on this later.) Using discrete
+random variables, let's describe the entire process:
+
+-   An experiment has random outcomes. (Sample space $\Omega$). Events
+    are *collections* of outcomes.
+
+    -   e.g. Flip coin 3 times. Getting all heads {HHH}, or getting
+        exactly one tails {THH, HTH, HHT} are events.
+
+-   Random variables encode the values associated with outcomes (maps it
+    to the real line).
+
+    -   e.g. RV $X$ that counts the number of heads in an experiment of
+        three coin flips. $X$ is a discrete random variable.
+
+-   Probability $\mathbb{P}(X \in A)$ measures the chances of a random
+    variable $X$ being in set $A$. It is equivalent to
+    $\mathbb{P}(\{w: X(w) \in A\}$)
+
+    -   e.g. $A = \{ x: x \ge 1\}$ for RV $X$, and implicitly measures
+        the *chances* of the event that 1 or more heads are obtained in
+        the original coin flip experiment.
+
+::: {.callout-note title="Definition"}
+For discrete random variable $X$, the probability function (pf) is
+$$f(x) = \mathbb{P}(X=x)$$ for all $x\in \bR$. The pf is also called
+probability mass function (pmf).
+:::
+
+How is a pmf related to events' probability? To compute the probability
+of event $X \in E$, we simply add the probabilities of all the elements.
+$$\mathbb{P}(X \in E) = \sum \nolimits_{x\in E} f(x).$$
+
+::: {.callout-note title="Definition"}
+**Support.** Support of $X$ is defined as (the *closure* of) the set
+$\{x: f(x)>0\}$. Notation: $supp(X)$.
+:::
+
+Informally, the support is the values of $X$ for which there is nonzero
+probability.
+
+::: {.callout-tip title="Example"}
+It is useful to sketch a probability mass function (pmf). For the number
+of heads in two coin flips:
+:::
+
+It is also useful to note:
+
+-   if $x$ is not one of the possible values of $X$, then $f(x) = 0$.
+    (Thus, we only need to consider the support of the random variable,
+    instead of the entire set of real numbers $\bR$.)
+
+-   $\sum\nolimits_{x\in \text{supp}(X)}f(x) = 1$.
+
+-   $f(x) \in [0,1], \forall x \in \mathbb R$.
+
+Lastly, looking ahead a bit, we'll be learning about *continuous* random
+variables (say $X$) that can take values in an uncountably infinite set
+(i.e., not discrete) of values. We can calculate the probability that a
+continuous $X$ is in an interval $(a,b]$ (for $a<b$) as:
+$$\mathbb{P}(X \in (a,b]) = \int_a^b f(x) dx,$$ for a *continuous*
+probability function (called a probability density function, or pdf).
+
+(Also notice that this implies that, for any single value
+$x \in \mathbb{R}$, $P(X=x) = 0$! Weird, but we'll get used to this.)
+
+::: {.callout-tip title="Example"}
+What is $\mathbb{P}(X \in (a,b])$ if $X$ is a discrete random variable?
+For example, if you flip two coins, and $X$ is the number of heads, what
+is $\mathbb{P}(X
+\in (0.5, 1])$? What about $\mathbb{P}(X \in (0,2])$?
+:::
+
+Note, it is possible for two random variables $X$ and $Y$ to have
+nothing to do with each other, while having the same distribution (i.e.,
+same probability mass function).
+
+Suppose $X$ is the random variable denoting the number of heads in a
+single dice roll. Also suppose $Y$ is the number of heads from a
+subsequent roll. the distribution of $X$ will be the same as the
+distribution of $Y$, but $Y$ is not like $X$ in any other way. (They are
+clearly from completely different random experiments.)
+
+::: {.callout-tip title="Example"}
+What is the probability mass function of $X$ (and equivalently, of $Y$)?
+:::
+
+### Important Discrete Random Variables (pt 1) \[DS 3.1, DS 5\] \[Lec 5\] {#sec:important-cont-pt1}
+
+**Discrete uniform distribution.**
+
+Next, we will learn some 'named' discrete distributions that are
+frequently used for probability modeling.
+
+The symbol $\sim$ is an identifier for a random variable, and specifies
+its pmf. In statistical jargon, we will say that a random variable has a
+certain distribution to signify that it has a a certain pmf (or pdf).
+
+::: {.callout-note title="Definition"}
+**Bernoulli distribution.**
+
+Suppose you have a coin that, when flipped once, has a probability
+$p \in [0,1]$ of yielding a head. Let's call the event 'seeing heads' a
+*success*. The random variable $X$ counts the number of heads: $$X =
+   \begin{cases}
+     1 & \text{ if heads } \\
+     0 & \text{ if tails }.
+   \end{cases}$$ We write $X\sim Bernoulli(p)$ or $X\sim Bern(p)$.
+:::
+
+The pmf of a Bernoulli random variable is $$f(x) =
+ \begin{cases}
+   p^x(1-p)^{1-x} & \text{ if } x \in\{0,1\}\\
+   0 &\text{ if } x \not \in \{0,1\}.
+ \end{cases}$$
+
+We can also write the pmf succintly as $P(X=x) = f(x) =
+ p^x(1-p)^{1-x}$. **Q:** Can you see why?
+
+::: {.callout-note title="Definition"}
+**Binomial distribution.**
+
+Toss the same coin $n$ times; in each trial, call the outcome a RV
+$X_i \sim
+   Bern(p)$. Then, the number of heads $X$ we observe from $n$ coin
+flips is $$X = \sum_{i=1}^n X_i.$$ We write $X\sim Binom(n,\theta)$ or
+$X\sim Bin(n,\theta)$.
+:::
+
+The pmf of a binomial random variable is $$f(x) =
+ \begin{cases}
+   {n \choose x} p^x(1-p)^{1-x} & \text{ if } x \in\{0,1,\cdots, n\}\\
+   0 &\text{ if } x \not \in \{0,1,\cdots, n\} 
+ \end{cases}$$ **Q:** Can you see why the binomial coefficient is used?
+
+::: {.callout-tip title="Example"}
+Prove that $\sum_{x=0}^n f_X(x)=1$ for any binomial random variable.\
+(Hint: use the binomial theorem.)
+:::
+
+### Expectation \[DS 4.1, DS 4.2\] \[Lec 5\] {#sec:important-cont-pt1}
+
+::: {.callout-tip title="Example"}
+An investor is considering buyingwhether or not to invest $\$18$ per
+share in a stock for one year. The value of of this stock after one year
+will be $18+X$, where $X$ is the amount by which the price changes over
+the year. At present $X$ is unknown (or *random*) and the investor would
+like to compute an "average value" for $X$ in order to compare the
+return she expects from the investment to what she would get by putting
+the $\$18$ in a bank at 5% interest.
+
+What will be her average return at the bank? Is it random or
+deterministic?
+:::
+
+The idea of finding an average value as in this example arises in many
+applications that involve a random variable. One popular choice is what
+we call the *mean* or *expected value* or *expectation*.
+
+The intuition behind a *mean* of a random variable is that it is the
+weighted average of the possible values of the random variable with the
+weights equal to the probabilities.
+
+::: {.callout-tip title="Example"}
+Suppose that the change in price of the stock in the previous example is
+a random variable $X$ that can assume only the four different values
+$-2,0,1$, and $4$, and that $\mathbb{P}(X=-2)=0.1, \mathbb{P}(X=0)=0.4,
+    \mathbb{P}(X=1)=0.3$, and $\mathbb{P}(X=4)=0.2$.
+
+Then, what is the probability-weighted average of $X$? How does this
+compare to the expected return at the bank?
+:::
+
+The calculation in this example generalizes easily to every random
+variable that assumes only finitely many values.
+
+::: {.callout-note title="Definition"}
+**Expectation.**
+
+For discrete random variable $X$,
+$$\mathbb{E}[X] =\sum \nolimits_{\text{All } x} x f(x) =  \sum \nolimits_{x \in supp(X)} x f(x),$$
+provided $\mathbb{E}[|X|] < \infty$.
+:::
+
+::: {.callout-tip title="Example"}
+Find the expectation (mean) of the following random variables.
+
+-   The random variable $X=c$ with probability 1.
+
+-   Bernoulli random variable with parameter $p$.
+
+-   Binomial random variable with parameter $n$ and $p$.
+:::
+
+Note: We will revisit expectation in greater detail in a later lecture.
+In the meantime, you should read \[DS 4.1-4.2\] in advance.
+
+## In-class exercise \[Lec 5\] {#in-class-exercise-lec-5 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: For historical reasons $X$ is called a random 'variable', even
+    though $X$ is clearly a *function* mapping $\Omega$ into
+    $\mathbb{R}$.

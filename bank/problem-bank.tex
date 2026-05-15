@@ -1,0 +1,2077 @@
+% ========== Lecture 1 ========== %
+
+%<*lec1-q0>
+
+A fair coin is tossed twice. You have decided to play a game whose
+outcome is
+
+- If the first flip is H, you win \$1,000, and
+- if the first flip is T, you lose \$1,000.
+
+a. Writing a particular outcome as the concatenation of single outcomes
+  such as H or T. What is the sample space $\Omega$?
+b. Write as A the set corresponding to the event that the first flip is
+H. What are elements in A? What is the probability of A?
+c. Denote as B the same as above, of the event that the second toss is
+T. What are the elements in B? What is the probability of B?
+d. What is the probability of the first is head and second being tail?
+e. Draw $A$, $B$, and $\Omega$ in a Venn diagram.
+f. What is your expected return?
+
+%</lec1-q0>
+
+%<*lec1-q1>
+
+If two balanced dice are rolled, what is the sample space? What is the set
+  corresponding to the event that both rolls will be the same?
+
+
+%</lec1-q1>
+
+%<*lec1-q2>
+
+From a survey of 60 students (undergraduate or graduate) attending a
+  university, it was found that 9 were living off campus, 36 were
+  undergraduates, and 3 were undergraduates living off campus. Find the number
+  of these students who were
+
+a. Undergraduates, were living off campus, or both.
+b. undergraduates living on  campus.
+c. graduate students living on campus.
+
+
+%</lec1-q2>
+
+%<*lec1-q3>
+
+Draw Venn diagrams to verify:
+
+a. $A = (A \cap B) \cup (A \cap B^C)$.
+
+b. If $B \subset A$, then $A = B \cup (A \cap B^C)$.
+
+%</lec1-q3>
+
+%<*lec1-q4>
+
+Show that, for any $A, B_1,\dots,B_n \in
+  \Omega$ with $\cup_{i=1}^n B_i = \Omega$, we have $A = (A \cap B_1) \cup
+  \cdots \cup (A \cap B_n)$.
+
+%</lec1-q4>
+
+%<*lec1-q5>
+
+Consider the following experiments:
+
+a. You have three keys and exactly one of them opens the door that you want
+  to open; at each attempt to open the door, you pick one of the keys completely
+  at random and try to open the door (at each attempt you pick one of the three
+  keys at random, regardless of the fact that you may already have tried some in
+  previous attempts). You count the number of attempts needed to open the
+  door. What is the sample space for this experiment?
+b. You have an urn with 1 red ball, 1 blue ball and 1 white ball. Two
+  times in a row, you draw a ball from the urn, look at its color, take a note of the
+  color on a piece of paper, and put the ball back in the urn. What is the
+  sample space for this experiment? Write out the set corresponding to the event
+  "you observe at least 1 white ball".
+
+
+%</lec1-q5>
+
+%<*lec1-q6>
+
+If four fair coins are tossed, what is the probability
+  that all four faces will be the same? Also, what is the probability that you
+  will have the same number of both faces?
+
+%</lec1-q6>
+
+
+%<*lec1-q7>
+
+Suppose a family contains two children of different ages, and we are interested in the gender
+of these children. Let F denote that a child is female and M that the child is male and let a
+pair such as F M denote that the older child is female and the younger is male. There are four
+points in the set $\Omega$ of possible observations:
+$$\Omega = \{FF, FM, MF, MM\}.$$
+Let $A$ denote the subset of possibilities containing no males; $B$, the subset containing two
+males; and $C$, the subset containing at least one male.
+List the elements of $A$, $B$, $C$, $A \cap B$, $A \cup B$, $A \cap C$,
+$A \cup C$, $B \cap C$, $B \cup C$, and $C \cap B^C$.
+
+%</lec1-q7>
+
+
+%<*lec1-q8>
+%</lec1-q8>
+
+% ========== Lecture 2 ========== %
+
+%<*lec2-q1>
+
+Use the axioms of probability to show that for any $A \subset \Omega$ that we
+  have $P(A^C) = 1 - P(A)$.
+
+%</lec2-q1>
+
+%<*lec2-q2>
+
+If two balanced dice are rolled, what is the probability
+  that the sum of the two numbers that appear will be odd?
+
+
+%</lec2-q2>
+
+%<*lec2-q3>
+
+If the probability that student 1 will fail a certain statistics
+  examination is 0.5, the probability that student 2 will fail the examination
+  is 0.2, and the probability that both student 1 and student 2 will fail the
+  examination is 0.1, what is the probability that at least one of these two
+  students will fail the examination?
+
+%</lec2-q3>
+
+%<*lec2-q4>
+
+Let $B \subset A$. Show that $P(A) = P(B) + P(A\cap B^C)$.
+
+%</lec2-q4>
+
+%<*lec2-q5>
+
+A fair die is tossed 6 times, and the number on the uppermost face is
+  recorded each time. What is the probability that the numbers recorded are in
+  the first four rolls are 1, 2, 3, 4 in any order? (Hint: It is useful to
+  invoke the counting rules we learned in class.)
+
+%</lec2-q5>
+
+%<*lec2-q6>
+
+Show that $P(\cup_{i=1}^n E_i) \le \sum_{i=1}^n P(E_i)$, for any sequence
+  of events $\{E_i, i,\cdots, n\}$. (Hint: use induction.)
+
+%</lec2-q6>
+
+%<*lec2-q7>
+
+Take an event $B \subset \Omega$. Rigorously prove the following three using
+  probability axioms (or properties derived from them).
+
+a. $P(B^C) = 1 - P(B)$.
+b. If event $A$ *implies* (In other words, if event $A$ has
+  happened, $B$ has also happened.) event $B$, $B$ is more probable than $A$,
+  i.e., $P(A) \le P(B)$.
+c. $0 \le P(A) \le 1$
+
+%</lec2-q7>
+
+%<*lec2-q8>
+%</lec2-q8>
+
+%<*lec2-q9>
+%</lec2-q9>
+
+%<*lec2-q10>
+%</lec2-q10>
+
+% ========== Lecture 3 ========== %
+
+%<*lec3-q1>
+
+If six dice are rolled, what is the probability that each of the six different numbers will
+  appear exactly once?
+
+
+  (Hint: what are the number of outcomes relevant for the denominator? For the
+  numerator?)
+
+%</lec3-q1>
+
+
+%<*lec3-q2>
+
+10 children are to be divided into an two teams (blue team and red team) of 5
+  children each. Each team plays in a *separate* league.
+
+a. How many different divisions are possible?
+b. What if the two teams play in the same league?
+
+%</lec3-q2>
+
+%<*lec3-q3>
+
+You have a string of 10 letters. How many substrings of length 7 can
+  you form based on the original string?
+
+%</lec3-q3>
+
+%<*lec3-q4>
+
+A company is looking to hire 3 new-grad analysts and asked UCSC for
+  potential candidates. UCSC advised that they hire 3 students from the Fall
+  STAT 131 class. Because the positions must be filled as quickly as possible,
+  they decided to skip the interview process and hire 3 of you completely at
+  random. What is the probability that *you* will become a software engineer
+  at this company?
+
+%</lec3-q4>
+
+
+%<*lec3-q5>
+
+Counting and arranging.
+
+a. In how many different ways can the five letters $a$, $b$, $c$, $d$, and
+  $e$ be arranged?
+b. When rolling five dice, what's the probability that all five numbers
+  shown will be different?
+c. If six dice are rolled, what is the probability that each of the six
+  different numbers will appear exactly once?
+
+%</lec3-q5>
+
+
+%<*lec3-q6>
+
+
+  Calculate the probabilities of each of these (similar-sounding) events:
+- At least one 6 appears when 6 fair dice are rolled.
+- At least two 6's appear when 12 fair dice are rolled.
+
+  Which of the two events has a higher probability?
+
+%</lec3-q6>
+
+
+%<*lec3-q7>
+
+The STAT 131 final exam has 5 multiple choice questions. Questions 1 to
+  3 and question 5 each have **3** possible choices. Questions 4 has **5** possible
+  choices. Suppose that you haven't studied at all for the exam and you will
+  pick your final exam answers completely at random.
+
+a. What is the probability that you will get a full score at the exam?
+b. What is the probability that you will get a score higher than 70\%?
+
+%</lec3-q7>
+
+
+%<*lec3-q8>
+
+How many ways there are to put $n$ indistinguishable balls into $k$
+  distinguishable bins? (Hint: you can't simply use a formula from lecture.)
+
+
+%</lec3-q8>
+
+
+%<*lec3-q9>
+
+Say we are to randomly distribute distribute $n$ indistinguishable cookies
+  to $k$ distinct kids. Some kids may get zero cookies. How many ways to do
+  this?
+
+
+%</lec3-q9>
+
+
+%<*lec3-q10>
+
+Cards are dealt at random and without replacement from a standard 52 card
+  deck. What is the probability that the second king is dealt on the fifth card?
+
+
+%</lec3-q10>
+
+
+%<*lec3-q11>
+
+**Practice** In the scenario from the previous problem, what is the probability of
+  these three events?
+
+a. Each kid receives at least one cookie.
+b. Each kid receives at least two cookies. (assume $n\ge 2k$)
+
+%</lec3-q11>
+
+
+% ========== Lecture 4 ========== %
+%<*lec4-q1>
+
+Every time a customer buys a product, they select either brand $A$ or
+  brand $B$. For each purchase, there's a 1/4 chance they'll buy the same brand
+  as they did last time, and a 3/4 chance they'll switch brands.  If on the
+  initial buy there's an equal chance of picking either brand $A$ or $B$, what's
+  the probability that the customer will buy brand $B$ for their first two
+  purchases and then choose brand $A$ for their third and fourth purchases?
+
+%</lec4-q1>
+
+
+%<*lec4-q2>
+
+Solve these, and justify your answers.
+
+- If $A \subset B$ with $\mathbb{P}(B) >0$, $\mathbb{P}(A|B) = ________.$
+- If $A$ and $B$ are disjoint events with $\mathbb{P}(B) >0$,  $\mathbb{P}(A|B) = ________.$
+- If $\mathbb{P}(A)>0$, $\mathbb{P}(A|A) = ________$
+
+%</lec4-q2>
+
+
+%<*lec4-q3>
+
+The probability that any child in a certain family will have curly hair is
+  1/4, and this feature is inherited independently by different children in the
+  family. If there are five children in the family and it is known that at least
+  one of these children has curly hair..
+
+a. What is the probability that at least three of the children have
+  curly hair?
+b. If it is known that the youngest child in the family has curly hair,
+  what is the probability that at least three of the children have curly hair?
+c. Explain why the answer in part (a) is different from the answer in
+  (b).
+
+%</lec4-q3>
+
+
+%<*lec4-q4>
+
+Let $A,B \in \Omega$ $P(B)>0$.
+
+a. What is $P(A|\Omega)$?
+b. What is $P(A|A)$?
+c. Let $ B \in A$. What is $P(A|B)$?
+d. Let $A \cap B = \emptyset$. What is $P(A|B)$?
+
+%</lec4-q4>
+
+
+%<*lec4-q5>
+
+Consider the following events and the corresponding table of probabilities:
+
+
+|      | $B$ | $B^C$ |
+|------|-----|-------|
+| $A$   | 1/4 | 1/12 |
+| $A^C$ | 1/2 | 1/6  |
+
+
+Are the events A and B independent? Justify your answer.
+
+%</lec4-q5>
+
+
+%<*lec4-q6>
+
+Assume there is a box containing five coins, each with a distinct
+  probability of landing heads when tossed. Probabilities are denoted as $p_i$
+  for the $i$th coin (where $i$ ranges from 1 to 5). Given the specific
+  probabilities, $p_1 = 0, p_2 = 1/4, p_3 = 1/2, p_4 = 3/4$, and $p_5 = 1$.
+
+
+a. Say you toss a randomly selected coin. If a head is obtained, what
+  is the posterior probability that the $i$th coin was selected ($i=1,...,5$)?
+b. What would be the probability of getting another head if the same
+  coin were tossed once more?
+c. If the first toss of the chosen coin resulted in a tail, and the
+  same coin were tossed again, what would be the probability of getting a head
+  on the second toss?
+
+%</lec4-q6>
+
+
+%<*lec4-q7>
+
+Two persons are taking turns throwing a ball at a target. Person 1 has a
+  $1/3$ probability of hitting the target with each throw, while Person 2 has a
+  $1/4$ probability. Assuming person 1 starts the game, determine the
+  probability that the target will be hit for the first time when person 1 makes
+  their 4th throw.
+
+
+%</lec4-q7>
+
+
+%<*lec4-q8>
+
+Let us say that $A$ and $B$ are conditionally independent on
+  $C$. Prove that $P(A | B \cap C) = P(A | C)$.
+
+
+%</lec4-q8>
+
+
+%<*lec4-q9>
+
+If you sample $n=4$ cards with replacement from $r=3$ distinct cards, what
+  is the probability of obtaining a complete set?
+
+
+%</lec4-q9>
+
+
+%<*lec4-q10>
+
+[**Practice**] Guessing gender. (Fun fact! This is a popular mathematical paradox by
+  Martin Gardner in *Scientific American* in 1959.)
+
+a. Mr. Jones has two children. The older child is a girl. What is the
+  probability that both children are girls?
+b. Mr. Smith has two children. At least one of them is a girl. What is the
+  probability that both children are girls?
+
+%</lec4-q10>
+
+
+% ========== Lecture 5 ========== %
+
+%<*lec5-q1>
+
+Suppose that a box contains seven red balls and three blue balls. If five
+  balls are selected at random without replacement,
+
+a. What is the expected number of red balls that will be obtained?
+b. Determine the pmf of the number of red balls that will be obtained.
+
+%</lec5-q1>
+
+%<*lec5-q2>
+
+Suppose that two balanced four-sided dice are rolled, and let $X$ denote
+  the sum of the two numbers that appear, and let $Y$ denote the absolute value
+  of the difference between the two numbers that appear.
+
+a. Derive the probability mass function (pmf) of the random variable $X$.
+b. Also derive the pmf of the random variable $Y$. What is the most
+  probable value of $Y$?
+c. Sketch the probability mass function for the above two random
+  variables $X$ and $Y$.
+
+%</lec5-q2>
+
+
+%<*lec5-q3>
+
+An airline knows that $5$ percent of the people making reservations on a
+  certain flight will not show up. Consequently, their policy is to sell $52$
+  tickets for a flight that can hold only $50$ passengers. What is the
+  probability that there will be a seat available for every passenger who shows
+  up? (Calculate a final numerical answer for full credit.)
+
+%</lec5-q3>
+
+
+%<*lec5-q4>
+
+Fun with probability mass functions.
+
+a. Suppose that a random variable X has the Bernoulli distribution with
+  parameter $p= 0.7$. Derive and sketch the probability mass function. Mark
+  the expectation as a vertical line.
+b. Suppose that a random variable X has the Binomial distribution with
+  parameters $n=2$ and $p= 0.7$. Derive and sketch the probability mass
+  function. Mark the expectation as a vertical line.
+c. Calculate the probability $\mathbb{P}(X \in (1.9,3])$ and
+  $\mathbb{P}(X \in (2,3])$ based on (b).
+
+%</lec5-q4>
+
+%<*lec5-q5>
+
+Suppose $X$ has a binomial distribution with parameter $n=6$ and some $p$.
+
+a. Show that if $p=1/2$, $X=3$ is the most likely outcome.
+b. Derive the value of $p$ (smaller than $1/2$) at which the most
+  likely outcome *ceases* to be $X=3$.
+
+
+  than $3$.
+
+%</lec5-q5>
+
+%<*lec5-q6>
+
+If 10 percent of the balls in a certain box are red, and if 20 balls are
+  selected from the box at random with replacement, what is the probability that
+  more than three red balls will be obtained?
+
+
+%</lec5-q6>
+
+
+%<*lec5-q7>
+
+Suppose that an airplane engine will fail, when in flight, with
+  probability $1-p$ independently from engine to engine. Suppose that the
+  airplane will make a successful flight if at least $50\%$ of its engines
+  remain operative.
+
+a. What is the probability mass function of the (random) number of
+  operative engines of a given plane with $n=5$ engines? Derive and sketch it
+  for $p=0.1$.
+b. For what values of $p$ is a four-engine plane preferable to a two-engine
+  plane?
+c. If $p$ is revealed to be $0.1$, is it more probable for a two-engine or
+  a three-engine plane to have at least one engine fail?
+
+%</lec5-q7>
+
+%<*lec5-q8>
+
+Suppose $X$ is the random variable denoting the outcome of a fair dice
+  roll. Also suppose a barista at a coffee shop is serving six customers
+  numbered $1,\cdots, 6$ and selects one at random (to gift a free muffin),
+  calling that customer number $Y$.
+
+a. Derive the probability mass functions of the two random variables
+  $X$ and $Y$. (Hint: it is possible for two random variables to have the same
+  *distribution*.)
+b. Prove that these two random variables are *independent*, by
+  proving that $\mathbb{P}(X=x, Y=y) = \mathbb{P}(X=x) \cdot \mathbb{P}(Y=y)$ for any $x,y$ values
+  between $1$ and $6$.
+b. What is the probability that $X=Y$?
+
+
+%</lec5-q8>
+
+%<*lec5-q9>
+
+[**Practice**] A fair coin is independently flipped $10$ times, $3$
+  times by person A, and $7$ times by person B.  Show that the probability that
+  person A and person B flip the same number of heads is equal to the
+  probability that there are a total of $3$ heads.
+
+
+  (Hint 1: the event that person
+  A gets $j$ heads is independent of the event that person B gets $j$
+  heads. Then, what is the probability that person both A and B get $j$ heads?
+  Hint2: the Vandermonde's identity could be useful here.)
+
+
+  (More generally, prove that this holds for any fair coin flipped $n$ times,
+  $k$ times by person A, and $n-k$ times by person B, where the above problem is
+  the special case of $k=3$.)
+
+%</lec5-q9>
+
+%<*lec5-q10>
+
+If a fair coin is successively flipped, find the probability that a head
+   first appears on the fifth trial.
+
+%</lec5-q10>
+
+% ========== Lecture 6 ========== %
+%<*lec6-q1>
+
+Say you are a farmer waiting for it to rain two days in a row -- so you
+  can sow your seeds -- where the daily probability of raining is $p$. What is
+  the probability that you will have to wait four or more days in total?
+
+
+%</lec6-q1>
+
+%<*lec6-q2>
+
+Suppose that a random variable $X$ can take only the two values $a$ and
+  $b$ with the following probabilities: $\mathbb{P}(X= a)= p$ and $\mathbb{P}(X= b)= 1-p$.
+  Express the pmf of $X$ in a form similar to that of the Bernoulli pmf in the
+  lecture notes.
+
+%</lec6-q2>
+
+
+%<*lec6-q3>
+
+A parking lot has two entrances. Cars arrive at entrance I according to a
+  Poisson distribution at an average of three per hour and at entrance II
+  according to a Poisson distribution at an average of four per hour.  What is
+  the probability that a total of three cars will arrive at the parking lot in a
+  given hour? Assume that the numbers of cars arriving at the two entrances are
+  independent.
+
+%</lec6-q3>
+
+
+%<*lec6-q4>
+
+Say you are waiting for the first day it will rain, where the daily
+  probability of raining is $p$. Then the total number of days it will take to
+  rain, $X$, follows a geometric distribution with parameter $p$.  Prove that
+  this is the pmf of $X$:
+  $$f(x \mid p)=
+  \begin{cases}p(1-p)^x & \text { for } x=0,1,2, \ldots \\ 0 & \text { otherwise
+    }\end{cases}$$
+
+%</lec6-q4>
+
+
+%<*lec6-q5>
+
+
+  Suppose that a box contains $A$ red balls and $B$ blue balls. Suppose also
+  that $n \ge 0$ balls are selected at random from the box without replacement,
+  and let $X$ denote the number of red balls that are obtained. (Clearly, we
+  must have $n \le A + B$ or we would run out of balls. Also, if $n = 0$, then
+  $X= 0$ because there are no balls, red or blue, drawn.) If $n \ge 1$, we let
+  the random variable $X_i$ be defined so that $X_i = 1$ if the $i$-th ball
+  drawn is red and $X_i = 0$ if not.
+
+a. What are $\mathbb{P}(X_2 = 1|X_1 = 1)$ and $\mathbb{P}(X_2 = 1|X_1 = 0)$?
+b. True or False? $X_1, \cdots, X_n$ are mutually independent. Justify your
+  answer.
+c. Use combinatorial arguments to derive the pmf of $X$.
+
+
+  (Make sure to precisely define the support of $X$.)
+
+%</lec6-q5>
+
+
+%<*lec6-q6>
+
+At the US Postal office, the expected number of customers between 1pm and
+  2pm is usually $3$. The number behaves like a Poisson random variable. What is
+  the probability that 2 or more people will visit the postal office during that
+  time period?
+
+
+%</lec6-q6>
+
+
+%<*lec6-q7>
+
+Denote as $f_1(x \mid n,p)$ the pmf of a Binomial distribution with
+  parameters $n$ and $p$. Also denote as $f_2(x \mid \lambda)$ the pmf of a
+  Poisson distribution with parameter $\lambda$.
+  Let $\{p_n\}_{n=1, \cdots, \infty}$ be a sequence of numbers between 0 and 1
+  such that $\lim_{n \to \infty}np_n = \lambda$. Prove that:
+  $$ \lim_{n\to\infty} f_1(x \mid n, p_n) = f_2(x \mid \lambda).$$
+  Note, this *formally* justifies why we can use a Poisson distribution with
+  mean $np$ to approximate a Binomial distribution with parameters $n$ and $p$
+  where $n$ is large and $p$ is close to 0.
+
+%</lec6-q7>
+
+
+%<*lec6-q8>
+
+Suppose that in a large population the proportion of people who have a
+  certain rare disease is $0.01$. We shall determine the probability that in a
+  random group of $200$ people at least four people will have the disease, in
+  two ways:
+
+a. Calculate the exact probability.
+b. Calculate the approximate probability, using an appropriate Poisson
+  distribution.
+
+%</lec6-q8>
+
+
+%<*lec6-q9>
+
+Consider three urns. Urn A contains 2 white and 3 red balls, urn B
+  contains 8 white and 4 red balls and urn C contains 1 white and and 3 red
+  balls. If one ball is selected from each urn, what is the probability that the
+  ball chosen from urn A was white, given that exactly 2 white balls were
+  selected? (Hint: consider defining random variables $X_i$ (for $i=1,2,3$) that
+  is valued 1 if a white ball is drawn from the $i$'th urn, zero otherwise.)
+
+%</lec6-q9>
+
+%<*lec6-q10>
+
+If a random variable $X$ has a discrete distribution for which the pmf is
+   $f(x)$, then the value of $x$ for which $f(x)$ is maximum is called the *mode*
+   of the distribution. If this same maximum $f(x)$ is attained at more than one
+   value of $x$, then all such values of $x$ are called modes of the
+   distribution. Find the mode or modes of the binomial distribution with
+   parameters $n$ and $p$. (Hint: Study the ratio
+   $f(x+1 \mid n, p) / f(x \mid n, p)$.)
+
+%</lec6-q10>
+
+
+% ========== Lecture 7 ========== %
+%<*lec7-q1>
+
+Suppose that the pdf of a random variable $X$ is:
+  $$f(x)=
+  \begin{cases}
+    \frac{1}{8} x &\text{ for }0 \le x \le 4 \\
+    0 &\text{ otherwise }
+  \end{cases}$$
+
+a. Sketch the pdf.
+b. Find the value of $t$ such that $\mathbb{P}(X \ge t)= 1/2$.
+c. What is more probable -- a smaller (near zero) or larger value (near
+  4) of $X$?
+
+%</lec7-q1>
+
+
+%<*lec7-q2>
+
+Suppose that a random variable $X$ has a discrete distribution
+   with the following probability mass function:
+
+$$
+f(x)=
+     \begin{cases}
+       cx & \text{for } $x = 0, 1, 2, 3, 4, 5.$\\
+       0 & \text{otherwise}.
+     \end{cases}
+$$
+
+   Determine the value of the constant $c$.
+
+%</lec7-q2>
+
+
+%<*lec7-q3>
+
+Take random variable $X$ whose pdf is:
+  f(x)= \begin{cases}c\left(9-x^2\right) & \text { for }-3 \leq x \leq 3, \\ 0 & \text { otherwise. }\end{cases}
+
+a. Find the constant $c$ and sketch the pdf.
+b. Calculate $\mathbb{P}(X<0)$, $\mathbb{P}(-1 \leq X \leq 1)$, and $\mathbb{P}(X>2)$.
+
+%</lec7-q3>
+
+
+%<*lec7-q4>
+
+Take an exponential random variable $X$ with parameter $\beta$. What is the
+  *cumulative* probability up till a point $x$, i.e., $\mathbb{P}(X \le x)$? Sketch
+  and derive this.
+
+%</lec7-q4>
+
+
+%<*lec7-q5>
+
+Suppose that a random variable $X$ has the uniform distribution on the
+  interval $[-2, 8]$. Sketch the pdf of $X$ and the value of $\mathbb{P}(0 < X < 7)$.
+
+%</lec7-q5>
+
+
+%<*lec7-q6>
+
+If a random variable $X$ has a distribution for which the pdf is $f(x)$,
+  then the value of $x$ for which $f(x)$ is maximum is called the *mode* of
+  the distribution. (If this same maximum $f(x)$ is attained at more than one
+  value of $x$, then all such values of $x$ are called modes of the
+  distribution.)
+
+  Find the mode or modes of the gamma distribution with parameters $\alpha$ and
+  $\beta$.
+
+%</lec7-q6>
+
+
+%<*lec7-q7>
+
+Suppose that the pdf of a random variable $X$ is as follows:
+
+$$
+f(x) =
+    \begin{cases}
+      \frac{c}{(1-\frac{x}{2})^{\frac{1}{2}}} & \text{for }\ 0<x<1,\\
+      0 & \text{otherwise}
+    \end{cases}
+$$
+
+
+a. Find the value of the constant $c$ and sketch the pdf.
+b. Find the value of $P(X\leq \frac{1}{2})$
+
+%</lec7-q7>
+
+%<*lec7-q8>
+
+Evaluate the integral $\int e^{-3x^2} \;dx$. (Hint: see the pdf of a
+  normal distribution).
+
+%</lec7-q8>
+
+%<*lec7-q9>
+
+Sketch the beta pdf with the following parameters (hint: try calculating
+  and plotting some $(x, f(x))$ points).
+
+a. $\alpha=\beta=1$.
+b. $\alpha=\beta=3$.
+c. $\alpha=1$, $\beta=2$.
+
+%</lec7-q9>
+
+
+%<*lec7-q10>
+
+The *expected value* of a random variable $X$ with pdf $f$ is defined as
+  $\int_{\mathbb{R}} x \cdot f_X(x)\; dx$.  What is the expected value of
+  a beta random variable with parameters $\alpha$, $\beta$?
+
+%</lec7-q10>
+
+%<*lec7-q11>
+
+Let $X$ be a random variable with pdf $f$. The $p$-quantile function
+  $g(p)$ of $X$ is defined as the smallest value $x$ of $X$ for which
+  $\mathbb{P}(X \le x) \ge p$.  (For example, the $0.1$-th quantile is the smallest
+  value $x$ of $X$ for which the probability to the left-hand-side of $x$,
+  $P(X < x)$, is at least $0.1$.)  Compute the quantile function $g(p)$ of the
+  exponential distribution with parameter $\beta$.
+
+%</lec7-q11>
+
+%<*lec7-q2>
+
+Suppose that the proportion $X$ of defective items in a large lot is
+   unknown and that $X$ has the beta distribution with parameters $\alpha$ and
+   $\beta$. If one item is selected at random from the lot, what is the
+   probability that it will be defective?
+
+%</lec7-q12>
+
+%<*lec7-q13>
+
+Suppose that a certain test is to be taken by three students independently
+  of one another, and the number of minutes required by any particular student
+  to complete the test has the exponential distribution with parameter
+  $1/40$. (This means that the *expected* value of the wait time is $40$
+  minutes.)
+
+a. Suppose that the test begins at 9:00 a.m. Determine the probability
+  that at least one of the students will complete the test before 9:30 a.m.
+b. Suppose again that the test is taken by three students, and the
+  first student to complete the test finishes at 9:20 a.m. Determine
+  the probability that at least one other student will complete the
+  test before 10:00 a.m.
+c. Suppose again that the test is taken by five students. Determine
+  the probability that no two students will complete the test within 10
+  minutes of each other.
+
+%</lec7-q13>
+
+%<*lec7-q14>
+
+A manufacturer believes that an unknown proportion
+ P of parts produced will be defective. She models P as
+ having a beta distribution. The manufacturer thinks that P
+ should be around 0.05, but if the first 10 observed products
+ were all defective, the mean of P would rise from 0.05 to
+ 0.9. Find the beta distribution that has these properties.
+
+%</lec7-q14>
+
+%<*lec7-q15>
+
+Suppose that X has the beta distribution with parameters α and β. Show
+   that 1− X has the beta distribution with parameters β and α.
+
+%</lec7-q15>
+
+
+% ========== Lecture 8 ========== %
+%<*lec8-q1>
+
+Suppose that a fair coin is tossed repeatedly until a head is obtained for
+  the first time, and let $X$ denote the number of tosses that are
+  required.
+
+
+a. What is probability $P(X=x)$ for $x=0,1,2,\cdots,$?
+b. Sketch the cdf of $X$. (Hint: start by sketching the pmf).
+
+%</lec8-q1>
+
+
+%<*lec8-q2>
+
+Suppose that the joint p.d.f. of X and Y has the follow-
+ f (x, y)=
+ kx2y2 for x2 + y2 ≤ 1,
+ 0 otherwise.
+ Show (formally or informally) that X and Y are not independent.
+
+%</lec8-q2>
+
+
+%<*lec8-q3>
+
+Take $X$, a random variable distributed as $\text{Unif}(0, 5)$. Also
+   take a random variable $Y$ defined as follows: $Y=0$ if $X \le 1$, $Y= 5$ if
+   $X\ge 3$, and $Y= X$ otherwise.  Sketch the cumulative distribution function
+   (cdf) of $Y$.
+
+%</lec8-q3>
+
+
+%<*lec8-q4>
+
+Draw both a pmf and cdf of the random variable $X\sim \text{Bern}(0.6)$.
+
+%</lec8-q4>
+
+
+%<*lec8-q5>
+
+What is the median of the following two random variables?
+
+a. $X\sim \text{Bern}(0.6)$.
+b. $X\sim \text{Bern}(0.3)$.
+
+%</lec8-q5>
+
+
+%<*lec8-q6>
+
+Suppose that the cdf of a random variable $X$ is as follows:
+
+
+$$
+F(x)= \begin{cases}e^{x-3} & \text { for } x \leq 3, \\ 1 & \text { for } x>3 .\end{cases}
+$$
+
+
+a. Find and sketch the pdf of $X$.
+b. Find and sketch the cdf of $X$.
+c. Find the first quartile.
+d. Find the median.
+
+%</lec8-q6>
+
+
+%<*lec8-q7>
+
+Suppose that $X$ has the uniform distribution on the interval $[0,5]$ and
+  that the *mixed* random variable $Y$ is defined by $Y=0$ if
+  $X \leq 1, Y=5$ if $X \geq 3$, and $Y=X$ otherwise. Sketch the cdf of $Y$.
+
+  (Hint: what are probabilities $\mathbb{P}(Y=0)$, $\mathbb{P}(Y=5)$? What about $\mathbb{P}(Y=y)$
+  for any other value $y \not\in \{0,5\}$? Use this to complete the cdf.)
+
+%</lec8-q7>
+
+
+%<*lec8-q8>
+
+Suppose that a point in the $x y$-plane is chosen at random from the
+  interior of a circle for which the equation is $x^2+y^2=1$; and suppose that
+  the probability that the point will belong to each region inside the circle is
+  proportional to the area of that region. Let $Z$ denote a random variable
+  representing the distance from the center of the circle to the point. Find and
+  sketch the cdf of $Z$.
+
+%</lec8-q8>
+
+
+%<*lec8-q9>
+
+Suppose that the c.d.f. of a random variable $X$ is as follows:
+
+$$
+F(x)= \begin{cases}0 & \text { for } x \leq 0 \\ \frac{1}{9} x^2 & \text { for } 0<x \leq 3 \\ 1 & \text { for } x>3\end{cases}
+$$
+
+
+Find and sketch the p.d.f. of $X$.
+
+%</lec8-q9>
+
+
+%<*lec8-q10>
+
+Prove that the quantile function $F^{-1}(\cdot)$ of a general random
+  variable $X$ has the following property analogous to that of the cdf:
+  $F^{-1}(p)$ is a non-decreasing function of $p$ for $0<p <1$.
+
+%</lec8-q10>
+
+
+%<*lec8-q11>
+
+Take a random variable $X$ with an exponential distribution whose
+  parameter is $\lambda$. What is the median?
+
+%</lec8-q11>
+
+
+%<*lec8-q12>
+
+Suppose that the proportion $X$ of defective items in a large lot is
+   unknown and that $X$ has the beta distribution with parameters $\alpha$ and
+   $\beta$. If one item is selected at random from the lot, what is the
+   probability that it will be defective?
+
+%</lec8-q12>
+
+
+% ========== Lecture 9 ========== %
+%<*lec9-q1>
+
+In a certain suburban area, each household reported the number of cars and
+  the number of television sets that they owned. Let $X$ stand for the number of
+  cars owned by a randomly selected household in this area. Let $Y$ stand for the
+  number of television sets owned by that same randomly selected household. This
+  is the joint pmf (each entry is $f(x,y)$):
+
+
+| $X ackslash Y$ | 1 | 2 | 3 | 4 |
+|------------------|---|---|---|---|
+| 1 | 0.1 | 0 | 0.1 | 0 |
+| 2 | 0.3 | 0 | 0.1 | 0.2 |
+| 3 | 0 | 0.2 | 0 | 0 |
+
+
+ What is the probability that a randomly selected household will
+
+a. have more than two cars *and* more than two TVs?
+b. have the same number of cars and TVs?
+c. have exactly one car?
+
+%</lec9-q1>
+
+
+%<*lec9-q2>
+
+Suppose that the joint p.d.f. of X and Y has the follow-
+ f (x, y)=
+ kx2y2 for x2 + y2 ≤ 1,
+ 0 otherwise.
+ Show (formally or informally) that X and Y are not independent.
+
+%</lec9-q2>
+
+
+%<*lec9-q3>
+
+Take $X$, a random variable distributed as $\text{Unif}(0, 5)$. Also
+   take a random variable $Y$ defined as follows: $Y=0$ if $X \le 1$, $Y= 5$ if
+   $X\ge 3$, and $Y= X$ otherwise.  Sketch the cumulative distribution function
+   (cdf) of $Y$.
+
+%</lec9-q3>
+
+
+%<*lec9-q4>
+
+The random variables X and Y have joint pdf $f_{X,Y}(x,y)= 0.5$ in the
+  triangle of the x-y plane determined by the points $(0,0)$, $(1,0)$, and
+  $(0,1)$. Call this triangle $T$.
+
+
+a. Find the joint cdf of $(X,Y)$.
+
+
+  (Hint 1 : if the pdf is constant, how do you calculate the probability
+  $\mathbb{P}(X \le x, Y \le y)$? Hint 2: try sketching the integration region for
+  various values of $(x,y)$.)
+
+
+b. Verify that your joint cdf differentiates back to the pdf
+  $f_{X,Y}(x,y)= 0.5 \cdot \mathbf{1}_{(x,y) \in T}$
+
+%</lec9-q4>
+
+
+%<*lec9-q5>
+
+Suppose that the joint cdf of $X$ and $Y$ has the form
+  $F(x,y) =\frac{1}{16}xy(x+y)$ when for values between $0$ and $2$.
+
+a. Write out the *full* joint cdf -- for *all* values of $x \in \mathbb{R}$ and $y \in \mathbb{R}$?
+b. What is the cdf of $X$?
+c. What is the joint pdf of $X$ and $Y$?
+
+%</lec9-q5>
+
+
+%<*lec9-q6>
+
+Suppose that $X$ and $Y$ are random variables such that ( $X, Y$ ) must
+  belong to the rectangle in the $x y$-plane containing all points $(x, y)$ for
+  which $0 \leq x \leq 3$ and $0 \leq y \leq 4$. Suppose also that the joint
+  cdf of $X$ and $Y$ at every point $(x, y)$ in this rectangle is specified
+  as follows:
+
+$$
+F(x, y)=\frac{1}{156} x y\left(x^2+y\right) .
+$$
+
+
+Determine
+
+
+a. $\mathbb{P}(1 \leq X \leq 2$ and $1 \leq Y \leq 2)$.
+b. $\mathbb{P}(2 \leq X \leq 4$ and $2 \leq Y \leq 4)$.
+c. the cdf of $Y$.
+d. the joint pdf of $X$ and $Y$.
+e. $\mathbb{P}(Y \leq X)$.
+
+%</lec9-q6>
+
+
+%<*lec9-q7>
+
+Consider an illuminated signboard where the top row has three bulbs and
+  the bottom row contains four. Use \(X\) to denote the count of non-working
+  bulbs in the top row at a specific time \(t\), and \(Y\) for the bottom row at
+  that same time. The joint pmf of \(X\) and \(Y\) is shown in this table:
+
+
+| $X ackslash Y$ | 0 | 1 | 2 | 3 | 4 |
+|------------------|---|---|---|---|---|
+| 0 | 0.08 | 0.07 | 0.05 | 0.02 | 0.01 |
+| 1 | 0.06 | 0.10 | 0.12 | 0.05 | 0.02 |
+| 2 | 0.05 | 0.06 | 0.11 | 0.02 | 0.03 |
+| 3 | 0.04 | 0.01 | 0.03 | 0.03 | 0.04 |
+
+
+	a. Calculate $P(X=1)$.
+	b. Calculate $P(Y \geq 1)$.
+	c. Calculate $P(X\leq 1 \text{ and } Y\leq 1)$.
+	d. Calculate $P(X = Y)$.
+	e. Calculate $P(X > Y)$.
+
+%</lec9-q7>
+
+
+%<*lec9-q8>
+
+Let $Y$ be the rate (calls per hour) at which calls arrive at a
+  switchboard. Let $X$ be the number of calls during a two-hour period. A
+  popular choice of joint pmf/pdf for ($X, Y$) in this example would be
+  one like
+$$
+f(x, y)= \begin{cases}\frac{(2 y)^x}{x!} e^{-3 y} & \text { if } y>0 \text { and
+  } x=0,1, \ldots, \\ 0 & \text { otherwise. }\end{cases}
+$$
+
+
+a. Verify that $f$ is a joint pmf/pdf.
+  (Hint: First, sum over the $x$ values using the well-known formula for the power series expansion of $e^{2 y}$.)
+b. Find $\mathbb{P}(X=0)$.
+
+%</lec9-q8>
+
+
+% ========== Lecture 10 ========== %
+%<*lec10-q1>
+
+Suppose the joint pdf of $(X,Y)$ is
+  $f(x,y) = c x^2y \cdot \mathbf{1}_{ x^2 \le y <1}$. Find the marginal pdf
+  $f(y)$ of $Y$.
+
+%</lec10-q1>
+
+
+%<*lec10-q2>
+
+Suppose that in a certain drug the concentration of a
+particular chemical is a random variable with a continuous
+distribution for which the pdf $g(\cdot)$ is defined as follows:
+
+$$
+g(x)=
+    \begin{cases}
+      \frac{3}{8}x^2 & \text{for}\ 0 \leq x \leq 2,\\
+      0 & \text{otherwise.}
+    \end{cases}
+$$
+
+Suppose that the concentrations \(X\) and \(Y\) of the chemical
+in two separate batches of the drug are independent random
+variables for each of which the pdf is $g(\cdot)$. Determine:
+
+a. The joint pdf of \(X\) and \(Y\).
+b. $\mathbb{P}(X=Y)$.
+c. $\mathbb{P}(X>Y)$.
+d. $\mathbb{P}(X+Y \leq 1)$.
+
+%</lec10-q2>
+
+
+%<*lec10-q3>
+
+Suppose that $X$ and $Y$ have a discrete joint distribution
+for which the joint pmf is defined as follows:
+
+$$
+f(x,y) =
+    \begin{cases}
+      \frac{1}{30}(x+y) & \text{for }\ x=0,2 \text{and}\ y=0,1,2,3,4.\\
+      0 & \text{otherwise}
+    \end{cases}
+$$
+
+
+a. Determine the marginal pmfs of \( X \) and \( Y \).
+b. Are \( X \) and \( Y \) independent?
+
+%</lec10-q3>
+
+
+%<*lec10-q4>
+
+Imagine that the joint pdf of \(X \) and \(Y\) is as follows:
+
+$$
+f(x,y) =
+    \begin{cases}
+      4xe^{-y} & \text{for }\ 0 \leq x \leq \sqrt{\frac{1}{2}} \text{and}\ 0 \leq y \leq \infty.\\
+      0 & \text{otherwise}
+    \end{cases}
+$$
+
+Are \(X\) and \(Y\) independent?
+
+%</lec10-q4>
+
+
+%<*lec10-q5>
+
+Take a point \( (X, Y )\) picked arbitrarily from circle \(S\), characterized by:
+$$S=\{(x,y):x^2+y^2 \leq 1\}$$
+If $f(x,y) = kx^2y^2$, verify that \(X\) and \(Y\) have the same marginal pdf:
+
+$$
+f(x) =
+    \begin{cases}
+      \frac{2kx^2(1-x^2)^{\frac{3}{2}}}{3} & \text{if }\ -1 \leq x \leq 1.\\
+      0 & \text{otherwise}
+    \end{cases}
+$$
+
+%</lec10-q5>
+
+
+%<*lec10-q6>
+
+Suppose that a point $(X,Y)$ is chosen at random from the following disk
+  $S$:
+$$S=\{(x,y):(x-1)^2+(y+2)^2 \leq 16\}.$$
+Determine:
+
+a. the conditional pdf of $Y$ for every given value of $X$.
+b. $\mathbb{P}(Y>0 \mid X=3)$.
+
+%</lec10-q6>
+
+
+%<*lec10-q7>
+
+Let $Y$ be the rate (calls per hour) at which calls arrive at a
+  switchboard. Let $X$ be the number of calls during a two-hour period. Suppose
+  that the marginal pdf of $Y$ is
+
+$$
+f_2(y)= \begin{cases}e^{-y} & \text { if } y>0 \\ 0 & \text { otherwise }\end{cases}
+$$
+
+and that the conditional pmf of $X$ given $Y=y$ is
+
+$$
+g_1(x \mid y)= \begin{cases}\frac{(2 y)^x}{x!} e^{-2 y} & \text { if } x=0,1, \ldots, \\ 0 & \text { otherwise. }\end{cases}
+$$
+
+
+(Hint: this is a *mixed* joint distribution.)
+
+
+a. Find the marginal pmf of $X$. (You may use the formula
+  $\int_0^{\infty} y^k e^{-y} d y=k!$)
+
+b. Find the conditional pdf $g_2(y \mid 0)$ of $Y$ given $X=0$.
+c. Find the conditional pdf $g_2(y \mid 1)$ of $Y$ given $X=1$.
+d. For what values of $y$ is $g_2(y \mid 1)>g_2(y \mid 0)$ ? Does this
+  agree with the intuition that the more calls you see, the higher you should
+  think the rate is?
+
+%</lec10-q7>
+
+
+%<*lec10-q8>
+
+Suppose $f(x,y) = e^{-x} \cdot \mathbf{1}_{0\le y \le x <\infty}$. Find the conditional pdf $f_{Y|X}(y|x)$.
+
+%</lec10-q8>
+
+
+%<*lec10-q9>
+
+Suppose $X \sim \text{Beta}(a,b)$ for constants $a,b >0$, and
+  $Y| X=x \sim \text{Binomial}(N,x)$ where $N$ is some fixed constant.
+  Find the conditional pdf of $X|Y=y$ for some $y\in 0,...,N$. (Hint: you've
+  already seen a simpler version of this in lecture.)
+
+%</lec10-q9>
+
+
+% ========== Lecture 11 ========== %
+%<*lec11-q1>
+
+Suppose that $X$ is a random variable for which the pdf is $f$ and that
+  $Y=a X+b$ (for $(a \neq 0)$). Then show that pdf of $Y$ is
+  $$
+  g(y)=\frac{1}{|a|} f\left(\frac{y-b}{a}\right) \quad \text { for }-\infty<y<\infty,
+  $$
+and 0 otherwise.
+
+%</lec11-q1>
+
+
+%<*lec11-q2>
+
+Suppose that a random variable $X$ can have each of the seven values
+  $-3,-2,-1,0,1,2,3$ with equal probability.  Determine the pmf of:
+  $$Y= X^2-X.$$
+
+%</lec11-q2>
+
+
+%<*lec11-q3>
+
+Let $X$ be the rate at which customers are served in a queue, following an
+  exponential distribution with parameter $\lambda$.
+
+a. Find the pdf $f_Y(y)$ of the average waiting time $Y = 1/X$.
+b. Calculate $\int y f_Y(y) dy$. (this is called the "expectation"
+  or "expected value" of a random variable).
+
+
+%</lec11-q3>
+
+
+%<*lec11-q4>
+
+Let's say a person calls a call center. Let $X$ be the amount of time
+  spent on hold and $Y$ be the total duration of the call. Suppose the
+  joint density is $f_{X,Y} (x,y)= e^{-y}$ in the region $0 < x <y <\infty$.
+
+a. What is the marginal density of $X$? of $Y$?
+b. The amount of time the consultant spends with the caller after the
+  call is answered is $W= Y-X$.  What is the probability density of $W$?
+  (Hint: use )
+
+
+%</lec11-q4>
+
+
+%<*lec11-q5>
+
+Let's say a person calls a call center. Let $X$ be the amount of time
+   spent on hold and $Y$ be the total duration of the call. Suppose the
+   joint density is $f_{X,Y} (x,y)= e^{-y}$ in the region $0 < x <y <\infty$.
+
+a. What is the marginal density of $X$? of $Y$?
+b. The amount of time the consultant spends with the caller after the
+  call is answered is $W= Y-X$.  What is the probability density of $W$?
+
+%</lec11-q5>
+
+
+%<*lec11-q6>
+
+Let random variable $Z$ have a Standard Normal distribution
+  $Z \sim \mathcal{N}(0, 1)$ with
+  $$f_Z(z) = \frac{1}{\sqrt{2\pi}}
+  e^{-z^2/2}.$$
+
+a. Find the probability density of $X = aZ + b$ for constants $a$ and $b$.
+b. Find the probability density of $X = Z^2$.
+
+%</lec11-q6>
+
+
+%<*lec11-q7>
+
+Use the result from the previous problem to prove that the square of a Normal random
+  variable is (1) a Chi-squared distribution with 1 degree of freedom, and
+  equivalently (2) Gamma($1/2, 1/2$).
+
+
+- Suppose we have a random variable $U$ that is uniformly distributed on
+  the interval $(0, 1)$:
+  $$U \sim \text{Uniform}(0, 1).$$
+
+  Find the distribution of $Y$, defined as:
+  $$Y = -\frac{1}{\lambda} \ln(U). $$
+
+  (where $\lambda > 0$ is a constant).
+
+%</lec11-q7>
+
+
+% ========== Lecture 12 ========== %
+%<*lec12-q1>
+
+Suppose that $X$ has the uniform distribution on the interval $[0,
+  1]$. Construct a random variable $Y= r(X)$ for which the pdf will be
+  $$g(y)=
+  \begin{cases}
+    \frac{3}{8}y^2 &\text{ for } 0 < y < 2\\
+    0 & \text{ otherwise.}
+  \end{cases}
+  $$
+
+%</lec12-q1>
+
+
+%<*lec12-q2>
+
+
+a. Suppose that the random variable $X$ is uniform in $[0,1]$.
+  Construct a random variable $Y=r_1(X)$ for which the pdf will be:
+  $$g(y) =
+  \begin{cases} \frac{3}{8} y^2 & \text{ for } 0 < y < 2,\\
+    0 & \text{ otherwise}. \end{cases}
+b.
+  Next, let $Z$ be a random variable whose pdf is:
+  $$f(z) =
+  \begin{cases} \frac{1}{2} z & \text{ for } 0 < z < 2,\\
+  0 & \text{ otherwise}. \end{cases} Construct a random variable
+  $W = r_2(Z)$ whose pdf is $g$ from problem (a)? (Hint: start with a
+  transformation of $Z$ that makes it distributed as $\text{Unif}(0,1)$, then
+  use (a).)
+
+%</lec12-q2>
+
+
+%<*lec12-q3>
+
+Explain how to use a uniform pseudo-random number generator to generate five
+  independent values from the distribution for which the pdf is:
+
+  $$g(y) = \begin{cases}
+             (2y+1)/2 & \text{ for } 0 < y < 1,\\
+             0 & \text{ otherwise }.
+           \end{cases}$$
+  (Optional but recommended: try your algorithm on a computer and show the results!
+  Submit your code and output for extra credit.)
+
+
+%</lec12-q3>
+
+
+%<*lec12-q4>
+
+Suppose $X_1$ and $X_2$ are independent exponential random variables with
+  parameter $1$. Find the pdf of $Y = X_1 - X_2$.
+
+
+%</lec12-q4>
+
+
+%<*lec12-q5>
+
+Suppose the $X_1, \cdots, X_n$ are random variables that are uniformly
+  distributed on $[0,1]$. Derive the pdf of the second largest of them, denoted
+  $X_{(n-1)}$.
+  (Hint: the event $\{X_{(n-1)} \leq t\}$ is the same as
+  $\{\text{At least } n-1 \text{ observations are smaller than or equal to }
+  t\}$. Can you see why?)
+
+
+%</lec12-q5>
+
+
+%<*lec12-q6>
+
+Show that if $X_1\cdots,X_n$ are independent random variables,
+
+
+%</lec12-q6>
+
+
+%<*lec12-q7>
+
+Suppose $X_1, \cdots X_n$ are Unif(0,1) random variables. Find the
+  smallest value of the *sample size* $n$ that ensures a high probability ($0.95$ or
+  higher) that the maximum $X_{(n)}$ of those $n$ random variables exceeds
+  $0.98$.
+
+%</lec12-q7>
+
+
+% ========== Lecture 13 ========== %
+%<*lec13-q1>
+
+Suppose $Z_1,Z_2,...,Z_n$ is a sequence of *independent* random
+   variables, and $Z_k \sim \text{Exp}(2^k)$ for $k=1,...,n$.  Find the variance of the
+   sample mean $\bar Z$.
+   (Hint: use the fact that $\sum_{k=0}^n (1/2)^k = \frac{1/2}{1-(1/2)^{k-1}}$.)
+
+%</lec13-q1>
+
+%<*lec13-q2>
+
+Let $X$ be a random variable that can take only the values $0, 1, 2, \cdots$. Then
+ prove that: $$\mathbb{E}[X]= \sum_{n=1}^\infty \mathbb{P}(X \ge n).$$
+
+%</lec13-q2>
+
+
+%<*lec13-q3>
+
+Suppose that $X$ and $Y$ are independent random variables whose variances
+  exist (i.e., are finite) and such that $\mathbb{E}[X]= \mathbb{E}[Y]$.  Show that
+  $\mathbb{E}[(X-Y)^2]= V[X] + V[Y]$.
+
+%</lec13-q3>
+
+
+%<*lec13-q4>
+
+Suppose that $n$ electronic products have been produced; the items are
+  independent, and the length of life of each item has the exponential
+  distribution with parameter $\lambda$. Determine the expected length of time
+  until three items have failed. (Hint: model $Y_i$ to be the time until the
+  $i$'th item fails.)
+
+%</lec13-q4>
+
+
+%<*lec13-q5>
+
+Suppose that a fair coin is tossed repeatedly until a
+head is obtained for the first time.
+
+a. What is the expected number of tosses that will be required? (Hint:
+  first prove that the probability it will take $n$ tosses or more is
+  $(1-p)^{n-1}$. Then, use the result from the in-class exercise.)
+b. What is the expected number of tails that will be obtained before the
+  first head is obtained?
+
+%</lec13-q5>
+
+
+%<*lec13-q6>
+
+Suppose that appliances manufactured by a particular company fail at a
+  rate of $X$ per year, where $X$ is currently unknown and hence is a random
+  variable. If we are interested in predicting how long such an appliance will
+  last before failure, we might use the mean of $\frac{1}{X}$. Calculate the mean of
+  $Y= \frac{1}{X}$, if the pdf of $X$ is
+  $$f(x)= 3x^{2} \cdot \mathbf{1}_{0 < x < 1},$$
+  in two ways:
+
+a. First derive the distribution of $Y$, then obtain its expectation.
+b. Use the Law of the Unconscious Statistician (LOTUS).
+
+%</lec13-q6>
+
+
+%<*lec13-q7>
+
+Suppose that a jar contains 10 yellow balls and 15 blue balls, and suppose
+  that eight balls are to be selected at random from the jar with replacement.
+  How many more yellow balls than blue balls would you expect to
+  see?
+
+
+%</lec13-q7>
+
+
+%<*lec13-q8>
+
+Derive the variance of a Poisson random variable with parameter
+  $\lambda$. (Hint: directly calculate and use $\mathbb{E}[X(X-1)]$.)
+
+%</lec13-q8>
+
+
+%<*lec13-q9>
+
+Let $X$ be a gamma distributed random variable with parameters $\alpha$
+  and $\beta$.
+
+a. Prove that, for $k=1,2,\cdots$, $\mathbb{E}[X^k] = \frac{\Gamma(\alpha +
+  k)}{\beta^k \Gamma(\alpha)}$.
+b. Use this result to prove that $\mathbb{E}[X] = \alpha/\beta$, and
+  $V[X] = \alpha/\beta^2$.
+c. What is the mean and variance of an exponential random variable
+  with parameter $\beta>0$? (Hint: an exponential distribution is a
+  special case of a gamma distribution.)
+
+%</lec13-q9>
+
+
+%<*lec13-q10>
+
+Suppose that a box contains red balls and blue balls and that the
+  proportion of red balls in the box is $p$, ($0 \le p \le 1$). Suppose that $n$
+  balls are selected from the box at random
+
+a. If the balls are selected with replacement, what is the expected
+  number of red balls?
+b. If the balls are selected *without* replacement, what is the
+  expected number of red balls?
+c. (Extra credit) Suppose now that we sample $n>1$ balls with
+  replacement, and let $X$ be the number of red balls in the sample. Then, we
+  sample $n$ balls without replacement, and we let $Y$ be the number of red
+  balls in that sample.  Prove that $\mathbb{P}(X=n) > \mathbb{P}(Y= n)$.
+
+%</lec13-q10>
+
+% ========== Lecture 14 ========== %
+%<*lec14-q1>
+
+Take joint pdf $f_{X,Y}(x,y) = (x+y) \cdot \mathbf{1}_{(x,y)\in [0,1]^2}$ of a
+  random vector $(X,Y)$. Derive $\mathbb{E}[Y|X]$. Show all steps.
+
+%</lec14-q1>
+
+
+%<*lec14-q2>
+
+Suppose that one word is to be selected at random from the sentence “the
+  girl put on her beautiful red hat”. If $X$ denotes the number of letters in
+  the word that is selected,
+
+a. What is the expected value $X$?
+b. Suppose that it was revealed to you that the chosen word was at
+  most 4 letters long. What is the expected value now? (In other words, what
+  is the conditional expectation?)
+
+
+%</lec14-q2>
+
+
+%<*lec14-q3>
+
+Suppose $\theta \sim \text{Unif}(0,2\pi)$, $X=\cos \theta$ and $Y=\sin \theta$.
+  Verify that $\operatorname{Cov}(X,Y)=0$.  Is $X\perp Y$?
+
+  (This is a clear example of the two variables $X$ and $Y$ not having a linear
+  relationship.)
+
+%</lec14-q3>
+
+
+%<*lec14-q4>
+
+Suppose that $X$ has the uniform distribution on the interval $[-2, 2]$, and
+
+
+  $Y = X^6$. Show that $X$ and $Y$ are uncorrelated but not independent
+  (where `uncorrelated' means that the correlation is zero).
+
+
+%</lec14-q4>
+
+
+%<*lec14-q5>
+
+Suppose that $X$, $Y$, and $Z$ are three random variables such that
+  $V[X] = 1$, $V[Y] = 4$, $V[Z] = 8$, $\operatorname{Cov}(X, Y) = 1$, $\operatorname{Cov}(X, Z) = -1$, and
+  $\operatorname{Cov}(Y, Z) = 2$.
+  Determine $V(3X+2)$ and $V(3X-Y-2Z+1)$.
+
+%</lec14-q5>
+
+
+%<*lec14-q6>
+
+The joint probability density function of $X, Y$ is
+$$
+f(x, y)=\frac{1}{y} e^{-(y+x / y)}, \quad 0<x, y<\infty
+$$
+
+a. Verify that this is a valid joint probability density function.
+(Hint: you might find it useful that $\int_0^{\infty} \lambda e^{-\lambda x} d
+x=1$, for any value of $\lambda$.)
+b. Find $\operatorname{Cov}(X, Y)$.
+c. Find $\mathbb{E}[X|Y]$.
+d. **(Optional, extra credit)** Find $V[X|Y]$, and evaluate it at $Y = 5$.
+
+%</lec14-q6>
+
+
+%<*lec14-q7>
+
+Suppose that a point is chosen at random on a stick of unit length (that
+   is, the length of the stick is 1) and that the stick is broken into two pieces
+   at that point. Find the expected value of the length of the longer piece.
+
+%</lec14-q7>
+
+
+%<*lec14-q8>
+
+Suppose that a stick having a length of 3 feet is broken into two pieces,
+  and that the point $X$ at which the stick is broken is chosen in accordance with
+  pdf $f_X(x)$. What is the correlation between the length of the longer piece and
+  the length of the shorter piece? (Hint: the answer is the same no matter what
+  $f_X$ is!)
+
+%</lec14-q8>
+
+
+%<*lec14-q9>
+
+Say we will flip the same coin $n$ times, whose outcomes are
+  $X_i|P=p \overset{iid}{\sim} \text{Bernoulli}(p)$. Further suppose that $P \sim \text{Unif}(0,1)$,
+  (Hint: what is the distribution of $\sum_{i=1}^n X_i$? Call this a random
+  variable $X$.)
+
+a. Compute $\mathbb{E}[\sum \nolimits_{i=1}^n X_i]$, and
+b. Compute  $\mathbb{E}[P| \sum \nolimits_{i=1}^n X_i ]$.
+
+%</lec14-q9>
+
+
+%<*lec14-q10>
+
+Suppose the standard deviations of random variables $X_1,\cdots, X_n$ are
+  $\sigma_{X_i}=1$ for $i=1,..,n$, and also, $\rho(X_i,X_j) = 1/4$ for all pairs
+  $i\neq j$. Compute the variance of the sum $\sum \nolimits_{i=1}^n X_i $ and
+  average $\bar X = \frac{1}{n}\sum_{i=1}^n X_i$.
+
+%</lec14-q10>
+
+
+%<*lec14-q11>
+
+Suppose $X \sim \text{Exp}(\lambda)$ for some $\lambda >0$, and given $X=x$,
+  $Y\sim \text{Pois}(x)$. Find the conditional expectation $\mathbb{E}[X|Y=y]$ for some $y\in\mathbb{Z}_+$.
+
+%</lec14-q11>
+
+
+%<*lec14-q12>
+
+Suppose $X \sim \text{Beta}(a,b)$ for constants $a,b >0$, and
+  $Y| X=x \sim \text{Binom}(N,x)$ where $N$ is some fixed constant.
+
+a. Derive the conditional probability density $f_{X|Y}(x|y)$.
+b. Find the conditional expectation $\mathbb{E}[X|Y=y]$ for some
+  $y\in \{0,...,N\}$.
+
+%</lec14-q12>
+
+
+%<*lec14-q13>
+
+Suppose that a point
+  $X_1$ is chosen from the uniform distribution on the interval $[0,
+  1]$, and that after the value $X_1 = x_1$ is observed, a point
+  $X_2$ is chosen from a uniform distribution on the interval $[x_1,
+  1]$. Suppose further that additional variables $X_3, X_4, . .
+  .$ are generated in the same way. In general, for $j = 1, 2, . .
+  .$ , after the value $X_j=x_j$ has been observed,
+  $X_{j+1}$ is chosen from a uniform distribution on the interval $[x_j ,
+  1]$. Find the value of $\mathbb{E}[X_n]$.
+
+%</lec14-q13>
+
+%<*lec14-q14>
+
+Suppose $\mathbb{E}[Y|X] = aX+b$ for some constants $a,b$. Compute $\mathbb{E}[XY]$.
+
+
+   Next, suppose $a=0$. What is $\mathbb{E}[Y]$? What is $\operatorname{Cov}(X,Y)$?
+
+
+%</lec14-q14>
+
+%<*lec14-q15>
+
+Consider a clinical trial in which a number of patients will be treated
+   and each patient will have one of two possible outcomes: success or
+   failure. Let $P$ be the proportion of successes in $40$ patients, and let
+   $X_i = 1$ if the $i$'th patient is a success and $X_i = 0$ if not. Assume that
+   the random variables $X_1, X_2, \cdots$ are conditionally independent given
+   $P$ with $P(X_i = 1|P)= P$. Let $X = \sum_{i=1}^{40} X_i$, which is the number
+   of patients who are successes.
+
+a. What is a good prediction $d$ before the clinical trial starts?
+b. What is the best prediction $d(X)$ once the clinical trial has
+  ended and you have observed $X$?
+c. Let's say that $X=18$ patients were successful. Sketch the (1) pdf
+  of $P$ *prior to* the clinical trial, and (2) conditional distribution
+  of $P$ having conducted the clinical trial to observe $X=18$.
+d. Compute the MSEs of the predictions $d$ and $d(X)$ from (a) and (b)
+  respectively, which are $\mathbb{E}[(P-d)^2]$ and
+  $\mathbb{E}[(P-d(X))^2|X=18]$. Which is bigger?  Interpret this result in the
+  context of the clinical trial.
+
+%</lec14-q15>
+
+% ========== Lecture 15 ========== %
+%<*lec15-q1>
+
+What is the moment generating function for a $\text{Unif}(0,1)$ random
+  variable? Use it to prove that the expected value of this random variable is
+  $1/2$.
+
+%</lec15-q1>
+
+
+%<*lec15-q2>
+
+What is the moment generating function for a $\text{Unif}(a,b)$ random
+  variable? Using this,
+
+a. Prove that the mean (i.e., expectation) of a $\text{Unif}(a,b)$
+  random variable is $\frac{a+b}{2}$.
+b. Prove that the standard deviation of a $\text{Unif}(a,b)$ is $\frac{(b-a)^2}{12}$.
+
+%</lec15-q2>
+
+
+%<*lec15-q3>
+
+Suppose that the random variables $X$ and $Y$ are iid and that the mgf of
+  each is:
+  $$
+  \psi(t)=e^{t^2+3 t} \quad \text { for }-\infty<t<\infty .
+  $$
+  Find the mgf of $Z=2 X-3 Y+4$.
+
+%</lec15-q3>
+
+
+%<*lec15-q4>
+
+Suppose that $X$ and $Y$ are iid random variable for which the moment generating
+  function (mgf) is as follows:
+$$\psi(t)=e^{t^2+4t} \ \text{for} \ -\infty < t < \infty $$
+
+a. Find the mean and the variance of $X$.
+b. Find the mgf of $Z=3X-2Y+6$.
+
+%</lec15-q4>
+
+
+%<*lec15-q5>
+
+Take a Poisson random variable $X$ with parameter $\lambda$.
+
+
+a. What is the mgf of $X$? (Hint: use $\sum_{x=0}^\infty \frac{a^x}{x!} = e^a$.)
+b. Prove that both the mean and variance of $X$ are $\lambda$.
+
+%</lec15-q5>
+
+
+%<*lec15-q6>
+
+Show that the expectation of the sum of two Poisson random variables
+  $X\sim \text{Pois}(\lambda_1)$ and $Y \sim \text{Pois}(\lambda_2)$ is
+  $\lambda_1 + \lambda_2$, in at least two different ways.
+
+%</lec15-q6>
+
+
+%<*lec15-q7>
+
+Suppose that $X$ is a random variable for which the mgf is as follows:
+  $$
+  \psi(t)=\frac{1}{4}\left(3 e^t+e^{-t}\right) \quad \text { for
+  }-\infty<t<\infty .
+  $$
+  Find the mean and the variance of $X$.
+
+%</lec15-q7>
+
+
+%<*lec15-q8>
+
+Suppose it is known that $30$ percent of the items in a large manufactured
+  lot are of poor quality. Suppose also that a random sample of $n$ items is to
+  be taken from the lot, and let $Q_n$ denote the proportion of the items in the
+  sample that are of poor quality.
+
+  Find a value of $n$ such that
+  $\mathbb{P}(0.2 \le Q_n \le 0.4) \ge 0.75$ by using:
+
+a. the Chebyshev inequality and
+b. the exact probabilities of the binomial distribution. (Hint: you may
+  use R code and the functions \texttt{pbinom()} and \texttt{dbinom()}
+  useful. Otherwise, you may choose to use a calculator.)
+c. Which of (a) and (b) tell you a larger $n$? What is your
+  interpretation of this result?
+
+%</lec15-q8>
+
+
+%<*lec15-q9>
+
+Let $X$ be the number of calls arriving at a call center in the next
+  hour. $X$ is distributed as a Poisson random variable with mean parameter $3$. Use
+  Chebyshev's inequality to show that the probability that there will be more
+  than $6$ calls is smaller than $1/3$.
+
+
+%</lec15-q9>
+
+
+% ========== Lecture 16 ========== %
+%<*lec16-q1>
+
+Take $50$ random variables $X_1, \cdots, X_n$, each i.i.d. with mean $\mu$
+  and variance $\sigma^2=9$. Find the 90\% probability region of $\bar X - \mu$,
+  using (a) Chebyshev's inequality, and (b) Central limit theorem. Which is
+  wider, and provide your interpretation: why is it wider?
+
+
+%</lec16-q1>
+
+
+%<*lec16-q2>
+
+Booklets at a factory will be packaged into boxes of 100. On average, the
+  booklets weigh 1 ounce, with a standard deviation of $0.05$ ounce. The
+  manufacturer is interested in calculating:
+
+  $$\mathbb{P}(100 \text{ booklets weigh more than } 100.4 \text{ ounces}),$$
+
+  a number that would help the manufacturer determine whether too many booklets
+  are being put into a box. Explain how you would calculate the (approximate)
+  value of this probability. (Mention any relevant theorems or assumptions
+  needed.)
+
+%</lec16-q2>
+
+
+%<*lec16-q3>
+
+Find the *limiting distribution* of $\bar X_n$, for i.i.d. random
+  variables $X_1, \cdots, X_n$ that are distributed as $\text{Unif}(a,b)$.
+
+
+%</lec16-q3>
+
+%<*lec16-q4>
+
+Suppose that the height of men has mean 68 inches and standard deviation
+  2.6 inches. We draw 100 men at random. Find (approximately) the probability
+  that the average height of men in our sample will be at least 68 inches.\\
+
+  (Hint: you might want to study how to calculate normal probabilities. See the
+  textbook -- e.g. section 5 and Example 5.6.4)
+
+%</lec16-q4>
+%<*lec16-q5>
+
+%</lec16-q5>
+%<*lec16-q6>
+
+%</lec16-q6>
+%<*lec16-q7>
+
+%</lec16-q7>
+%<*lec16-q8>
+
+%</lec16-q8>
+%<*lec16-q9>
+
+%</lec16-q9>
+%<*lec16-q10>
+
+%</lec16-q10>
+
+% ========== Lecture 17 ========== %
+%<*lec17-q1>
+
+%</lec17-q1>
+%<*lec17-q2>
+
+%</lec17-q2>
+%<*lec17-q3>
+
+%</lec17-q3>
+%<*lec17-q4>
+
+%</lec17-q4>
+%<*lec17-q5>
+
+%</lec17-q5>
+%<*lec17-q6>
+
+%</lec17-q6>
+%<*lec17-q7>
+
+%</lec17-q7>
+%<*lec17-q8>
+
+%</lec17-q8>
+%<*lec17-q9>
+
+%</lec17-q9>
+%<*lec17-q10>
+
+%</lec17-q10>
+
+% ========== Lecture 18 ========== %
+%<*lec18-q1>
+
+%</lec18-q1>
+%<*lec18-q2>
+
+%</lec18-q2>
+%<*lec18-q3>
+
+%</lec18-q3>
+%<*lec18-q4>
+
+%</lec18-q4>
+%<*lec18-q5>
+
+%</lec18-q5>
+%<*lec18-q6>
+
+%</lec18-q6>
+%<*lec18-q7>
+
+%</lec18-q7>
+%<*lec18-q8>
+
+%</lec18-q8>
+%<*lec18-q9>
+
+%</lec18-q9>
+%<*lec18-q10>
+
+%</lec18-q10>
+
+% ========== Lecture 19 ========== %
+%<*lec19-q1>
+
+%</lec19-q1>
+%<*lec19-q2>
+
+%</lec19-q2>
+%<*lec19-q3>
+
+%</lec19-q3>
+%<*lec19-q4>
+
+%</lec19-q4>
+%<*lec19-q5>
+
+%</lec19-q5>
+%<*lec19-q6>
+
+%</lec19-q6>
+%<*lec19-q7>
+
+%</lec19-q7>
+%<*lec19-q8>
+
+%</lec19-q8>
+%<*lec19-q9>
+
+%</lec19-q9>
+%<*lec19-q10>
+
+%</lec19-q10>

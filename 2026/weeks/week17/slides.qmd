@@ -1,0 +1,53 @@
+---
+title: "Lecture 17: Gambler's ruin"
+format:
+  html
+---
+
+
+At the beginning of the class, it was likely mentioned that gambling is
+a bad idea. With your ample knowledge of probability theory, we can
+quantify how bad of an idea it is.
+
+::: {.callout-important title="Theorem"}
+**Gambling with fair coin.**
+
+If two players start with a fixed number of dollars ($n_A$ and $n_B$
+dollars respectively), and play a gambling game where one dollar is
+transferred from person A to B probability $1/2$, and B to A otherwise.
+The game ends when one person ends up with everything. Then, the
+probability of person A winning the game is $$\frac{n_A}{n_A + n_B}$$
+and the probability of person B winning is: $$\frac{n_B}{n_A + n_B}$$
+:::
+
+::: proof
+*Proof.* (Hint: Call the (random) amount of money person A possesses
+after $t$ rounds is $X_t$. What is $\mathbb{E}[X_{t+1}]$ in terms of
+$\mathbb{E}[X_t]$? ◻
+:::
+
+::: {.callout-important title="Theorem"}
+**Gambling with unfair coin.**
+
+If two players start with a fixed number of dollars ($i$ and $N-i$
+dollars respectively), and play a gambling game where one dollar is
+transferred from person A to B probability $1/2$, and B to A otherwise.
+The game ends when one person ends up with everything. Then, the
+probability of person A winning the game is $$\frac{1-a^{i}}{1-a^{N}},$$
+where $a=q/p$, the relative odds of person B winning.
+:::
+
+::: proof
+*Proof.* (Hint: Call $P_i$ the probability that person $A$ will win if
+they start with $i$ dollars. How does $P_i$ relate to $P_{i+1}$ and
+$P_{i-1}$?) ◻
+:::
+
+::: {.callout-tip title="Example"}
+If a person walks into a casino with $5$ dollars and plays the
+aforementioned game, how likely it is to double their fortune, when ..
+
+-   The casino is 1.1 times likely to win a given game.
+
+-   The casino is 2 times likely to win a given game.
+:::

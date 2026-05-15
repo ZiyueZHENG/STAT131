@@ -1,0 +1,25 @@
+---
+title: "Discussion - Week 05"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that two balanced four-sided dice are rolled, and let $X$ denote
+  the sum of the two numbers that appear, and let $Y$ denote the absolute value
+  of the difference between the two numbers that appear.
+
+a. Derive the probability mass function (pmf) of the random variable $X$.
+b. Also derive the pmf of the random variable $Y$. What is the most
+  probable value of $Y$?
+c. Sketch the probability mass function for the above two random
+  variables $X$ and $Y$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+An airline knows that $5$ percent of the people making reservations on a
+  certain flight will not show up. Consequently, their policy is to sell $52$
+  tickets for a flight that can hold only $50$ passengers. What is the
+  probability that there will be a seat available for every passenger who shows
+  up? (Calculate a final numerical answer for full credit.)
+:::

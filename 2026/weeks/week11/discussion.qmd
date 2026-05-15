@@ -1,0 +1,11 @@
+---
+title: "Discussion - Week 11"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that a random variable $X$ can have each of the seven values
+  $-3,-2,-1,0,1,2,3$ with equal probability.  Determine the pmf of:
+  $$Y= X^2-X.$$
+:::

@@ -1,0 +1,34 @@
+---
+title: "Discussion - Week 07"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that a random variable $X$ has a discrete distribution
+   with the following probability mass function:
+
+$$
+f(x)=
+     \begin{cases}
+       cx & \text{for } $x = 0, 1, 2, 3, 4, 5.$\\
+       0 & \text{otherwise}.
+     \end{cases}
+$$
+
+   Determine the value of the constant $c$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+Take random variable $X$ whose pdf is:
+  f(x)= \begin{cases}c\left(9-x^2\right) & \text { for }-3 \leq x \leq 3, \\ 0 & \text { otherwise. }\end{cases}
+
+a. Find the constant $c$ and sketch the pdf.
+b. Calculate $\mathbb{P}(X<0)$, $\mathbb{P}(-1 \leq X \leq 1)$, and $\mathbb{P}(X>2)$.
+:::
+
+::: {.callout-warning title="Problem 3"}
+Take an exponential random variable $X$ with parameter $\beta$. What is the
+  *cumulative* probability up till a point $x$, i.e., $\mathbb{P}(X \le x)$? Sketch
+  and derive this.
+:::

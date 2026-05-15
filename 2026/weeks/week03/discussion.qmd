@@ -1,0 +1,19 @@
+---
+title: "Discussion - Week 03"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+You have a string of 10 letters. How many substrings of length 7 can
+  you form based on the original string?
+:::
+
+::: {.callout-warning title="Problem 2"}
+A company is looking to hire 3 new-grad analysts and asked UCSC for
+  potential candidates. UCSC advised that they hire 3 students from the Fall
+  STAT 131 class. Because the positions must be filled as quickly as possible,
+  they decided to skip the interview process and hire 3 of you completely at
+  random. What is the probability that *you* will become a software engineer
+  at this company?
+:::

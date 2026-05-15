@@ -1,0 +1,377 @@
+---
+title: "Lecture 14: More about moments"
+format:
+  html
+---
+
+
+## Covariance and Correlation \[DS 4.6\] \[Lec 14\] {#sec:Covariance}
+
+When we are interested in the joint distribution of two random
+variables, it is useful to have a summary of how much the two random
+variables depend on each other. Covariance and correlation attempt to
+measure that dependence, (note, they only capture a particular type of
+dependence, namely linear dependence.)
+
+::: {.callout-note title="Definition"}
+**Covariance.**
+
+For bivariate random variable $(X,Y)$, suppose $\mathbb{E}[X] = \mu_X$
+and $\mathbb{E}[Y] = \mu_Y$,
+$$\cov(X,Y) = \mathbb{E}[(X-\mu_X)(Y-\mu_Y)],$$ provided
+$\mathbb{E}[\cdot]$ exists.
+:::
+
+With the above definition, suppose the $\sigma_X^2, \sigma_Y^2 <\infty$,
+then: $$\cov(X,Y) = \mathbb{E}[XY] - \mathbb{E}[X] \mathbb{E}[Y].$$
+
+For two random variables, covariance is a numerical summary of their
+relationship -- about how do they vary together (linearly).
+
+::: {.callout-tip title="Example"}
+Suppose the joint pdf of $(X,Y)$ is
+$$f_{X,Y}(x,y) = \left(2xy+\frac{1}{2}\right) \cdot 1_{x\in[0,1], y\in
+      [0,1]}.$$ Let us say we also know that
+$\mathbb{E}[X] = \mathbb{E}[Y] = \frac{4}{3}$. (Make sure to try this on
+your own.)
+
+-   Compute $\mathbb{E}[XY] = \frac{25}{72}$.
+
+-   Compute $\cov(X,Y) = \frac{1}{144}$.
+:::
+
+Here are some properties of covariance:
+
+1.  Covariance can be negative, while variance cannot be negative.
+
+2.  $\cov(X,X)=V[X]$;
+
+3.  If $X\perp Y$, $\cov(X,Y) = 0$.
+
+4.  Even if $\cov(X,Y) = 0$, $X$ and $Y$ can still be dependent.
+
+::: {.callout-tip title="Example"}
+**Zero covariance does not imply independence.**
+
+Take an random variable $X$ that is equally likely to be -1, 0, or
+1[^1], as well as $Y=X^2$. Calculate the covariance of $X$ and $Y$.
+:::
+
+**Zero covariance does imply independence.**
+
+Let us next examine the variance of linear *sums* of random variables.
+We can write that: $$V[X+Y] = V[X]+V[Y] +2 \cov(X,Y),$$ More generally,
+$$V[aX+bY+c] =a^2 V[X]+ b^2V[Y] +2ab \times \cov(X,Y).$$
+
+::: {.callout-tip title="Example"}
+What is $V[X-Y]$? What about when $X \perp Y$?
+:::
+
+::: {.callout-important title="Theorem"}
+Suppose $V[X_i]<\infty$ for $i=1,..,n$,
+$$V[ \sum \nolimits_{i=1}^n X_i] = \sum \nolimits_{i=1}^n  V[X_i]
+  + 2 \sum \sum \nolimits_{i<j} \cov(X_i,X_j).$$ If $\{X_i\}_{i=1}^n$
+are independent, $V[ \sum \nolimits_{i=1}^n
+X_i] = \sum \nolimits_{i=1}^n  V[X_i]$.
+:::
+
+A key drawback of covariance is that it is not unit free. If you
+multiply $X$ and $Y$ by constants $a$ and $b$, we see that covariance
+grows by that amount: $$\cov(aX,bY) = ab \cov(X,Y).$$
+
+So it is generally impossible to compare dependence across pairs of
+random variables based on covariances.
+
+An easy fix is to *rescale* the covariance so that the new metric is
+comparable.
+
+::: {.callout-note title="Definition"}
+**Correlation.**
+
+$$\corr(X,Y) = \frac{\cov(X,Y)}{
+    \sqrt{V[X]} \sqrt{V[Y]}},$$ Alternatively,
+$\rho(X,Y) = \frac{\cov(X,Y)}{\sigma_X\sigma_Y}$
+:::
+
+::: {.callout-important title="Theorem"}
+**Size of correlation.**
+
+$\rho(X,Y) \in [-1,1]$.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X,Y$ have joint pdf
+$f(x,y) = (x+y) \times 1(x\in [0,1],y\in [0,1])$.
+
+-   Compute $\cov(X,Y)$.
+
+-   Compute $\corr(X,Y)$.
+:::
+
+## Conditional Expectations \[DS 4.7\] \[Lec 14\] {#sec:cond-expect}
+
+Recall expectation is a good one-number summary of a random variable.
+However, often you want a summary that takes into account additional
+information about another random phenomenon.
+
+How to formally take the additional information into account?
+Conditional expectation is the tool of our choice.
+
+::: {.callout-note title="Definition"}
+**Conditional Expectation (Mean).**
+
+Suppose we have random vector $(X,Y)$ such that
+$\mathbb{E}[|Y|] < \infty$. A conditional expectation
+$\mathbb{E}[Y|X=x]$ of $Y$ given $X=x$ is defined as follows:
+
+-   If $Y|X=x$ is continuous,
+    $\mathbb{E}[Y|X=x] = \int y f_{Y|X}(y|x)dy$
+
+-   If $Y|X=x$ is discrete, $\mathbb{E}[Y|X=x] = \sum y f_{Y|X}(y|x)$
+:::
+
+The conditioning information in the definition is $X=x$, fixed as a
+specific value.
+
+Generally, if you take $X$ to be a random variable rather than a fixed
+value $X=x$, $\mathbb{E}[Y|X]$ is a random variable and a function of
+$X$.
+
+Intuitively, we should think of $X=x$ as representing information that
+has been revealed to us. $\mathbb{E}[Y|X=x]$ is our best guess of the
+value of $Y$ given the information we have.
+
+The "other" random variable $X$ may or may not be related to $Y$. In
+fact, it's interesting to discuss the two extremes:
+
+1.  If $X \perp Y$, the expectation $\mathbb{E}[Y|X] = \mathbb{E}[Y]$;
+    it is unchanged even after observing $X$.
+
+2.  If $X=Y$, $\mathbb{E}[Y|X] = X$; if we know $X$, our best guess is
+    $X$ itself.
+
+::: {.callout-tip title="Example"}
+The following table is the joint pmf of $(X,Y)$ with $X$ being household
+size and $Y$ being the number of cars owned by the household.
+
+::: center
+                  household size                                                          
+  -------------- ---------------- ------- ------- ------- ------- ------- ------- ------- --------------
+   $\#$ of cars         1            2       3       4       5       6       7       8     $f_Y(\cdot)$
+        0             0.040        0.028   0.012   0.008   0.008   0.004     0       0        0.100
+        1             0.048        0.084   0.100   0.120   0.100   0.060   0.020   0.004      0.536
+        2             0.004        0.020   0.040   0.060   0.080   0.044   0.020   0.012      0.280
+        3               0          0.008   0.012   0.020   0.020   0.012   0.008   0.004      0.084
+   $f_X(\cdot)$       0.092        0.140   0.164   0.208   0.208   0.120   0.048   0.020  
+:::
+
+-   \(a\) Describe $\mathbb{E}[Y|X]$ in words.
+
+-   \(b\) Compute $\mathbb{E}[Y|X=4]$.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose the joint pdf of $X,Y$ is
+$f_{X,Y}(x,y) = (x+y)\cdot 1_{(x,y)\in [0,1]^2}$.
+
+-   Find the conditional density $f_{Y|X}(y|x)$ for $(x,y) \in \bR^2$.
+
+-   Compute $\mathbb{E}[Y|X]$. (hint: this is a random variable.)
+
+-   Compute $\mathbb{E}[Y|X=\frac{1}{2}]$.
+:::
+
+Note: Conditional expectation is also an expectation. Therefore, the
+properties of expectations -- functions of random variables (Theorem
+[\[thm:lotus\]](#thm:lotus){reference-type="ref"
+reference="thm:lotus"}), and linearity (Theorem
+[\[thm:linearity\]](#thm:linearity){reference-type="ref"
+reference="thm:linearity"}) -- also hold.
+
+::: {.callout-important title="Theorem"}
+**Law of Iterated Expectation (LIE).**
+
+$$\mathbb{E} [\mathbb{E}[Y|X]] = \mathbb{E}[Y].$$
+:::
+
+::: proof
+*Proof.* This is the "expectation" version of the Law of Total
+Probability $$\mathbb{E}[Y] = \int yf_Y(y) dy = \int\int yf(x,y)dx dy
+  = \int \left[\int yf_{Y|X}(y|x)dy \right] f_{X}(x) dx$$ whereas
+$f_{Y}(y) =\int f(x,y)dx= \int  f_{Y|X}(y|x) f_{X}(x) dx.$ ◻
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X\sim \text{Unif}(0,1)$, and $Y|X=x \sim \text{Unif}(x,1)$.
+Compute $\mathbb{E}[Y]$ in the following two ways.
+
+-   First compute the marginal probability density $f_Y(y)$ of $Y$.
+    Then, use this to calculate the expectation $\mathbb{E}[Y]$.
+
+-   Use the law of iterated expectation, i.e.,
+    $\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y | X]]$.
+:::
+
+Now, suppose we have a random variable $Z = h(X,Y)$ that is a function
+of both random variables $X$ and $Y$. Then, $\mathbb{E}[Z|X=x]$ can be
+calculated either as
+
+1.  Taking the conditional distribution of $Z=h(X,Y)$, and calculating
+    the conditional distribution of $Z$ given $X=x$, or
+
+2.  Taking the conditional distribution of $r(x, Y)$ given $X=x$.
+
+This is formalized in the next lemma.
+
+::: {.callout-important title="Lemma"}
+**Conditioning is knowing.**
+
+Suppose $Z=h(X,Y)$. Then, the conditional expectation of $Z$ given $X=x$
+is: $$\mathbb{E}[Z|X=x] =\mathbb{E}[h(X,Y)|X=x]
+    = \mathbb{E}[h({x},Y)|X=x].$$ Further, if $Z$ is continuous,
+$$\mathbb{E}[Z|X=x] = \int h(x,y)f_{Y|X}(y|x)dy$$
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X\sim f_X(x)$, and that $Y=X^2$. Compute $\mathbb{E}[Y|X]$ and
+$\mathbb{E}[X|Y]$.
+:::
+
+Knowing this, we can conveniently define an alternative form for a
+conditional expectation. First, define $Z=h(X,Y)=Y$. Then, use the
+previous lemma to get: $$\mathbb{E}[Y|X=x] =\int y f_{Y|X}(y|x) dy.$$
+Then, use $f_{Y|X}(y|x) = \frac{f_{X,Y}(x,y)}{f_X(x)}$.
+
+::: {.callout-important title="Lemma"}
+**Alternative expression for conditional expectation.**
+
+Another formula for conditional expectation is: $$\mathbb{E}[Y|X=x] =
+  \frac{\int y f_{X,Y}(x,y) dy}{f_X(x)}.$$
+:::
+
+We are now used to the fact that $\mathbb{E}[Y|X=x]$ is a best *updated*
+guess for $Y$ after observing $X=x$.
+
+There is another important viewpoint to it. It turns out that, when you
+want to *predict* $Y$ after having observed some value of $X$, the
+conditional expectation $\mathbb{E}[Y|X]$ is a very good *predictor* of
+$Y$.
+
+::: {.callout-important title="Theorem"}
+**The conditional expectation predicts with the lowest mean squared
+error (MSE).** Specifically, for the random vector $(X,Y)$, the
+prediction $d(X)$ of $Y$ such that its mean squared error
+$$\mathbb{E}[(Y-d(X))^2]$$ is minimized with $d(X)=\mathbb{E}[Y|X]$.
+:::
+
+As we will see in our next lecture, the mean squared error of this
+optimal predictor $\mathbb{E}[Y|X]$ is equal to the conditional
+*variance*. [^2]
+
+::: {.callout-tip title="Example"}
+Let $X$ be the number of patients out of the first 40 in a clinical
+trial who have been cured. Suppose that $P$ has the uniform distribution
+on the interval \[0,1\] before the trial begins, and suppose that the
+outcomes of the patients are conditionally independent given $P=p$.
+
+-   What is a good prediction before the clinical trial starts?
+
+-   What is the MSE-optimal prediction of $P$ once you've observed $X$?
+:::
+
+This is a simple but profound result. Given one random variable, our
+best guess (prediction) for another random variable is the conditional
+mean. We call this MSE-optimal prediction.
+
+## Conditional Variance \[DS 4.7\] \[Lec 14\] {#sec:conditional-variance}
+
+Recall we learned about the spread of a random variable $X$ as the
+variance. Let us call this *marginal* variance. We will extend this
+notion to the variability *conditional* on another random variable $X$.
+
+::: {.callout-note title="Definition"}
+For the random vector $(X,Y)$,
+$$V[Y|X=x] =\mathbb{E}[ (Y- \mathbb{E}[Y|X=x])^2|X=x] .$$
+:::
+
+As $X$ is a random variable, $V[Y|X]$ is also a random variable and a
+function of $X$.
+
+::: {.callout-tip title="Example"}
+Take joint pdf $f_{X,Y}(x,y) = (x+y) \times 1((x,y)\in [0,1]^2)$ of a
+random vector $(X,Y)$. The conditional expectation of $Y$ given $X=x$ is
+$\mathbb{E}[Y|X] = \frac{\frac{1}{2} X + \frac{1}{3}}{X + \frac{1}{2}}$
+for $0 \le X \le 1$. What is $V[Y|X]$?
+:::
+
+Next, we learn about a key relationship between marginal variance and
+conditional variance.
+
+::: {.callout-important title="Theorem"}
+**Law of total variance.**
+
+Also known as Eve's law: $$V[Y] = E[V[Y|X]] +V[E[Y|X]].$$
+:::
+
+Often when the value of the random variable $X=x$ is revealed, there is
+less uncertainty about the other random variable $Y$. That is, the
+conditional variance $V[Y|X=x]$ of $Y$ is smaller than the marginal
+variance $V[Y]$.
+
+Here is an example of this.
+
+::: {.callout-tip title="Example"}
+Let us revisit the example of a two-step model where (1) $X$ is uniform
+between 0 and 1, and (2) given $X=x$, $Y$ is uniform between $x$ and
+$1$.
+
+-   Calculate $V[Y|X=x]$.
+
+-   Calculate $V[Y]$
+
+-   Compare the size of the two (in a graph over values
+    $0 \le X \le 1$).
+:::
+
+But the reduction in variance is not *guaranteed*. Take random variable
+$Z=XY$ for independent random variables $X \perp Y$, where $X$ is
+equally likely to be $0$ or $1$, and $Y$ is Normal with mean zero and
+variance 1. Then, the marginal variance is:
+
+$$V[Z] = 1/2.$$
+
+and the conditional variance is
+
+$$V[Z|X=x] = V[xY] = x^2 V[Y] = x^2.$$
+
+Clearly, if $x$ is bigger than $\sqrt{1/2}$, the conditional variance
+$V[Z|X=x]$ is larger than $X$. Put another way, there is positive
+probability that the variance actually increases:
+
+$$\mathbb{P}\left( V[Z|X] > V[Z] \right) = \mathbb{P}\left( X^2 > \frac{1}{2} \right) \simeq 0.707 > 0.$$
+
+So, in what sense is the variance reduced when $X$ is revealed? *On
+average* (in plain language), or in *expectation*:
+
+::: {.callout-important title="Theorem"}
+**Conditional Variance vs. Marginal Variance.**
+
+$$V[Y] \ge E[V[Y|X]].$$
+:::
+
+The proof is simple: examine the law of total variance.
+
+## In-class exercise \[Lec 14\] {#in-class-exercise-lec-14 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: This is called the *discrete* uniform distribution, on values
+    $\{-1,0,1\}$.
+
+[^2]: Here is quick useeful exercise: for a random vector $(X,Y)$, prove
+    that the prediction $d(X)$ of $Y$ that minimizes
+    $\mathbb{E}[(Y-d(X))^2]$ is $d(X) = \mathbb{E}[Y|X]$.

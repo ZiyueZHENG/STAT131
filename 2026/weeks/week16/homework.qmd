@@ -1,0 +1,39 @@
+---
+title: "Homework - Week 16"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Take $50$ random variables $X_1, \cdots, X_n$, each i.i.d. with mean $\mu$
+  and variance $\sigma^2=9$. Find the 90\% probability region of $\bar X - \mu$,
+  using (a) Chebyshev's inequality, and (b) Central limit theorem. Which is
+  wider, and provide your interpretation: why is it wider?
+:::
+
+::: {.callout-warning title="Problem 2"}
+Booklets at a factory will be packaged into boxes of 100. On average, the
+  booklets weigh 1 ounce, with a standard deviation of $0.05$ ounce. The
+  manufacturer is interested in calculating:
+
+  $$\mathbb{P}(100 \text{ booklets weigh more than } 100.4 \text{ ounces}),$$
+
+  a number that would help the manufacturer determine whether too many booklets
+  are being put into a box. Explain how you would calculate the (approximate)
+  value of this probability. (Mention any relevant theorems or assumptions
+  needed.)
+:::
+
+::: {.callout-warning title="Problem 3"}
+Find the *limiting distribution* of $\bar X_n$, for i.i.d. random
+  variables $X_1, \cdots, X_n$ that are distributed as $\text{Unif}(a,b)$.
+:::
+
+::: {.callout-warning title="Problem 4"}
+Suppose that the height of men has mean 68 inches and standard deviation
+  2.6 inches. We draw 100 men at random. Find (approximately) the probability
+  that the average height of men in our sample will be at least 68 inches.\\
+
+  (Hint: you might want to study how to calculate normal probabilities. See the
+  textbook -- e.g. section 5 and Example 5.6.4)
+:::

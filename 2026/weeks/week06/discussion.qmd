@@ -1,0 +1,21 @@
+---
+title: "Discussion - Week 06"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that a random variable $X$ can take only the two values $a$ and
+  $b$ with the following probabilities: $\mathbb{P}(X= a)= p$ and $\mathbb{P}(X= b)= 1-p$.
+  Express the pmf of $X$ in a form similar to that of the Bernoulli pmf in the
+  lecture notes.
+:::
+
+::: {.callout-warning title="Problem 2"}
+A parking lot has two entrances. Cars arrive at entrance I according to a
+  Poisson distribution at an average of three per hour and at entrance II
+  according to a Poisson distribution at an average of four per hour.  What is
+  the probability that a total of three cars will arrive at the parking lot in a
+  given hour? Assume that the numbers of cars arriving at the two entrances are
+  independent.
+:::

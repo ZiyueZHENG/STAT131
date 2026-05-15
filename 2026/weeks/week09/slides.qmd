@@ -1,0 +1,301 @@
+---
+title: "Lecture 9: Bivariate distributions"
+format:
+  html
+---
+
+
+## Bivariate distributions \[DS 3.4\] \[Lec 9\] {#sec:bivar-distr}
+
+So far, we have mainly dealt with one random variable at a time. Let's
+expand our toolset to deal with two or more variables at a time. First,
+let's define a *bivariate* random vector of $X$ and $Y$.
+
+::: {.callout-note title="Definition"}
+**Bivariate random vector.**
+
+$(X,Y): \Omega_{(X,Y)} \to \bR^2$.
+:::
+
+Just like in one variable's distribution (which has a cdf and pmf or pdf
+associated with it), a bivariate random vector $(X,Y)$ also has a
+distribution that describes its *joint* random behavior.
+
+::: {.callout-note title="Definition"}
+**Joint distribution.**
+
+The joint distribution is defined as the collection of all probabilities
+of the form $\mathbb{P}((X,Y) \in E)$ for all $E \subset \bR^2$ such
+that $\{(X,Y)
+  \in E\}$ is an event.
+:::
+
+We will start with the case where $X$ and $Y$ are both discrete, noting
+that all of the following are possible:
+
+-   $X$ and $Y$ are both discrete.
+
+-   $X$ and $Y$ are both continuous.
+
+-   $X$ is discrete, and $Y$ is continuous.
+
+::: {.callout-note title="Definition"}
+**Discrete joint distribution.**
+
+When both $X$ and $Y$ are discrete, we say that $(X,Y)$ have a discrete
+joint distribution (of only countably many possible values).
+:::
+
+::: {.callout-tip title="Example"}
+Suppose that $3$ balls are chosen at random from an urn with 4 red balls
+and 3 blue balls. Call $X$ the number of red balls you will draw, and
+$Y$ is the number of blue balls you will draw.
+
+-   Are $X$ and $Y$ independent?
+
+-   What are the possible values of $(X,Y)$ that have nonzero
+    probability?
+
+-   What is the probability that you will draw $2$ red balls and $1$
+    blue ball?
+:::
+
+This naturally leads us to the notion of the *joint pmf* that describes
+the probabilities of *all* such configurations of $X$ and $Y$.
+
+::: {.callout-note title="Definition"}
+**Joint pmf.**
+
+The joint probability mass function (pmf) of $X$ and $Y$ is defined as
+the function $f$ such that $$f(x,y) = \mathbb{P}(X=x,Y=y)$$ for all
+$(x,y) \in \bR^2$.
+:::
+
+::: center
+![image](figures/ds-figure-3-10-discrete-bivariate.png){width=".5\\linewidth"}
+:::
+
+The following two properties hold (these are analogous properties to the
+ones you learned from single random variables' pmfs):
+
+-   $f(x,y) \ge 0$ for all $(x,y)$, and
+
+-   $\sum \nolimits_{(x,y)} f(x,y) = 1$.
+
+(Hint: these can serve as a *sanity check* for your own pmfs.)
+
+The joint pmf of two discrete random variables is a nonnegative function
+$f$ such that the probability of the pair $(X, Y )$ being in a set $E$
+is the sum of $f(x, y)$ over all points in $E$. A joint pmf can be
+strictly positive at countably many pairs $(x, y)$ at most.
+
+::: {.callout-tip title="Example"}
+**Auto insurance.**
+
+An auto insurance company uses the following joint following joint pmf
+of $X$ (the brand of the car), and $Y$ (whether or not the car will be
+stolen) for its actuarial calculations.
+
+::: center
+   Stolen    Brand 1   Brand 2   Brand 3   Brand 4   Brand 5   Total
+  --------- --------- --------- --------- --------- --------- -------
+   No (0)     0.129     0.298     0.161     0.280     0.108    0.976
+   Yes (1)    0.010     0.010     0.001     0.002     0.001    0.024
+    Total     0.139     0.308     0.162     0.282     0.109    1.000
+:::
+
+With the joint pmf, we can answer the following questions. (Write these
+in terms of $X$ and $Y$, and find them)
+
+-   What is the probability of a car being stolen?
+
+-   What is the probability of a Brand 3 car being stolen?
+:::
+
+::: {.callout-tip title="Example"}
+**Auto insurance.**
+
+A competing auto insurance company uses a different joint distribution
+table. They still use the *overall*[^1] probabilities of brands ($X$)
+and ($Y$):
+
+$$f_X(x) = \mathbb{P}(X=x) =
+\begin{cases}
+0.139 &\text{ if }x=1\\
+ 0.308& \text{ if }x=2\\
+ 0.162& \text{ if }x=3\\
+0.282& \text{ if }x=4\\
+ 0.109& \text{ if }x=5\\
+ 0& \text{ otherwise }
+  \end{cases}\;\;\;\;\;
+f_Y(y) =
+\mathbb{P}(Y=y) =
+\begin{cases}
+0.0976 &\text{ if } y=0\\
+0.024 &\text{ if } y =1\\
+0 &\text{ otherwise.}
+\end{cases}$$ However, in their actuarial calculations, this company
+assumes that $X$ and $Y$ are *independent*[^2] In this case, what is
+$P(X=1, Y=2)$ (Can you recognize how to make an entire joint pmf table
+for this company?)
+:::
+
+Next, we will consider two *continuous* random variables $X$ and $Y$.
+
+::: {.callout-note title="Definition"}
+**Continuous joint distribution.**
+
+We say that random variables $X$ and $Y$ have a continuous joint
+distribution if both $X$ and $Y$ are continuous, and there exists a
+nonnegative function $f$ defined over the entire xy-plane such that for
+every subset $C$ of the plane,
+$$\mathbb{P}((X,Y) \in C) = \iint_C f(x,y) dx dy.$$
+:::
+
+::: {.callout-note title="Definition"}
+**Joint pdf.**
+
+The function $f$ defined above is the joint probability density function
+(pdf).
+:::
+
+::: center
+![image](figures/ds-figure-3-11-continuous-bivariate.png){width=".6\\linewidth"}
+:::
+
+The following two properties hold for any joint pdf $f$:
+
+-   $f(x,y) \ge 0$ for all $(x,y) \in \bR^2$, and
+
+-   $\iint_{\bR^2} f(x,y)\; dx dy = 1$.
+
+We'll try a couple of examples next.
+
+::: {.callout-tip title="Example"}
+Suppose the joint pdf of $(X,Y)$ is
+$f(x,y) = c x^2y \times 1_{ x^2 \le y <1}$.
+
+-   Find $c$.
+
+-   Calculate $\mathbb{P}(X>Y)$.
+
+-   Calculate $\mathbb{P}(X=Y)$.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X$ and $Y$ are both $\text{Uniform}(0,1)$ independently. Let
+$$Z=\lfloor{X/Y}\rfloor,$$ be the *floor* of the ratio $X/Y$ (i.e., $X$
+divided by $Y$ then rounded down). Write the probability
+$\mathbb{P}(Z=1)$ as an integral of the joint pdf and evaluate the
+integral.
+:::
+
+**Bivariate Normal distribution.**
+
+Occasionally, we run into scenarios where a *mixed* bivariate
+distribution -- where one of the random variables is discrete and the
+other is continuous -- comes in handy.
+
+For example, let $X$ be the indicator of whether or not the first
+patient is a "success" (no relapse). That is, $X=1$ if the patient does
+not relapse and $X= 0$ if the patient relapses. Also, let $Y$ be the
+proportion of patients who have no relapse among all patients who might
+receive the treatment. It is clear that $X$ must have a discrete
+distribution, but it might be sensible to think of $Y$ as a continuous
+random variable taking its value anywhere in the interval $[0, 1]$.
+
+::: {.callout-note title="Definition"}
+**Mixed bivariate distribution.**
+
+If $X$ is discrete, while $Y$ is continuous (or the other way around),
+then $X$ and $Y$ follow a mixed bivariate distribution.
+:::
+
+::: {.callout-note title="Definition"}
+**Joint pmf/pdf.**
+
+A joint pmf/pdf is defined as the function $f(x,y)$ such that
+$$\mathbb{P}(X \in A, Y \in B) =
+  \int \nolimits_B \left[\sum\nolimits_{x\in A}f(x,y) \right]dy$$
+:::
+
+In words, the joint pdf of a discrete random variable $X$ and a
+continuous random variable $Y$ is a nonnegative function $f$ such that
+the probability of the pair $(X, Y )$ being in a set $E$ is obtained by
+(1) summing $f(x, y)$ over all $x$ such that $(x, y) \in E$ for each $y$
+and then (2) integrating the resulting function of $y$.
+
+**Q:** Is the inside of the integral in the expression for
+$\mathbb{P}(X \in A, Y \in B)$ a function of $y$ or not?
+
+Every joint pmf/pdf $f$ (of discrete $X$ and continuous $Y$) must
+satisfy the following properties:
+
+-   $f(x,y) \ge 0$ for all $(x,y) \in \bR^2$, and
+
+-   $\sum_{x} \int\nolimits_{-\infty}^\infty  f(x,y)dy = 1$.
+
+::: {.callout-tip title="Example"}
+Suppose that the joint pmf/pdf of $X$ and $Y$ is
+$$f(x,y) = \frac{xy^{x-1}}{3} \text{ for }x = 1, 2, 3 \text{ and } 0 < y < 1.$$
+
+-   Check that $\sum_{x} \int\nolimits_{-\infty}^\infty  f(x,y)dy = 1$.
+
+-   Calculate $\mathbb{P}(2 \le X, 0.5 \le Y)$.
+:::
+
+Lastly, we'll learn about the joint cdf, which can be defined for any
+random variable $X$ and $Y$.
+
+::: {.callout-note title="Definition"}
+**Joint cdf.**
+
+A joint cdf is the function $F$ such that for all $(x,y) \in \bR^2$,
+$$F(x,y) = \mathbb{P}(X\le x, Y \le y).$$
+:::
+
+How to go from a joint cdf to the cdf of a single random variable $X$?
+Follow these steps:
+
+$\begin{aligned}
+F_X(x) & =P\{X \leq x\} \\
+ & =P\{X \leq x, Y<\infty\} \\
+ & =P\left(\lim _{y
+\rightarrow \infty}\{X \leq x, Y \leq y\}\right) \\
+ & =\lim _{y \rightarrow
+\infty} P\{X \leq x, Y \leq y\} \\
+ & =\lim _{y \rightarrow \infty} F(x, y) \\
+ &\equiv F(x, \infty)\end{aligned}$
+
+Here are some more properties. A joint cdf is
+
+-   Non-decreasing for each axis (variable), when the other fixed.
+
+-   The cdf $F_X$ of one variable $X$ can be obtained as
+    $\lim_{y\to\infty} F(x,y)$.
+
+-   If $X$ and $Y$ are continuous, the joint cdf is $\int_{-\infty}^x
+      \int_{-\infty}^y f(r,s) dr \;ds$.
+
+-   The joint pdf can be obtained by taking the second mixed partial
+    derivative with respect to both variables:
+    $$f_{X,Y}(x,y) = \frac{\partial^2 F(x,y)}{\partial x \partial y} = \frac{\partial^2 F(x,y)}{\partial y \partial x}$$
+    at all points $(x,y)$ where the second derivative exists.
+
+**Bivariate Normal distribution.**
+
+## In-class exercise \[Lec 9\] {#in-class-exercise-lec-9 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: We'll learn that this is called a *marginal* distribution, in a
+    couple of lectures.
+
+[^2]: Two random variables $X$ and $Y$ are independent (denoted as
+    $X \perp Y$) if
+    $$\mathbb{P}(X\in A, Y\in B) = \mathbb{P}(X\in A) \mathbb{P}(Y\in B)$$
+    holds for all sets $A$ and $B$.

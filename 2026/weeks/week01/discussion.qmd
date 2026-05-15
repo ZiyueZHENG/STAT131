@@ -1,0 +1,29 @@
+---
+title: "Discussion - Week 01"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+If two balanced dice are rolled, what is the sample space? What is the set
+  corresponding to the event that both rolls will be the same?
+:::
+
+::: {.callout-warning title="Problem 2"}
+From a survey of 60 students (undergraduate or graduate) attending a
+  university, it was found that 9 were living off campus, 36 were
+  undergraduates, and 3 were undergraduates living off campus. Find the number
+  of these students who were
+
+a. Undergraduates, were living off campus, or both.
+b. undergraduates living on  campus.
+c. graduate students living on campus.
+:::
+
+::: {.callout-warning title="Problem 3"}
+Draw Venn diagrams to verify:
+
+a. $A = (A \cap B) \cup (A \cap B^C)$.
+
+b. If $B \subset A$, then $A = B \cup (A \cap B^C)$.
+:::

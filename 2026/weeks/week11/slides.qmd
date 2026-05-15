@@ -1,0 +1,110 @@
+---
+title: "Lecture 11: Transformations of random variables"
+format:
+  html
+---
+
+
+## Transformations of Random Variables \[DS 3.8, 3.9\] \[Lec 11\] {#sec:transform}
+
+Suppose we know the distribution of a random variable $X$, but are
+actually interested in the distribution of a function $h(X)$ of that
+random variable. For example, if $X$ is the rate at which customers are
+served in a queue, then $1/X$ is the average waiting time. We will learn
+about determining the distribution of the transformed random variable
+$h(X)$.
+
+We will handle discrete and continuous random variables separately.
+Let's start with an example.
+
+::: {.callout-tip title="Example"}
+Let $X$ have a uniform distribution on the integers $\{1,2,\cdots,
+  9\}$. Suppose we define $Y = |X-5|$, which measures how far $X$ is
+from the middle of the distribution, $5$. What is the probability that
+$Y=1$?
+:::
+
+Next, let's define a general procedure for discrete random variable $X$
+with pmf $f_X(\cdot)$. First introduce the new random variable
+$Y= h(X)$. Then, the pmf of $Y$ is:
+
+$$f_Y(y) = \mathbb{P}(Y=y) = \mathbb{P}(h(X)=y) =  \sum\nolimits _{\{x:h(x)=y\}} f_X(x) .$$
+
+::: {.callout-tip title="Example"}
+Continue with the previous example where $X$ is uniform on the integers
+$\{1,2,\cdots, 9\}$ and $Y = |X-5|$ What is the probability distribution
+of $Y$?
+:::
+
+Next, for continuous random variable $X$ with pdf $f_X(x)$, let
+$Y=h(X)$. Then, the cdf of $Y$ is:
+$$F_Y(y) = \mathbb{P}(h(X) \le y) = \int_{\{x:h(x)\le y\}} f_X(x)dx .$$
+Also, we know now that pdf $f_Y(y) = \frac{d}{dy}F_Y(y)$ for all $y$
+such that $F_Y$ is differentiable.
+
+::: {.callout-important title="Theorem"}
+**transformations of a univariate random variable.**
+
+"First principle" method for transforming a univariate random variable:
+
+(1) Suppose the transformed random variable $Y=r(X)$ and we know $f_X$.
+    We find the cdf of $Y$ by the definition of cdf:
+    $$F_Y(y) = \mathbb{P}(Y\le y) = \mathbb{P}(r(X) \le y)
+          = \int_{\{x:r(x)\le y\}} f_X(x) dx.$$ This step applies for
+    both discrete and continuous $X$'s.
+
+(2) If $F_Y(y)$ is differentiable, we obtain pdf $f_Y(y)$ by taking
+    derivative: $f_Y(y) = F^\prime_Y(y)$.
+
+    If $F_Y(y)$ is not differentiable, we obtain pmf $f_Y(y)$ by
+    calculating the jumps of $F_Y(y)$. Alternatively for discrete random
+    variables, we could directly compute pmf $f_Y(y)$ by the following
+    steps:
+    $$f_Y(y) = \mathbb{P}(Y=y) = \mathbb{P}(r(X) = y) = \mathbb{P}(X \in r^{-1}(y)).$$
+:::
+
+::: {.callout-tip title="Example"}
+Find the distribution of $Y$ in the following cases.
+
+-   $Y=X^2$ where $X\sim \text{Unif}(-1,1)$.
+
+-   Suppose $X\sim N(0,1)$, find the distribution of $Y_1 = e^X$, and
+    $Y_2 = X^2$.
+
+-   Suppose $X\sim \text{Pois}(\lambda)$, find the distribution of
+    $Y = X^2$.
+:::
+
+**Folded Normal.**
+
+Next, when the transformation $Y = r(X)$ is done by a special monotone
+function $r$ that also has a derivative, there is a straightforward way
+to derive the distribution of $Y = r(x)$.
+
+::: {.callout-important title="Lemma"}
+**monotonic and differentiable transformations.**
+
+[]{#lemma:rv-trans-univariate label="lemma:rv-trans-univariate"} Suppose
+$Y=r(X)$, and the transformation $r(\cdot)$ is strictly monotonic and
+has an inverse $s=r^{-1}$, then
+$$f_Y(y) = f_X(s(y)) |\frac{d}{dy} s(y)|.$$
+:::
+
+::: {.callout-tip title="Example"}
+Derive the distributions of $Y$ in the following scenarios:
+
+-   $Y=aX+b$ if $X$ has pdf $f_X(x)$?
+
+-   $Y=e^X$ if $X$ has pdf $f_X(x)$?
+
+-   $Y=\log(X)$ where $X$ is a strictly positive random variable with
+    pdf $f_X(x)$?
+:::
+
+## In-class exercise \[Lec 11\] {#in-class-exercise-lec-11 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::

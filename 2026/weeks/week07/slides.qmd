@@ -1,0 +1,443 @@
+---
+title: "Lecture 7: Continuous RVs"
+format:
+  html
+---
+
+
+## Continuous random variables \[DS 3.2\] \[Lec 7\] {#sec:cont-rand-vari}
+
+### Definition and Properties
+
+We have so far learned about discrete random variables.
+
+But many random variables can take values in certain *intervals*. For
+instance, human height/weight measurements, temperature, precipitation,
+etc. We model these using *continuous random variables*.
+
+::: {.callout-note title="Definition"}
+**continuous random variable.**
+
+The random variable $X$ is continuous, if $\exists$ a function $f:
+    \bR \to \R_+$ such that $$P(a \le X\le b) = \int_{a}^bf(x)dx .$$
+Probability *density* function (pdf): the above $f$.
+:::
+
+How is a pdf related to events' probabilities? For continuous random
+variable $X$, the probability of event $E$ is
+$$\mathbb{P}(E) = \int \nolimits_{x\in E} f(x) dx.$$
+
+It should be noted that a probability density function (pdf) is not the
+same as probability. For example, for a continuous random variable $X$,
+$P(X=a) =0$ but its pdf at $a$ can be strictly positive.
+
+::: {.callout-note title="Definition"}
+**Support.**
+
+Support of continuous random variable $X$ is defined as the (closure of)
+$\{x: f(x) >0\}$ where $f(x)$ is the pdf.
+:::
+
+It is also useful to note:
+
+-   $f(x) \ge 0$ for all $x \in \bR$, and
+
+-   $\int_{-\infty}^\infty f(x)dx =1$.
+
+(Note, it naturally follows that $\int_{supp(X)} f(x)dx =1$, since for
+values of $x$ outside of the support, $f(x)=0$.)
+
+Sometimes we only know or recognize the pdf up to a constant (that is,
+constant with respect to $x$): $$f(x) =c(\theta) g_\theta(x),$$ where
+$g_\theta(x)$ is known, $\theta$ is some constant ("parameter"). We can
+write this as $f(x) \propto g_\theta(x)$.
+
+::: {.callout-note title="Definition"}
+**Normalizing constant.**
+
+For pdf such that $$f(x) =c(\theta) g_\theta(x),$$ $c(\theta)$ is the
+normalizing constant.
+:::
+
+Without the normalizing constant $c(\theta)$, the pdf is incomplete. How
+to compute $c(\theta)$ then? The idea is to use the property that:
+$$\int_{-\infty}^\infty f(x)dx =1.$$
+
+(The same idea applies to pmfs, whose probabilities
+$\sum_{x \in \text{Supp}(X)} f(x)dx =1$
+
+::: {.callout-tip title="Example"}
+For continuous random variable $X$, $f(x) \propto e^{-2x}$ for $x>0$;
+$f(x)=0$ for $x\le 0$.
+
+-   Compute the normalizing constant.
+
+-   Compute $P(1<X<2)$.
+:::
+
+In order to fully specify a probability distribution, you must calculate
+the normalizing constant using the above technique. But often, the
+$g_\theta(x)$ (sometimes called a "kernel") is enough to identify a
+distribution. In fact, when you see that the kernel of one pdf matches
+that of another distribution, the two random variables are distributed
+the same.
+
+::: {.callout-tip title="Example"}
+**Identifying a distribution using kernel.**
+
+If the random variable $X$ has probability density function
+$f_X(x) = c(n, p) \cdot p^x (1-p)^{n-x}$, what is the distribution of
+$X$?
+:::
+
+Just as with discrete random variables, we can define the expectation of
+a continuous random variable as a probability-weighted average of the
+possible values.
+
+::: {.callout-note title="Definition"}
+**Expectation.**
+
+For continuous random variable $X$,
+$$\mathbb{E}[X] = \int\nolimits_{-\infty}^\infty  xf(x)dx,$$ provided
+$\mathbb{E}[|X|] < \infty$.
+:::
+
+We will put this to use soon.
+
+### Important Continuous Random Variables \[DS 3.2, DS 5\] \[Lec 7\] {#sec:important-cont}
+
+In this section, we will introduce a few important distributions. Here
+is an extensive list of commonly used continuous random variables.
+
+-   The Uniform distribution
+
+-   Normal (Gaussian) distribution
+
+-   Gamma distribution: special case is *exponential* (and chi-square.)
+
+-   The $\chi^2$ (Chi-squared) distribution
+
+-   The Beta distribution: special case is uniform.
+
+-   The student$-t$ distribution (advanced)
+
+-   Cauchy distribution (advanced)
+
+We will introduce a few of these. Make sure to study the rest in DS
+section 3.2 and section 5. You will be tested on them.
+
+::: {.callout-note title="Definition"}
+**Uniform.**
+
+The random variable $X$ is uniform on $[a,b]$. Its pdf is
+$$f(x) = \frac{1}{b-a} 1_{x \in [a,b]}.$$ We write $X \sim U(a,b)$ or
+$X \sim \text{Uniform}(a,b)$ or $X \sim \text{Unif}(a,b)$.
+:::
+
+::: {.callout-tip title="Example"}
+**Expectation of uniform.**
+
+1\. If random variable $X$ is distributed as $U(0,1)$, what is the
+expected value?
+
+2\. If you pick a random uniform value between $a$ and $b$, what is the
+expected value?
+:::
+
+Next, the Normal distribution is one of the most relevant distributions
+for statistical modeling in a wide array of applictions.
+
+::: {.callout-note title="Definition"}
+**Normal.**
+
+The random variable $X$ has a Normal distribution with parameters
+$\mu \in \mathbb R$ and $\sigma \in \mathbb R^+$ if its pdf is
+$$f(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2 \sigma^2}}.$$
+We write $X\sim \mathcal{N} (\mu, \sigma^2)$. Also, the *Standard*
+Normal distribution is the Normal distribution but with specific
+parameters $\mu = 0$ and $\sigma^2=1$.
+
+(The two parameters $\mu$ and $\sigma^2$ are sometimes called the mean
+and variance of the distribution.)
+:::
+
+::: {.callout-tip title="Example"}
+**Normal mean and variance.**
+
+We can see, from examining the pdf, that
+
+1\. A Normal random variable is symmetric around its mean $\mu$,
+
+2\. The standard deviation parameter $\sigma$ (square root of the
+variance) dictates the *spread* of the random variable's potential
+values. (Use $\mu = 0$ for simplicity.)
+:::
+
+These distributions are the first ones we learn about whose pdf cannot
+be integrated in closed form. So, we need tables of the cdf values or
+computer programs in order to compute probabilities and quantiles for
+normal distributions.
+
+Here are some basic properties of a Normal distribution.
+
+-   A normal pdf is bell-shaped and symmetric around $\mu$.
+
+-   If $X$ has the normal distribution with mean $\mu$ and variance
+    $\sigma^2$ and if $Y= aX + b$ for constants $a\neq 0$ and $b$, then
+    $Y$ has the normal distribution with mean $a\mu + b$ and variance
+    $a^2\sigma^2$. [^1]
+
+![*Pdf of a Normal
+distribution.*](normal-distr-degroot-fig-5-3.png){width=".5\\linewidth"}
+
+Why is the Normal distribution so important? There are three reasons.
+
+The first reason is directly related to the mathematical properties of
+the normal distributions. If a random samples (that is, many independent
+repeated random variables) are from a normal distribution, then the
+distributions of various important functions of the observations in the
+sample can be derived explicitly and have simple forms. So, it is
+mathematically convenient to be able to assume measurements are drawn
+from a normal distribution.
+
+::: {.callout-tip title="Example"}
+**Sample mean and sample variance.**
+
+Let's say we have $n$ random independent random variables all
+distributed as $\mathcal{N}(\mu, \sigma^2)$. Call them
+$X_1,X_2, \cdots, X_n$.
+
+1\. The Sample Mean ($\bar{X} = \frac{\sum_i X_i}{n}$) of independent
+normal variables is itself normally distributed. (This is because any
+linear combination of independent normal variables is normal.)
+$$\bar{X} \sim N(\mu, \frac{\sigma^2}{n})$$
+
+2\. The Sample Variance ($S^2$): While the sample mean follows a Normal
+distribution, the sum of squared deviations follows a Chi-square
+($\chi^2$) distribution, which we will learn about later in this
+lecture. Specifically, the ratio of the "sample variance":
+$$S^2 = \frac{\sum_{i=1}^n(X - \bar X)^2}{n-1}$$ to the true variance
+$\sigma^2$ (scaled by so-called "degrees of freedom" $n-1$) follows this
+form: $$\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}.$$
+:::
+
+The second reason is that many scientists have observed that the random
+variables studied in various physical experiments often have
+distributions that are approximately normal. For example, a normal
+distribution will usually be a close approximation to the distribution
+of the heights or weights of individuals in a homogeneous population of
+people, corn stalks, or mice, or to the distribution of the tensile
+strength of pieces of steel produced by a certain process.
+
+(Sometimes, a simple transformation of the observed random variables has
+a normal distribution.)
+
+The third reason: if a large random sample (e.g. $200$ random
+independent measurements) is taken from some distribution, then even
+though this distribution is not itself normal, many important functions
+of the observations (e.g. the average) in the sample will have
+distributions which are approximately normal. [^2]
+
+Next, the *gamma* distribution is a popular choice for modeling random
+variables that are known to be positive.
+
+::: {.callout-note title="Definition"}
+**Gamma Distribution..**
+
+A random variable $X$ has the *gamma* distribution with parameters
+$\alpha>0$ and $\beta>0$ if $X$ has a continuous distribution for which
+the pdf is
+$$f(x \mid \alpha, \beta)= \begin{cases}\frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x} & \text { for } x>0 \\ 0 & \text { for } x \leq 0\end{cases}$$
+:::
+
+Here, the *gamma function* $\Gamma(\cdot)$ is (for $\alpha >0$):
+$$\Gamma(\alpha) = \int_0^\infty x^{\alpha-1}
+e^{-x} \;dx,$$ and has these properties
+
+-   $\Gamma(1)=\int_0^\infty e^{-x} dx = 1$
+
+-   $\Gamma(\alpha) = (\alpha - 1) \Gamma(\alpha-1)$ for $\alpha > 1$.
+
+-   $\Gamma(n) = (n-1)!$ for any positive integer $n$.
+
+Gamma random variables add up to also be gamma distributed. That is, if
+$X_1,\cdots, X_n$ are independent gamma random variables[^3], and each
+$X_i$ is gamma distributed with parameters $\alpha_i$ and $\beta$, then
+the sum $$X_1+\cdots+ X_n$$ also has a Gamma distribution with
+parameters $\sum_{i=1}^n \alpha_i$ and $\beta$.
+
+Next, a special case of gamma distributions provide a common model for
+phenomena such as waiting times.
+
+::: {.callout-note title="Definition"}
+**Exponential distribution.**
+
+A random variable $X$ has the *Exponential* distribution with parameters
+$\beta >0$ if the pdf of $X$ is as follows: $$f(x \mid \beta)=
+  \begin{cases}
+    \beta e^{-\beta x} & \text{for } x > 0,\\
+    0 & \text{for } x \le 0.\end{cases}$$ For such a random variable, we
+write $X \sim Exp(\beta)$.
+:::
+
+**Q:** Do you see the exponential pdf can be written succinctly as
+$f(x \mid \beta)=\beta e^{-\beta x} \mathbbm{1}_{\{x > 0\}}$?
+
+If the wait time (in hours) for a bus is modeled as a random variable
+with distribution $Exp(1/2)$, this means that the *expected value* of
+the wait time is $30$ minutes. **Q:** Can you see why?
+
+[^4]
+
+The exponential distribution is the only distribution that is
+*memoryless*, which means
+$$\mathbb{P}(X \ge t+h| X\ge t) = \mathbb{P}(X \ge h).$$
+
+Let's briefly prove this. For each $t>0$,
+$$\mathbb{P}(X \geq t)=\int_t^{\infty} \beta e^{-\beta x} d x=e^{-\beta t}$$
+
+Hence, for each $t>0$ and each $h>0$, $$\begin{aligned}
+  \mathbb{P} (X \geq t+h \mid X \geq t) & =\frac{\mathbb{P}(X \geq t+h)}{\mathbb{P}(X \geq t)} \\
+                                 & =\frac{e^{-\beta(t+h)}}{e^{-\beta t}}=e^{-\beta h}=\mathbb{P}(X \geq h).
+\end{aligned}$$
+
+To illustrate the memoryless property, let's suppose that $X$ represents
+the number of minutes[^5] that elapse before some event occurs. If the
+event has not occurred during the first $t$ minutes, then the
+probability that the event will not occur during the next $h$ minutes is
+simply $e^{-\beta h}$. This is the *same* as the probability that the
+event would not occur during an interval of $h$ minutes starting from
+time $0$.
+
+In other words, regardless of the length of time that has elapsed
+without the occurrence of the event, the probability that the event will
+occur during the next $h$ minutes always remains the same.
+
+Here is one application of this, which you'll also see in your homework!
+
+::: {.callout-tip title="Example"}
+**Memoryless wait times.**
+
+Suppose that an exam is to be taken by two students independently of one
+another, and the number of minutes required by each student to complete
+the exam has the exponential distribution with parameter $1/40$.
+
+Let's say the first student finishes at 9:20 a.m. What is the
+probability probability that the other student will complete the exam
+before 10:00 a.m.?
+
+(Hint: once the first student finishes, the other student are still
+taking the test. What does the memoryless property say here?)
+:::
+
+Also, suppose that the variables $X_1,\cdots, X_n$ are independent
+exponential random variables with parameter $\beta$. Then, the
+distribution of: $$Y_{(1)} = \min\{X_1, . . . , X_n\},$$ will be the
+exponential distribution with parameter $n \beta$.
+
+::: {.callout-tip title="Example"}
+Say there are three bus lines will take you to your lecture hall from
+the entrance of the campus. The wait time for any of the bus lines is
+well modeled by an exponential random variable with parameter $1/20$
+(which means it will take on average $20$ minutes for that bus to
+arrive). What is the distribution of the time it will take to get on the
+next bus that will take you to class?
+:::
+
+Next, we introduce and discuss a particular class of gamma distributions
+known as the chi-square ($\chi^2$) distributions. These distributions,
+which are closely related to random samples from a normal distribution,
+are widely applied in the field of statistics. (In STAT132, you will see
+how they are applied in important problems of statistical inference!)
+
+For each positive number $m$, the gamma distribution with parameters
+$\alpha=m/2$ and $\beta=1/2$ is called the $\chi^2$ distribution with
+$m$ degrees of freedom.
+
+::: {.callout-note title="Definition"}
+**Chi-square $\chi^2_m$ distribution distribution.**
+
+For each positive number $m$, the gamma distribution with parameters
+$\alpha=m/2$ and $\beta=1/2$ is called the $\chi^2$ distribution with
+$m$ degrees of freedom.
+:::
+
+The pdf of a random variable $X$ that has the $\chi^2$ distribution with
+$m$ degrees of freedom is (for $x>0$):
+$$f(x)=\frac{1}{2^{m / 2} \Gamma(m / 2)} x^{(m / 2)-1} e^{-x / 2}.$$
+($f(x)=0$ for $x \leq 0$.)
+
+The parameter $m$ is called "degrees of freedom" because a chi square
+distribution can be defined also as the sum of $m$ squared standard
+normal random variables.
+
+If the random variables $X_1, \ldots, X_m$ are independent and if $X_i$
+has the standard normal ($\mathcal{N}(0,1)$) distribution, then the sum
+$X_1^2+\cdots+X_m^2$ has the $\chi^2$ distribution with $m$ degrees of
+freedom (or in short, a $\chi_m^2$ distribution.)
+
+Also, more generally, if the random variables $X_1, \ldots, X_k$ are
+independent and if $X_i$ has the $\chi^2$ distribution with $m_i$
+degrees of freedom ( $i=1, \ldots, k$ ), then the sum $X_1+\cdots+X_k$
+has the $\chi^2$ distribution with $m_1+\cdots+m_k$ degrees of freedom.
+
+::: {.callout-tip title="Example"}
+What is the pdf of the square of a normal random variable?
+:::
+
+This illustrates a broader point that gamma random variables (and by
+extension, exponential random variables) are *closed* to summation,
+meaning that the sum of individual Gamma random variables is also a
+Gamma distributed.
+
+::: {.callout-tip title="Example"}
+You wait in line for two things at the pizza parlor -- to order your
+pizza, and to receive it. If the time (in hours) to order your pizza is
+distributed as $Exp(1/5)$ and the time to receive it is distributed as
+$Exp(1/30)$, what is the distribution of the sum?
+:::
+
+::: {.callout-note title="Definition"}
+**Beta distribution.**
+
+A random variable $X$ has the *Beta* distribution with parameters
+$\alpha, \beta >0$ if the pdf of $X$ is as follows:
+$$f(x \mid \alpha, \beta)= \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)} \mathbbm{1}_{\{x \in [0,1]\}}$$
+where $$B(\alpha, \beta)=\int_0^1 x^{\alpha-1}(1-x)^{\beta-1} d
+  x=\frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha+\beta)}$$
+:::
+
+**Q:** For what values of $\alpha$, $\beta$ do you get a Uniform
+distribution $U(0,1)$ as a *special case*?
+
+::: {.callout-tip title="Example"}
+Let $f(x)=c x^4(1-x)^5 \mathbbm{1}_{[0,1]}(x)$. What is the value of $c$
+so that $f$ is a valid pdf? (Hint:
+$g(x)=x^4(1-x)^5 \mathbbm{1}_{\{x \in [0,1]\}}$ is the *kernel* of a
+Beta pdf with parameters $\alpha=5$ and $\beta=6$.)
+:::
+
+## In-class exercise \[Lec 7\] {#in-class-exercise-lec-7 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: We will later prove this using *moment generating functions*.
+
+[^2]: This is the famed *central limit theorem*, which will be stated
+    and proved in a later lecture.
+
+[^3]: Two random variables $X$ and $Y$ are independent (denoted as
+    $X \perp Y$) if
+    $$\mathbb{P}(X\in A, Y\in B) = \mathbb{P}(X\in A) \mathbb{P}(Y\in B)$$
+    holds for all sets $A$ and $B$.
+
+[^4]: It is generally a useful exercise to try deriving the mean of
+    these "named" random variables we are learning about. We will get
+    much more practice in Lecture 13. Also read DS 4.1-2 for a longer
+    exposition.
+
+[^5]: Or seconds or hours; whatever time unit you're using.

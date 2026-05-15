@@ -1,0 +1,23 @@
+---
+title: "Discussion - Week 09"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+The random variables X and Y have joint pdf $f_{X,Y}(x,y)= 0.5$ in the
+  triangle of the x-y plane determined by the points $(0,0)$, $(1,0)$, and
+  $(0,1)$. Call this triangle $T$.
+
+
+a. Find the joint cdf of $(X,Y)$.
+
+
+  (Hint 1 : if the pdf is constant, how do you calculate the probability
+  $\mathbb{P}(X \le x, Y \le y)$? Hint 2: try sketching the integration region for
+  various values of $(x,y)$.)
+
+
+b. Verify that your joint cdf differentiates back to the pdf
+  $f_{X,Y}(x,y)= 0.5 \cdot \mathbf{1}_{(x,y) \in T}$
+:::

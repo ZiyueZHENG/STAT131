@@ -1,0 +1,119 @@
+---
+title: "Homework - Week 14"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that $X$ has the uniform distribution on the interval $[-2, 2]$, and
+
+
+  $Y = X^6$. Show that $X$ and $Y$ are uncorrelated but not independent
+  (where `uncorrelated' means that the correlation is zero).
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose that $X$, $Y$, and $Z$ are three random variables such that
+  $V[X] = 1$, $V[Y] = 4$, $V[Z] = 8$, $\operatorname{Cov}(X, Y) = 1$, $\operatorname{Cov}(X, Z) = -1$, and
+  $\operatorname{Cov}(Y, Z) = 2$.
+  Determine $V(3X+2)$ and $V(3X-Y-2Z+1)$.
+:::
+
+::: {.callout-warning title="Problem 3"}
+The joint probability density function of $X, Y$ is
+$$
+f(x, y)=\frac{1}{y} e^{-(y+x / y)}, \quad 0<x, y<\infty
+$$
+
+a. Verify that this is a valid joint probability density function.
+(Hint: you might find it useful that $\int_0^{\infty} \lambda e^{-\lambda x} d
+x=1$, for any value of $\lambda$.)
+b. Find $\operatorname{Cov}(X, Y)$.
+c. Find $\mathbb{E}[X|Y]$.
+d. **(Optional, extra credit)** Find $V[X|Y]$, and evaluate it at $Y = 5$.
+:::
+
+::: {.callout-warning title="Problem 4"}
+Suppose that a point is chosen at random on a stick of unit length (that
+   is, the length of the stick is 1) and that the stick is broken into two pieces
+   at that point. Find the expected value of the length of the longer piece.
+:::
+
+::: {.callout-warning title="Problem 5"}
+Suppose that a stick having a length of 3 feet is broken into two pieces,
+  and that the point $X$ at which the stick is broken is chosen in accordance with
+  pdf $f_X(x)$. What is the correlation between the length of the longer piece and
+  the length of the shorter piece? (Hint: the answer is the same no matter what
+  $f_X$ is!)
+:::
+
+::: {.callout-warning title="Problem 6"}
+Say we will flip the same coin $n$ times, whose outcomes are
+  $X_i|P=p \overset{iid}{\sim} \text{Bernoulli}(p)$. Further suppose that $P \sim \text{Unif}(0,1)$,
+  (Hint: what is the distribution of $\sum_{i=1}^n X_i$? Call this a random
+  variable $X$.)
+
+a. Compute $\mathbb{E}[\sum \nolimits_{i=1}^n X_i]$, and
+b. Compute  $\mathbb{E}[P| \sum \nolimits_{i=1}^n X_i ]$.
+:::
+
+::: {.callout-warning title="Problem 7"}
+Suppose the standard deviations of random variables $X_1,\cdots, X_n$ are
+  $\sigma_{X_i}=1$ for $i=1,..,n$, and also, $\rho(X_i,X_j) = 1/4$ for all pairs
+  $i\neq j$. Compute the variance of the sum $\sum \nolimits_{i=1}^n X_i $ and
+  average $\bar X = \frac{1}{n}\sum_{i=1}^n X_i$.
+:::
+
+::: {.callout-warning title="Problem 8"}
+Suppose $X \sim \text{Exp}(\lambda)$ for some $\lambda >0$, and given $X=x$,
+  $Y\sim \text{Pois}(x)$. Find the conditional expectation $\mathbb{E}[X|Y=y]$ for some $y\in\mathbb{Z}_+$.
+:::
+
+::: {.callout-warning title="Problem 9"}
+Suppose $X \sim \text{Beta}(a,b)$ for constants $a,b >0$, and
+  $Y| X=x \sim \text{Binom}(N,x)$ where $N$ is some fixed constant.
+
+a. Derive the conditional probability density $f_{X|Y}(x|y)$.
+b. Find the conditional expectation $\mathbb{E}[X|Y=y]$ for some
+  $y\in \{0,...,N\}$.
+:::
+
+::: {.callout-warning title="Problem 10"}
+Suppose that a point
+  $X_1$ is chosen from the uniform distribution on the interval $[0,
+  1]$, and that after the value $X_1 = x_1$ is observed, a point
+  $X_2$ is chosen from a uniform distribution on the interval $[x_1,
+  1]$. Suppose further that additional variables $X_3, X_4, . .
+  .$ are generated in the same way. In general, for $j = 1, 2, . .
+  .$ , after the value $X_j=x_j$ has been observed,
+  $X_{j+1}$ is chosen from a uniform distribution on the interval $[x_j ,
+  1]$. Find the value of $\mathbb{E}[X_n]$.
+:::
+
+::: {.callout-warning title="Problem 11"}
+Suppose $\mathbb{E}[Y|X] = aX+b$ for some constants $a,b$. Compute $\mathbb{E}[XY]$.
+
+
+   Next, suppose $a=0$. What is $\mathbb{E}[Y]$? What is $\operatorname{Cov}(X,Y)$?
+:::
+
+::: {.callout-warning title="Problem 12"}
+Consider a clinical trial in which a number of patients will be treated
+   and each patient will have one of two possible outcomes: success or
+   failure. Let $P$ be the proportion of successes in $40$ patients, and let
+   $X_i = 1$ if the $i$'th patient is a success and $X_i = 0$ if not. Assume that
+   the random variables $X_1, X_2, \cdots$ are conditionally independent given
+   $P$ with $P(X_i = 1|P)= P$. Let $X = \sum_{i=1}^{40} X_i$, which is the number
+   of patients who are successes.
+
+a. What is a good prediction $d$ before the clinical trial starts?
+b. What is the best prediction $d(X)$ once the clinical trial has
+  ended and you have observed $X$?
+c. Let's say that $X=18$ patients were successful. Sketch the (1) pdf
+  of $P$ *prior to* the clinical trial, and (2) conditional distribution
+  of $P$ having conducted the clinical trial to observe $X=18$.
+d. Compute the MSEs of the predictions $d$ and $d(X)$ from (a) and (b)
+  respectively, which are $\mathbb{E}[(P-d)^2]$ and
+  $\mathbb{E}[(P-d(X))^2|X=18]$. Which is bigger?  Interpret this result in the
+  context of the clinical trial.
+:::

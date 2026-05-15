@@ -1,0 +1,17 @@
+---
+title: "Discussion - Week 07"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec7-q2}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec7-q3}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec7-q4}
+:::

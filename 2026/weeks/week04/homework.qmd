@@ -1,0 +1,71 @@
+---
+title: "Homework - Week 04"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Let $A,B \in \Omega$ $P(B)>0$.
+
+a. What is $P(A|\Omega)$?
+b. What is $P(A|A)$?
+c. Let $ B \in A$. What is $P(A|B)$?
+d. Let $A \cap B = \emptyset$. What is $P(A|B)$?
+:::
+
+::: {.callout-warning title="Problem 2"}
+Consider the following events and the corresponding table of probabilities:
+
+
+|      | $B$ | $B^C$ |
+|------|-----|-------|
+| $A$   | 1/4 | 1/12 |
+| $A^C$ | 1/2 | 1/6  |
+
+
+Are the events A and B independent? Justify your answer.
+:::
+
+::: {.callout-warning title="Problem 3"}
+Assume there is a box containing five coins, each with a distinct
+  probability of landing heads when tossed. Probabilities are denoted as $p_i$
+  for the $i$th coin (where $i$ ranges from 1 to 5). Given the specific
+  probabilities, $p_1 = 0, p_2 = 1/4, p_3 = 1/2, p_4 = 3/4$, and $p_5 = 1$.
+
+
+a. Say you toss a randomly selected coin. If a head is obtained, what
+  is the posterior probability that the $i$th coin was selected ($i=1,...,5$)?
+b. What would be the probability of getting another head if the same
+  coin were tossed once more?
+c. If the first toss of the chosen coin resulted in a tail, and the
+  same coin were tossed again, what would be the probability of getting a head
+  on the second toss?
+:::
+
+::: {.callout-warning title="Problem 4"}
+Two persons are taking turns throwing a ball at a target. Person 1 has a
+  $1/3$ probability of hitting the target with each throw, while Person 2 has a
+  $1/4$ probability. Assuming person 1 starts the game, determine the
+  probability that the target will be hit for the first time when person 1 makes
+  their 4th throw.
+:::
+
+::: {.callout-warning title="Problem 5"}
+Let us say that $A$ and $B$ are conditionally independent on
+  $C$. Prove that $P(A | B \cap C) = P(A | C)$.
+:::
+
+::: {.callout-warning title="Problem 6"}
+If you sample $n=4$ cards with replacement from $r=3$ distinct cards, what
+  is the probability of obtaining a complete set?
+:::
+
+::: {.callout-warning title="Problem 7"}
+[**Practice**] Guessing gender. (Fun fact! This is a popular mathematical paradox by
+  Martin Gardner in *Scientific American* in 1959.)
+
+a. Mr. Jones has two children. The older child is a girl. What is the
+  probability that both children are girls?
+b. Mr. Smith has two children. At least one of them is a girl. What is the
+  probability that both children are girls?
+:::

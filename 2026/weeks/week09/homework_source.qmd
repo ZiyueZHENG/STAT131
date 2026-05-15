@@ -1,0 +1,21 @@
+---
+title: "Homework - Week 09"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on % canvas.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec9-q5}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec9-q6}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec9-q7}
+:::
+
+::: {.callout-warning title="Problem 4"}
+\useproblem{lec9-q8}
+:::

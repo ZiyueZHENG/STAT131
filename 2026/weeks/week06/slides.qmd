@@ -1,0 +1,256 @@
+---
+title: "Lecture 6: Random variables cont'd"
+format:
+  html
+---
+
+
+### Important Discrete Random Variables (pt 2) \[DS 3.1, DS 5\] \[Lec 6\] {#sec:important-cont-pt2}
+
+Here are some additional important discrete random variables:
+
+-   Bernoulli and Binomial distribution.
+
+-   The Negative Binomial distribution (and the geometric distribution;
+    DS section 5.5).
+
+-   The Poisson distribution (from DS section 5.4)
+
+Make sure to read chapter 5 ("special distributions") for more practice.
+Also see the Appendix table of distributions for a more exhaustive list;
+this will be especially useful once we learn about *moments* of these
+distributions.
+
+We briefly describe a few of these important discrete distributions.
+
+Suppose you have an *infinite* sequence of independent Bernoulli trials
+(i.e. coin flips) with probability $p$ of success. You will continue the
+trials until the $r$'th success occurs. (Slot machines, anyone?)
+
+The number $X$ of the failures before you stop is distributed as a
+*Negative Binomial* random variable.
+
+::: {.callout-note title="Definition"}
+**Negative Binomial distribution.**
+
+A random variable $X$ has the Negative Binomial distribution with
+parameters $0<p<1$ and $r$ ($r = 0,1,\cdots$) if the pmf of $X$ is as
+follows: $$f(x \mid r, p)=
+  \begin{cases}\left(\begin{array}{c}r+x-1 \\
+                       x\end{array}\right) p^r(1-p)^x & \text {
+                                                        for }
+                                                        x=0,1,2,
+                                                        \ldots
+    \\ 0 & \text { otherwise }\end{cases}$$ We write $X \sim NB(r, p)$.
+:::
+
+::: {.callout-tip title="Example"}
+**Defective Parts..** Suppose that a machine produces parts that can be
+either good or defective. Let $X_i = 1$ if the $i$'th part is defective
+and $X_i = 0$ otherwise. Assume that the parts are good or defective
+independently of each other with $\mathbb{P}(X_i= 1) = p$ for all $i$.
+An inspector observes the parts produced by this machine until she sees
+four defectives. Let $X$ be the number of good parts observed by the
+time that the fourth defective is observed. What is the distribution of
+$X$?
+:::
+
+A **geometric distribution** is the special case where $r=1$. Say you
+are waiting for the first day it will rain, where the daily probability
+of raining is $p$. Then the total number of days it will take to rain is
+$X$.
+
+Next, we will study the **Poisson** random variable and distribution.
+
+::: {.callout-note title="Definition"}
+**Poisson distribution.**
+
+A random variable $X$ has the Poisson distribution with mean parameter
+$\lambda>0$ if the pmf of $X$ is as follows:
+$$f(x\mid \lambda) = \mathbb{P}(X=x) = \begin{cases}
+                      \frac{\lambda^{x} e^{-\lambda}}{x!} & \text{ for } x=0,1,\cdots,\\
+                      0 & \text{ otherwise.}
+                    \end{cases}$$ For such a random variable, we write
+$X \sim Poiss(\lambda)$.
+:::
+
+**Q:** Why is it called a "mean" parameter?
+
+A Poisson random variable (we also say a *Poisson-distributed* RV) is
+apt for describing the number of occurrences of an "arrival" process for
+which (1) arrivals are independent of each other, and (2) the *average*
+time between arrivals stays the same. $\lambda$ is the expected number
+of occurrences in a unit amount of time. Classic examples are phone
+calls, earthquakes, and bus arrivals.
+
+::: {.callout-tip title="Example"}
+**Customer arrivals.** A store owner believes that customers arrive at
+her store at a rate of $4.5$ customers per hour on average. She might
+want to find the distribution of the actual number $X$ of customers who
+will arrive during a particular one-hour period later in the day.
+$X \sim Poiss(\lambda = 4.5)$. What is the probability that $3$
+customers will arrive in the next hour?
+:::
+
+Next, we are interested not only in the number of customers that arrive
+in the one-hour period, but also in how many customers arrive in the
+next hour after that period. Let $Y$ be the number of customers that
+arrive in the second hour, and model $Y$ as another Poisson random
+variable with mean $4.5$. What is the distribution of $X+Y$?
+
+In order to answer this, we need to learn about *sums* of Poisson.
+Poisson random variables have the convenient property of being closed to
+summation.
+
+::: {.callout-important title="Theorem"}
+**Poisson sums.**
+
+If the random variables $X_1, \cdots, X_k$ are independent [^1] and if
+$X_i$ has the Poisson distribution with mean $\lambda_i (i=1,\cdots,k)$,
+then the sum $X = X_1 +\cdots +X_k$ has the Poisson distribution with
+mean $\lambda_1 + \cdots + \lambda_k$.
+:::
+
+Proof: We will soon learn about moment generating functions, to prove
+the general case. Let's prove the $k=2$ case.
+
+$$\begin{aligned} P(X+Y=k) &=\sum_{i=0}^k P(X+Y=k, X=i) 
+                          =\sum_{i=0}^k P(Y=k-i, X=i) 
+                          =\sum_{i=0}^k P(Y=k-i) P(X=i) \\
+                          &=\sum_{i=0}^k e^{-\lambda_1} \frac{\lambda_1^{k-i}}{(k-i) !}
+                            e^{-\lambda_2} \frac{\lambda_2^i}{i
+                            !}  
+                          =e^{-(\lambda_1+\lambda_2)} \frac{1}{k !} \sum_{i=0}^k
+                            \frac{k !}{i !(k-i) !}  \lambda_1^{k-i} \lambda_2^i 
+                          =e^{-(\lambda_1+\lambda_2)} \frac{1}{k !}
+                            \sum_{i=0}^k\left(\begin{array}{l}k \\
+                                                i\end{array}\right) \lambda_1^{k-i}
+                            \lambda_2^i \\
+                          &=\frac{(\lambda_1+\lambda_2)^k}{k !} \cdot
+                            e^{-(\lambda_1+\lambda_2)}
+ \end{aligned}$$
+
+::: {.callout-tip title="Example"}
+**Arrivals in two hours instead of one.**
+
+Now, returning to the store example, we would also say that $X$ and $Y$
+are *independent* because we have been assuming that arrivals (in
+disjoint time intervals) are independent. Then, we now know that
+$Z=X + Y$ would have the Poisson distribution with mean $4.5 + 4.5 = 9$.
+What is the probability that at least $12$ customers will arrive in the
+entire two-hour period?
+
+We can compute this using probabilities $\mathbb{P}(Z \ge 12) = 0.1970$
+easily using a computer. (In `R`, the command is `1-ppois(11, 9)`, which
+calculates $1-\mathbb{P}(Z \le 11)$.)
+
+(If we want to be old school, we can go to DS book's "Table of Poisson
+Probabilities" and see the column with the parameter $\lambda = 9$.)
+:::
+
+**Poisson Process.**
+
+**Customer arrivals revisited.**
+
+### Poisson approximation to the Binomial \[DS 3.1, DS 5\] \[Lec 6\] {#sec:important-cont-pt3}
+
+(This section is meant for self-study.)
+
+::: {.callout-tip title="Example"}
+**Customer Arrivals..**
+
+A store owner believes that customers arrive at his store at a rate of
+$4.5$ customers per hour on average, and wants to find the distribution
+of the actual number $X$ of customers who will arrive during a
+particular one-hour period later in the day.
+
+She models customer arrivals in different time periods as independent of
+each other. As a first approximation, she divides the one-hour period
+into $3600$ seconds and thinks of the arrival rate as being
+$4.5/3600= 0.00125$ per second.
+
+She then says that during each second either 0 or 1 customers will
+arrive, and the probability of an arrival during any single second is
+$0.00125$, using the binomial distribution with parameters $n = 3600$
+and $p= 0.00125$ for the distribution of the number of customers who
+arrive during the one-hour period later in the day.
+:::
+
+She starts calculating $f$, the pmf of this binomial distribution, and
+quickly discovers how cumbersome the calculations are. However, she
+realizes that the successive values of $f(x)$ are closely related to
+each other because $f(x)$ changes in a systematic way as $x$ increases.
+So she computes
+
+$$\frac{f(x+1)}{f(x)}=\frac{\binom{n}{x+1} p^{x+1}(1-p)^{n-x-1}}{\binom{n}{x} p^x(1-p)^{n-x}}=\frac{(n-x) p}{(x+1)(1-p)} \approx \frac{n p}{x+1},$$
+
+where the reasoning for the approximation at the end is as follows: For
+the first 30 or so values of $x, n-x$ is essentially the same as $n$ and
+dividing by $1-p$ has almost no effect because $p$ is so small. For
+example, for $x=30$, the actual value is $0.1441$, while the
+approximation is $0.1452$. This approximation suggests defining
+$\lambda=n p$ and approximating $f(x+1) \approx f(x) \lambda /(x+1)$ for
+all the values of $x$ that matter. That is, $$\begin{aligned}
+f(1) & =f(0) \lambda \\
+f(2) & =f(1) \frac{\lambda}{2}=f(0) \frac{\lambda^2}{2} \\
+f(3) & =f(2) \frac{\lambda}{3}=f(0) \frac{\lambda^3}{6} \\
+& \vdots
+\end{aligned}$$ Continuing the pattern for all $x$ yields
+$f(x)=f(0) \lambda^x / x!$ for all $x$.
+
+To obtain a pmf for $X$, she would need to make sure that
+$\sum_{x=0}^{\infty} f(x)=1$. This is easily achieved by setting
+
+$$f(0)=\frac{1}{\sum_{x=0}^{\infty} \lambda^x / x!}=e^{-\lambda}$$
+
+where the last equality follows from the following well-known calculus
+result:
+
+$$e^\lambda=\sum_{x=0}^{\infty} \frac{\lambda^x}{x!},$$
+
+for all $\lambda>0$. Hence, $f(x)=e^{-\lambda} \lambda^x / x!$ for
+$x=0,1, \ldots$ and $f(x)=0$ otherwise is a valid pmf.
+
+This approximation formula for the pmf of a binomial distribution at the
+end of this example is actually the Poisson pmf that can model many
+phenomena of types similar to the arrivals of customers. We will state
+this connection formally.
+
+::: {.callout-important title="Theorem"}
+**Poisson Approximation to Binomial Distributions.**
+
+When the value of $n$ is large and the value of $p$ is close to 0, the
+binomial distribution with parameters $n$ and $p$ can be approximated by
+the Poisson distribution with mean $np$.
+:::
+
+We will formally prove this in the homework. Let's see how accurate the
+approximation is:
+
+::: center
+*Comparison of Binomial and Poisson Probabilities $P(X=x)$*
+
+::: tabular
+c \*5S\[table-format=1.5\] **$\boldsymbol{x}$** & $0$ & $1$ & $2$ & $3$
+& $4$\
+**Binomial** & 0.01108 & 0.04991 & 0.11241 & 0.16874 & 0.18991\
+**Poisson** & 0.01111 & 0.04999 & 0.11248 & 0.16872 & 0.18981\
+**$\boldsymbol{x}$** & $5$ & $6$ & $7$ & $8$ & $9$\
+**Binomial** & 0.17094 & 0.12819 & 0.08237 & 0.04630 & 0.02313\
+**Poisson** & 0.17083 & 0.12812 & 0.08237 & 0.04633 & 0.02317\
+:::
+:::
+
+## In-class exercise \[Lec 6\] {#in-class-exercise-lec-6 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: We haven't formally learned the concept of independent random
+    variables yet, but we preview it here. Two random variables $X$ and
+    $Y$ are independent (denoted as $X \perp Y$) if
+    $$\mathbb{P}(X\in A, Y\in B) = \mathbb{P}(X\in A) \mathbb{P}(Y\in B)$$
+    holds for all sets $A$ and $B$.

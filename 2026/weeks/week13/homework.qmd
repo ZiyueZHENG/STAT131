@@ -1,0 +1,69 @@
+---
+title: "Homework - Week 13"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that a fair coin is tossed repeatedly until a
+head is obtained for the first time.
+
+a. What is the expected number of tosses that will be required? (Hint:
+  first prove that the probability it will take $n$ tosses or more is
+  $(1-p)^{n-1}$. Then, use the result from the in-class exercise.)
+b. What is the expected number of tails that will be obtained before the
+  first head is obtained?
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose that appliances manufactured by a particular company fail at a
+  rate of $X$ per year, where $X$ is currently unknown and hence is a random
+  variable. If we are interested in predicting how long such an appliance will
+  last before failure, we might use the mean of $\frac{1}{X}$. Calculate the mean of
+  $Y= \frac{1}{X}$, if the pdf of $X$ is
+  $$f(x)= 3x^{2} \cdot \mathbf{1}_{0 < x < 1},$$
+  in two ways:
+
+a. First derive the distribution of $Y$, then obtain its expectation.
+b. Use the Law of the Unconscious Statistician (LOTUS).
+:::
+
+::: {.callout-warning title="Problem 3"}
+Suppose that a jar contains 10 yellow balls and 15 blue balls, and suppose
+  that eight balls are to be selected at random from the jar with replacement.
+  How many more yellow balls than blue balls would you expect to
+  see?
+:::
+
+::: {.callout-warning title="Problem 4"}
+Derive the variance of a Poisson random variable with parameter
+  $\lambda$. (Hint: directly calculate and use $\mathbb{E}[X(X-1)]$.)
+:::
+
+::: {.callout-warning title="Problem 5"}
+Let $X$ be a gamma distributed random variable with parameters $\alpha$
+  and $\beta$.
+
+a. Prove that, for $k=1,2,\cdots$, $\mathbb{E}[X^k] = \frac{\Gamma(\alpha +
+  k)}{\beta^k \Gamma(\alpha)}$.
+b. Use this result to prove that $\mathbb{E}[X] = \alpha/\beta$, and
+  $V[X] = \alpha/\beta^2$.
+c. What is the mean and variance of an exponential random variable
+  with parameter $\beta>0$? (Hint: an exponential distribution is a
+  special case of a gamma distribution.)
+:::
+
+::: {.callout-warning title="Problem 6"}
+Suppose that a box contains red balls and blue balls and that the
+  proportion of red balls in the box is $p$, ($0 \le p \le 1$). Suppose that $n$
+  balls are selected from the box at random
+
+a. If the balls are selected with replacement, what is the expected
+  number of red balls?
+b. If the balls are selected *without* replacement, what is the
+  expected number of red balls?
+c. (Extra credit) Suppose now that we sample $n>1$ balls with
+  replacement, and let $X$ be the number of red balls in the sample. Then, we
+  sample $n$ balls without replacement, and we let $Y$ be the number of red
+  balls in that sample.  Prove that $\mathbb{P}(X=n) > \mathbb{P}(Y= n)$.
+:::

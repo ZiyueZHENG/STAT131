@@ -1,0 +1,423 @@
+---
+title: "Lecture 4: Conditional probability"
+format:
+  html
+---
+
+
+## Conditional Probability \[DS 2.1\] \[Lec 4\] {#sec:cond-prob}
+
+When you have multiple random phenoma, they rarely have nothing to do
+with each other. They are often *dependent* on a common factor, or one
+is affecting the other, directly or indirectly.
+
+Say a random person is selected from the population; compare the
+following scenarios:
+
+-   COVID infection rate
+
+-   COVID infection rate if the person is fully vaccinated.
+
+The two probabilities should clearly be different. When more information
+("vaccinated") is available, the probability calculation should reflect
+it.
+
+::: {.callout-note title="Definition"}
+**Conditional probability.**
+
+The probability of event $A$ given event $B$ has occurred is denoted as
+$\mathbb{P}(A|B)$. If $\mathbb{P}(B)>0$,
+$$\mathbb{P}(A|B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}.$$
+:::
+
+We can interpretate $\mathbb{P}(A)$ as the "prior" probability of $A$
+without any other information. In contrast, we interpretate
+$\mathbb{P}(A|B)$ as the "posterior" probability of $A$ given $B$ has
+occurred.
+
+Let's try this out on an example.
+
+::: {.callout-tip title="Example"}
+By using a certain prescription drug, there is a 10% chance of
+experiencing headaches, a 15% chance of experiencing nausea, and a 5%
+chance of experiencing both headaches and nausea. What is the
+probability that you will experience an headache given that you feel
+nauseous after taking the prescription drug?
+:::
+
+Note, the conditional probability $\mathbb{P}(\cdot|B)$ with respect to
+an event B (with $\mathbb{P}(B) > 0$) is a proper probability measure,
+therefore the three axioms of probability that we discussed in Lecture
+hold for $\mathbb{P}(\cdot|B)$ as well. When it comes to standard
+computations, $\mathbb{P}(\cdot|B)$ has the same properties as
+$\mathbb{P}(\cdot)$. For instance, for disjoint events
+$A_1,A_2 \in \Omega$ we have
+$$P(A_1 \cup A_2|B) = P(A_1|B) + P(A_2|B).$$ Neat!
+
+Next, we can relate the joint probability $\mathbb{P}(A \cap B)$ to
+event $B$ using the following rule.
+
+::: {.callout-important title="Lemma"}
+**Multiplicative rule.**
+
+Let $A,B$ be two events. If $\mathbb{P}(B)>0$,
+$$\mathbb{P}(A\cap B) = \mathbb{P}(A|B) {\mathbb{P}(B)}.$$ Further, let
+$A_i$ be a sequence of events such that
+$\mathbb{P}(\cap_{i=1}^{n-1}A_i) >0$. Then,
+$$\mathbb{P}(\cap_{i=1}^{n} A_i) = \mathbb{P}(A_1)\mathbb{P}(A_2|A_1)
+  \mathbb{P}(A_3|A_1\cap A_2)...\mathbb{P}(A_n|\cap_{i=1}^{n-1}A_i) .$$
+:::
+
+::: proof
+*Proof.* Proof by induction. First verify the case $n=2$ holds. Then
+suppose the case $n-1$ holds, and show the case $n$ also holds. ◻
+:::
+
+Next, the Bayes rule is about the reversal of the two events $B|A$; how
+does it relate to $A|B$? Let's see this next.
+
+::: {.callout-important title="Theorem"}
+**Bayes rule.**
+
+Let $A,B$ be two events. If $\mathbb{P}(B)>0$,
+$$\mathbb{P}(A|B) = \frac{\mathbb{P}(B|A)\mathbb{P}(A)}{\mathbb{P}(B)},$$
+where the denominator
+$\mathbb{P}(B)=\mathbb{P}(B|A)\mathbb{P}(A)+\mathbb{P}(B|A^c)\mathbb{P}(A^c)$.
+:::
+
+::: proof
+*Proof.* By definition of the conditional probability and the
+multiplicative rule. ◻
+:::
+
+We will revisit the Bayes rule more in detail in the next section.
+
+The law of total probability allows us to extend the Bayes rule to
+multiple events $B_1, \cdots, B_k$ so we can relate $B_j|A$ to
+$A | B_j$.
+
+::: {.callout-important title="Theorem"}
+**The law of total probability.**
+
+Suppose events $\{B_j \}$ form a partition of the sample space $\Omega$
+and $\mathbb{P}(B_j)>0$ for all $j=1,...,k$. Then, for every event
+$A \subset \Omega$,
+$$\mathbb{P}(A) = \sum\nolimits_{j=1}^k\mathbb{P}(B_j) \mathbb{P}(A|B_j).$$
+:::
+
+::: proof
+*Proof.* By the definition of partition and the multiplicative rule. ◻
+:::
+
+There is a "conditional" version of the law of total probability, which
+simply uses $\mathbb{P}(\cdot)$ with $\mathbb{P}(\cdot | C)$ for some
+other event $C$:
+$$\mathbb{P}(A|C) = \sum\nolimits_{j=1}^k\mathbb{P}(B_j|C) \mathbb{P}(A|B_j\cap C).$$
+
+::: {.callout-tip title="Example"}
+**Rare disease.**
+
+We are dealing with a rare disease with an overall disease rate:
+$\mathbb{P}(D) = 1\%$ where $D$ is the event that a person has the
+disease. There is a diagnostic test whose accuracy 95%. Denoting as $T$
+the event that the test is positive, we also know that
+$\mathbb{P}(T|D) = 0.95$. We also know that $\mathbb{P}(T|D^C) = 0.1$.
+(What are these two events, in words?)
+
+-   Suppose John Doe is diagnosed with positive. What is the probability
+    that he has the disease?
+
+-   Suppose John Doe is diagnosed with negative. What is the probability
+    that he does not have the disease?
+
+-   Suppose John Doe is diagnosed with negative. What is the probability
+    that he does have the disease?
+:::
+
+**Monty hall.**
+
+## Bayes rule revisited \[DS 2.3\] \[Lec 4\] {#sec:bayes-rule}
+
+*(This section is meant for self-study. Also try the examples and
+practice problems in DS section 2.3.)*
+
+Knowing conditional probability, we can derive a useful theorem to
+calculate the *reversed* conditional probabilities. Say we have disjoint
+events $B_1, \cdots, B_k$. Also take another event $A$. If
+$\mathbb{P}(A|B_i)$ is available for each $i$, then Bayes theorem is a
+useful formula for computing the conditional probabilities of the events
+$B_i$ given $A$.
+
+::: {.callout-important title="Theorem"}
+**Bayes' rule.**
+
+Let the events $B_1, \ldots, B_k$ form a partition of the space $S$ such
+that $\mathbb{P}\left(B_j\right)>0$ for $j=1, \ldots, k$, and let $A$ be
+an event such that $\mathbb{P}(A)>0$. Then, for $i=1, \ldots, k$,
+$$\mathbb{P}\left(B_i \mid A\right)=\frac{\mathbb{P}\left(B_i\right) \mathbb{P}\left(A \mid B_i\right)}{\sum_{j=1}^k \mathbb{P}\left(B_j\right) \mathbb{P}\left(A \mid B_j\right)} .$$
+:::
+
+Let us prove this. By the definition of conditional probability,
+$$\mathbb{P}\left(B_i \mid A\right)=\frac{\mathbb{P}\left(B_i \cap A\right)}{\mathbb{P}(A)} .$$
+The numerator is equal to $\mathbb{P}\left(B_i \cap A\right)$ by the
+Multiplicative rule. Similarly, the denominator is equal to
+$\mathbb{P}(A)$, which is the sum of the probabilities of the partitions
+$B_i \cap A, i = 1,\cdots, k$.
+
+::: {.callout-tip title="Example"}
+**Test for a Disease..**
+
+Suppose that you are walking down the street and notice that the
+Department of Public Health is giving a free medical test for a certain
+disease. The test is 90 percent reliable in the following sense: If a
+person has the disease, there is a probability of 0.9 that the test will
+give a positive response; whereas, if a person does not have the
+disease, there is a probability of only 0.1 that the test will give a
+positive response. Data indicate that your chances of having the disease
+are only 1 in 10,000. However, since the test costs you nothing, and is
+fast and harmless, you decide to stop and take the test. A few days
+later you learn that you had a positive response to the test. Now, [what
+is the probability that you have the disease?]{.underline}
+:::
+
+Side note: *The underlined question is a prototype of the question for
+which Bayes' rule was designed. We have at least two disjoint events
+("you have the disease" and "you do not have the disease") about which
+we are uncertain, and we learn a piece of information (the result of the
+test) that tells us something about the uncertain events. Then we need
+to know how to revise the probabilities of the events in the light of
+the information we learned.*
+
+At a glance, we may feel that this probability should be about 0.9.
+However, this feeling completely ignores the small probability of 0.0001
+that you had the disease before taking the test.
+
+We shall let $B_1$ denote the event that you have the disease, and let
+$B_2$ denote the event that you do not have the disease. The events
+$B_1$ and $B_2$ form a *partition*. Also, let $A$ denote the event that
+the response to the test is positive. The event $A$ is information we
+will learn that tells us something about the partition elements.
+
+Then, by Bayes' theorem,
+
+$$\begin{aligned}
+  \mathbb{P} \left(B_1 \mid A\right) & =\frac{\mathbb{P}\left(A \mid B_1\right) \mathbb{P}\left(B_1\right)}{\mathbb{P}\left(A \mid B_1\right) \mathbb{P}\left(B_1\right)+\mathbb{P}\left(A \mid B_2\right) \mathbb{P}\left(B_2\right)} \\
+                              & =\frac{(0.9)(0.0001)}{(0.9)(0.0001)+(0.1)(0.9999)}=0.00090.
+\end{aligned}$$
+
+Thus, the conditional probability that you have the disease given the
+test result is approximately only 1 in 1000. Of course, this conditional
+probability is approximately 9 times as great as the probability was
+before you were tested, but even the conditional probability is quite
+small.
+
+Another way to explain this result is as follows: Only one person in
+every 10,000 actually has the disease, but the test gives a positive
+response for approximately one person in every 10. Hence, the number of
+positive responses is approximately 1000 times the number of persons who
+actually have the disease. In other words, out of every 1000 persons for
+whom the test gives a positive response, only one person actually has
+the disease.
+
+This example illustrates not only the use of Bayes' theorem but also the
+importance of taking into account all of the information available in a
+problem.
+
+## Independent events \[DS 2.2\] \[Lec 4\] {#sec:independent-events}
+
+The event $A$ is said to be independent of event $B$ if the occurrence
+of the event B does not alter the chance that the event A happens. Made
+formally, this is how independence is defined:
+
+::: {.callout-note title="Definition"}
+**Two independent events.**
+
+Two events $A$ and $B$ are independent if
+$$\mathbb{P}(A \cap B) = \mathbb{P}(A) \mathbb{P}(B).$$ Write
+$A\perp B$.
+:::
+
+For example, imagine flipping two different fair coins. Assume the
+outcomes (heads and tail) are equally likely:
+$A= \{\text{first try = }T\}$, and $B= \{\text{second try = }T\}$. Then
+$A \perp B$; we understand this intuitively.
+
+In fact, assuming that $P(B) >0$, we easily see that this is equivalent
+to $$P(A|B) = P(A \cap B)/P(B) = P(A)P(B)/P(B) = P(A),$$ i.e. the
+occurrence of the event B does not alter the chance that the event A
+happens.
+
+Furthermore, assuming that also $P(A) > 0$, we see that $P(A|B) = P(A)$
+is equivalent to $P(B|A) = P(B)$ (independence is a symmetric
+relation!).
+
+Let's try an example where we recognize independence from known
+probabilities of events.
+
+::: {.callout-tip title="Example"}
+Take the following table of probabilities\
+
+::: center
+           $B$   $B^C$
+  ------- ----- -------
+    $A$     0     0.2
+   $A^C$   0.4    0.4
+:::
+
+Are the events A and B independent? Justify your answer.
+:::
+
+For multiple events, the definition of independence is trickier. First,
+*all* events can be independent of each other:
+
+::: {.callout-note title="Definition"}
+**(Mutually) Independent.**
+
+For multiple events $A_j$, **mutually independence**: for **any** subset
+$\{i_1,...,i_\ell\} \subset \{1,...,n\}$,
+$$\mathbb{P}(A_{i_1} \cap A_{i_2}... \cap A_{i_\ell} ) = \mathbb{P}(A_{i_1}) ...\mathbb{P}(A_{i_\ell}).$$
+:::
+
+Also, when only *pairs* of events are independent of each other, we call
+this pairwise independence:
+
+::: {.callout-note title="Definition"}
+**Pairwise independence.**
+
+For multiple events $A_j$, **pairwise independence**: for every
+$\{i,j\} \subset \{1,...,n\}$,
+$$\mathbb{P}(A_{i} \cap A_{j}) = \mathbb{P}(A_{i})\mathbb{P}(A_{j}).$$
+:::
+
+Of course, pairwise independent is weaker than (mutually) independent.
+
+::: {.callout-tip title="Example"}
+**Mutually independent but not pairwise independent.**
+
+Suppose a fair coin is tossed twice. Define the following three events:
+
+-   $A=\{H \text{ on first toss.}\},$
+
+-   $B=\{T \text{ on second toss.}\},$
+
+-   $C=\{\text{Both tosses are the same.}\},$
+
+Are the events mutually independent? Pairwise independent? Prove this.
+:::
+
+Here are some properties:
+
+-   If $A$ and $B$ are independent, then their complements are also
+    independent.
+
+-   $\Omega$ and $\emptyset$ are independent with any event.
+
+Try to prove these on your own time!
+
+**Warning: Independence and Disjoint are not the same.**
+
+Two events being disjoint simply means that they do not share any
+jointly occurring elements. For instance, in a single coin flip example,
+$A= \{H\}$ and $B=\{T\}$ are disjoint events, but $A$ gives perfect
+knowledge of $B$, as we know that $P(A|B) = 0$ and $P(A|B^C) = 1$, so
+that $P(A|B) \neq P(A) = 1/2$.
+
+#### Finite union
+
+\
+Next, we learn about a formula to calculate the probability of the union
+of any $n$ events. You have already seen a version of this for two
+events $A$ and $B$, where $P(A \cup B) = \underline{\hspace{30mm}}$.
+
+::: {.callout-important title="Lemma"}
+**Finite union.**
+
+For every $n$ events $A_1,..,A_n$, $P(\cup_{i=1}^n A_i)$ is
+$$\sum \nolimits_{i=1}^n\mathbb{P}(A_i ) -     \sum \nolimits _{i<j}^n\mathbb{P}(A_i\cap A_j )
+  +    \sum \nolimits _{i<j<k}^n\mathbb{P}(A_i\cap A_j\cap A_k ) +...+
+  (-1)^{n+1}\mathbb{P}(A_1 \cap ...\cap A_n).$$
+:::
+
+::: proof
+*Proof.* Proof by induction. ◻
+:::
+
+Using this lemma, we can solve the famous collector's problem.
+
+::: {.callout-tip title="Example"}
+**The Collector's Problem.**
+
+Randomly throw $n$ balls into $r$ boxes, what is the probability that
+every box contains at least one ball? Equivalently, sample $n$ cards
+with replacement from $r$ distinct cards, what is the probability of
+obtaining a complete set? [^1]
+:::
+
+Lastly, we are now equipped to talk about another 'parallel' concept to
+independence.
+
+::: {.callout-note title="Definition"}
+**Two conditional independent events.**
+
+Conditional on event $C$ (such that $P(C) > 0$), the events $A$ and $B$
+are independent if
+$$\mathbb{P}(A \cap B |C) = \mathbb{P}(A|C) \mathbb{P}(B|C).$$ We will
+write this as $A \perp B | C$.
+:::
+
+This implies that $P(A | B \cap C) = P(A | C)$. We will prove this in
+our homework.
+
+Here is an example using conditional independence.
+
+::: {.callout-tip title="Example"}
+**Two-stage coin flip experiment.**
+
+There is a jar of coins, which are manufactured poorly and have wildly
+different probabilities of getting a heads. We will draw a coint from
+the jar, then flip that same coin twice.
+
+Let the event $C$ be
+$\{\text{the coin is biased, such that } \mathbb{P}(\text{Tail in one draw}) = 1/3\}$.
+What is the probability you will see two heads given that the coin is
+biased?
+:::
+
+Conditional independence does not imply nor is it implied by
+independence.
+
+**Independence does not imply conditional independence.** Toss two
+coins. Let $H_1$ the even that the first toss is H and $H_2$ the event
+that the second toss is $H$. Let $D$ the even that the two tosses are
+different. $H_1$ and $H_2$ are clearly independent but
+$P\left(H_1 \mid D\right)=P\left(H_2 \mid D\right)=1 / 2$ and
+$P\left(H_1 \cap H_2 \mid D\right)=0$.
+
+**Conditional independence does not imply independence.** We have two
+coins, a blue one and a red one. For the blue coin the probability of
+$H$ is 0.99 and for the red coin it is 0.01 . A coin is chosen at random
+and then tossed twice. Let $B$ the event that the blue coin is selected,
+$R$ the event that the red coin is selected. Let $H_1$ and $H_2$ the
+events that the first and second toss is $H$. By the law of total
+probability
+
+$$P\left(H_1\right)=P\left(H_1 \mid B\right) P(B)+P\left(H_1 \mid R\right) P(R)=1 / 2 .$$
+
+Similarly $P\left(H_2\right)=1 / 2$. But, using again the law of total
+probability,
+
+$$P\left(H_1 \cap H_2\right)=P\left(H_1 \cap H_2 \mid B\right) P(B)+P\left(H_1
+  \cap H_2 \mid R\right) P(R)=1 / 2 \cdot 0.99^2+1 / 2 \cdot 0.01^2 \approx 1 /
+2$$
+
+which is different than $P\left(H_1\right) P\left(H_2\right)=1 / 4$.
+
+## In-class exercise \[Lec 4\] {#in-class-exercise-lec-4 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: This will be useful for homework!

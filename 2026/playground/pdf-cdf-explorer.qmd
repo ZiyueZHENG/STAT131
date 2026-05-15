@@ -1,0 +1,506 @@
+---
+title: "PDF and CDF Explorer"
+---
+
+## PDF and CDF Explorer
+
+Type a simple nonnegative function, choose an interval, and click **Draw PDF and CDF**.
+
+The function will be numerically normalized so that the total area under the PDF is 1.
+
+Examples you can try:
+
+- `1`
+- `x^2`
+- `exp(-x)`
+- `exp(-x^2 / 2)`
+- `x >= 0 and x <= 1 ? 1 : 0`
+
+```{=html}
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.1.1/math.min.js"></script>
+
+<div id="pdf-cdf-demo" style="max-width: 900px; margin-top: 1em;">
+
+  <div style="margin-bottom: 12px;">
+    <label for="pdf-input"><strong>PDF shape:</strong></label><br>
+    <input
+      id="pdf-input"
+      type="text"
+      value="exp(-x^2 / 2)"
+      style="width: 100%; max-width: 650px; padding: 6px; font-size: 16px;"
+    >
+  </div>
+
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+    <div>
+      <label for="xmin-input"><strong>x min:</strong></label><br>
+      <input id="xmin-input" type="number" value="-4" step="0.1" style="width: 100px; padding: 6px;">
+    </div>
+
+    <div>
+      <label for="xmax-input"><strong>x max:</strong></label><br>
+      <input id="xmax-input" type="number" value="4" step="0.1" style="width: 100px; padding: 6px;">
+    </div>
+
+    <div>
+      <label for="n-input"><strong>Grid points:</strong></label><br>
+      <input id="n-input" type="number" value="500" min="100" max="3000" step="100" style="width: 120px; padding: 6px;">
+    </div>
+  </div>
+
+  <button onclick="drawPdfCdf()" style="padding: 8px 14px; font-size: 16px;">
+    Draw PDF and CDF
+  </button>
+
+  <button onclick="loadPdfCdfExample('normal')" style="padding: 8px 14px; font-size: 16px; margin-left: 6px;">
+    Normal shape
+  </button>
+
+  <button onclick="loadPdfCdfExample('exponential')" style="padding: 8px 14px; font-size: 16px; margin-left: 6px;">
+    Exponential shape
+  </button>
+
+  <button onclick="loadPdfCdfExample('uniform')" style="padding: 8px 14px; font-size: 16px; margin-left: 6px;">
+    Uniform shape
+  </button>
+
+  <p id="pdf-cdf-message" style="margin-top: 12px; font-weight: bold;"></p>
+
+  <div id="pdf-plot" style="width: 100%; height: 420px; cursor: crosshair;"></div>
+  <div id="cdf-plot" style="width: 100%; height: 420px; margin-top: 20px; cursor: crosshair;"></div>
+
+</div>
+
+<script>
+let currentX = [];
+let currentPdf = [];
+let currentCdf = [];
+let currentXMin = -4;
+let currentXMax = 4;
+let currentPdfMax = 1;
+
+function loadPdfCdfExample(type) {
+  if (type === "normal") {
+    document.getElementById("pdf-input").value = "exp(-x^2 / 2)";
+    document.getElementById("xmin-input").value = -4;
+    document.getElementById("xmax-input").value = 4;
+  }
+
+  if (type === "exponential") {
+    document.getElementById("pdf-input").value = "x >= 0 ? exp(-x) : 0";
+    document.getElementById("xmin-input").value = 0;
+    document.getElementById("xmax-input").value = 8;
+  }
+
+  if (type === "uniform") {
+    document.getElementById("pdf-input").value = "x >= 0 and x <= 1 ? 1 : 0";
+    document.getElementById("xmin-input").value = -0.5;
+    document.getElementById("xmax-input").value = 1.5;
+  }
+
+  drawPdfCdf();
+}
+
+function trapezoidArea(x, y) {
+  let area = 0;
+  for (let i = 1; i < x.length; i++) {
+    const dx = x[i] - x[i - 1];
+    area += 0.5 * dx * (y[i] + y[i - 1]);
+  }
+  return area;
+}
+
+function cumulativeTrapezoid(x, y) {
+  let cdf = [0];
+
+  for (let i = 1; i < x.length; i++) {
+    const dx = x[i] - x[i - 1];
+    const addedArea = 0.5 * dx * (y[i] + y[i - 1]);
+    cdf.push(cdf[i - 1] + addedArea);
+  }
+
+  return cdf;
+}
+
+function nearestIndex(xArray, xValue) {
+  let bestIndex = 0;
+  let bestDistance = Math.abs(xArray[0] - xValue);
+
+  for (let i = 1; i < xArray.length; i++) {
+    const distance = Math.abs(xArray[i] - xValue);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestIndex = i;
+    }
+  }
+
+  return bestIndex;
+}
+
+function makePdfShadeTrace(index) {
+  const shadeX = currentX.slice(0, index + 1);
+  const shadeY = currentPdf.slice(0, index + 1);
+
+  return {
+    x: shadeX,
+    y: shadeY,
+    type: "scatter",
+    mode: "lines",
+    fill: "tozeroy",
+    name: "Area = CDF",
+    line: {
+      width: 0
+    },
+    fillcolor: "rgba(76, 120, 168, 0.25)",
+    hoverinfo: "skip",
+    showlegend: false
+  };
+}
+
+function getMouseXValue(event, plotId) {
+  const plot = document.getElementById(plotId);
+  const rect = plot.getBoundingClientRect();
+  const xaxis = plot._fullLayout.xaxis;
+
+  const mouseX = event.clientX - rect.left;
+
+  const xPixelInsideAxis = mouseX - xaxis._offset;
+  const xValue = xaxis.p2c(xPixelInsideAxis);
+
+  if (!Number.isFinite(xValue)) {
+    return null;
+  }
+
+  if (xValue < currentXMin || xValue > currentXMax) {
+    return null;
+  }
+
+  return xValue;
+}
+
+function updateHoverDisplay(xValue) {
+  const index = nearestIndex(currentX, xValue);
+  const xHover = currentX[index];
+  const pdfHover = currentPdf[index];
+  const cdfHover = currentCdf[index];
+
+  const midX = (currentXMin + currentXMax) / 2;
+  const boxAnchor = xHover < midX ? "left" : "right";
+  const boxShift = xHover < midX ? 12 : -12;
+
+  const pdfShape = {
+    type: "line",
+    x0: xHover,
+    x1: xHover,
+    y0: 0,
+    y1: currentPdfMax * 1.08,
+    line: {
+      color: "gray",
+      width: 1.5,
+      dash: "dot"
+    }
+  };
+
+  const cdfShape = {
+    type: "line",
+    x0: xHover,
+    x1: xHover,
+    y0: 0,
+    y1: 1.05,
+    line: {
+      color: "gray",
+      width: 1.5,
+      dash: "dot"
+    }
+  };
+
+  const pdfBox = {
+    x: xHover,
+    y: 0.75,
+    xref: "x",
+    yref: "paper",
+    text:
+      "x: " + xHover.toFixed(4) + "<br>" +
+      "pdf: " + pdfHover.toFixed(4) + "<br>" +
+      "cdf: " + cdfHover.toFixed(4),
+    showarrow: false,
+    xanchor: boxAnchor,
+    yanchor: "middle",
+    xshift: boxShift,
+    align: "left",
+    bgcolor: "rgba(255, 127, 14, 0.90)",
+    bordercolor: "rgba(80, 80, 80, 1)",
+    borderwidth: 1,
+    font: {
+      size: 14,
+      color: "black"
+    }
+  };
+
+  const cdfBox = {
+    x: xHover,
+    y: 0.75,
+    xref: "x",
+    yref: "paper",
+    text:
+      "x: " + xHover.toFixed(4) + "<br>" +
+      "pdf: " + pdfHover.toFixed(4) + "<br>" +
+      "cdf: " + cdfHover.toFixed(4),
+    showarrow: false,
+    xanchor: boxAnchor,
+    yanchor: "middle",
+    xshift: boxShift,
+    align: "left",
+    bgcolor: "rgba(31, 119, 180, 0.90)",
+    bordercolor: "rgba(80, 80, 80, 1)",
+    borderwidth: 1,
+    font: {
+      size: 14,
+      color: "white"
+    }
+  };
+
+  const shadeTrace = makePdfShadeTrace(index);
+
+  Plotly.restyle("pdf-plot", {
+    x: [shadeTrace.x],
+    y: [shadeTrace.y]
+  }, [0]);
+
+  Plotly.relayout("pdf-plot", {
+    shapes: [pdfShape],
+    annotations: [pdfBox]
+  });
+
+  Plotly.relayout("cdf-plot", {
+    shapes: [cdfShape],
+    annotations: [cdfBox]
+  });
+}
+
+function drawPdfCdf() {
+  const message = document.getElementById("pdf-cdf-message");
+  message.innerText = "";
+
+  const expr = document.getElementById("pdf-input").value;
+  const xmin = Number(document.getElementById("xmin-input").value);
+  const xmax = Number(document.getElementById("xmax-input").value);
+  const n = Number(document.getElementById("n-input").value);
+
+  if (!Number.isFinite(xmin) || !Number.isFinite(xmax) || xmin >= xmax) {
+    message.innerText = "Please enter a valid interval with x min < x max.";
+    return;
+  }
+
+  if (!Number.isFinite(n) || n < 50) {
+    message.innerText = "Please enter a reasonable number of grid points.";
+    return;
+  }
+
+  let compiled;
+  try {
+    compiled = math.compile(expr);
+  } catch (error) {
+    message.innerText = "The function expression could not be parsed.";
+    return;
+  }
+
+  const x = [];
+  const rawY = [];
+
+  for (let i = 0; i < n; i++) {
+    const xi = xmin + (xmax - xmin) * i / (n - 1);
+    let yi;
+
+    try {
+      yi = compiled.evaluate({ x: xi });
+    } catch (error) {
+      message.innerText = "The function could not be evaluated. Check your syntax.";
+      return;
+    }
+
+    yi = Number(yi);
+
+    if (!Number.isFinite(yi)) {
+      message.innerText = "The function produced a non-finite value. Try another interval.";
+      return;
+    }
+
+    if (yi < 0) {
+      message.innerText = "A PDF must be nonnegative. Your function is negative somewhere on this interval.";
+      return;
+    }
+
+    x.push(xi);
+    rawY.push(yi);
+  }
+
+  const area = trapezoidArea(x, rawY);
+
+  if (!Number.isFinite(area) || area <= 0) {
+    message.innerText = "The total area is zero or invalid. Please enter a positive function.";
+    return;
+  }
+
+  const pdf = rawY.map(v => v / area);
+  const cdf = cumulativeTrapezoid(x, pdf);
+  const finalCdf = cdf[cdf.length - 1];
+  const cdfNormalized = cdf.map(v => v / finalCdf);
+
+  currentX = x;
+  currentPdf = pdf;
+  currentCdf = cdfNormalized;
+  currentXMin = xmin;
+  currentXMax = xmax;
+  currentPdfMax = Math.max(...pdf, 1e-8);
+
+  message.innerText =
+    "Numerical normalizing constant before scaling: " + area.toFixed(5);
+
+  const startIndex = Math.floor(x.length / 2);
+
+  const pdfShadeTrace = makePdfShadeTrace(startIndex);
+
+  const pdfTrace = {
+    x: x,
+    y: pdf,
+    type: "scatter",
+    mode: "lines",
+    name: "PDF",
+    line: {
+      width: 3
+    },
+    customdata: cdfNormalized,
+    hovertemplate:
+      "x: %{x:.4f}<br>" +
+      "pdf: %{y:.4f}<br>" +
+      "cdf: %{customdata:.4f}<extra></extra>"
+  };
+
+  const cdfTrace = {
+    x: x,
+    y: cdfNormalized,
+    type: "scatter",
+    mode: "lines",
+    name: "CDF",
+    line: {
+      width: 3
+    },
+    customdata: pdf,
+    hovertemplate:
+      "x: %{x:.4f}<br>" +
+      "pdf: %{customdata:.4f}<br>" +
+      "cdf: %{y:.4f}<extra></extra>"
+  };
+
+  const pdfLayout = {
+    title: "PDF: density curve",
+    showlegend: false,
+    hovermode: false,
+    xaxis: {
+      title: "x",
+      range: [xmin, xmax],
+      showspikes: true,
+      spikemode: "across",
+      spikesnap: "cursor",
+      spikedash: "dot",
+      spikethickness: 1
+    },
+    yaxis: {
+      title: "pdf(x)",
+      rangemode: "tozero",
+      range: [0, currentPdfMax * 1.15]
+    },
+    margin: {
+      l: 60,
+      r: 30,
+      t: 60,
+      b: 60
+    },
+    shapes: [
+      {
+        type: "line",
+        x0: x[startIndex],
+        x1: x[startIndex],
+        y0: 0,
+        y1: currentPdfMax * 1.08,
+        line: {
+          color: "gray",
+          width: 1.5,
+          dash: "dot"
+        }
+      }
+    ]
+  };
+
+  const cdfLayout = {
+    title: "CDF: accumulated area under the PDF",
+    showlegend: false,
+    hovermode: false,
+    xaxis: {
+      title: "x",
+      range: [xmin, xmax],
+      showspikes: true,
+      spikemode: "across",
+      spikesnap: "cursor",
+      spikedash: "dot",
+      spikethickness: 1
+    },
+    yaxis: {
+      title: "cdf(x)",
+      range: [0, 1.05]
+    },
+    margin: {
+      l: 60,
+      r: 30,
+      t: 60,
+      b: 60
+    },
+    shapes: [
+      {
+        type: "line",
+        x0: x[startIndex],
+        x1: x[startIndex],
+        y0: 0,
+        y1: 1.05,
+        line: {
+          color: "gray",
+          width: 1.5,
+          dash: "dot"
+        }
+      }
+    ]
+  };
+
+  const config = {
+    responsive: true,
+    displayModeBar: true
+  };
+
+  Plotly.newPlot("pdf-plot", [pdfShadeTrace, pdfTrace], pdfLayout, config);
+  Plotly.newPlot("cdf-plot", [cdfTrace], cdfLayout, config);
+
+  updateHoverDisplay(x[startIndex]);
+
+  const pdfPlot = document.getElementById("pdf-plot");
+  const cdfPlot = document.getElementById("cdf-plot");
+
+  pdfPlot.addEventListener("mousemove", function(event) {
+    const xValue = getMouseXValue(event, "pdf-plot");
+    if (xValue !== null) {
+      updateHoverDisplay(xValue);
+    }
+  });
+
+  cdfPlot.addEventListener("mousemove", function(event) {
+    const xValue = getMouseXValue(event, "cdf-plot");
+    if (xValue !== null) {
+      updateHoverDisplay(xValue);
+    }
+  });
+}
+
+drawPdfCdf();
+</script>
+```

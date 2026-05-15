@@ -1,0 +1,33 @@
+---
+title: "Homework - Week 10"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec10-q3}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec10-q4}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec10-q5}
+:::
+
+::: {.callout-warning title="Problem 4"}
+\useproblem{lec10-q6}
+:::
+
+::: {.callout-warning title="Problem 5"}
+\useproblem{lec10-q7}
+:::
+
+::: {.callout-warning title="Problem 6"}
+\useproblem{lec10-q8}
+:::
+
+::: {.callout-warning title="Problem 7"}
+\useproblem{lec10-q9}
+:::

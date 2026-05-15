@@ -1,0 +1,24 @@
+---
+title: "Discussion - Week 14"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that one word is to be selected at random from the sentence “the
+  girl put on her beautiful red hat”. If $X$ denotes the number of letters in
+  the word that is selected,
+
+a. What is the expected value $X$?
+b. Suppose that it was revealed to you that the chosen word was at
+  most 4 letters long. What is the expected value now? (In other words, what
+  is the conditional expectation?)
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose $\theta \sim \text{Unif}(0,2\pi)$, $X=\cos \theta$ and $Y=\sin \theta$.
+  Verify that $\operatorname{Cov}(X,Y)=0$.  Is $X\perp Y$?
+
+  (This is a clear example of the two variables $X$ and $Y$ not having a linear
+  relationship.)
+:::

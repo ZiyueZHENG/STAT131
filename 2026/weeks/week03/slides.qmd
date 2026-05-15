@@ -1,0 +1,305 @@
+---
+title: "Lecture 3: Counting methods"
+format:
+  html
+---
+
+
+## Counting methods \[DS 1.7, 1.8\] \[Lec 3\] {#sec:counting-methods}
+
+It's not always the case that outcomes of an experiment are equally
+likely.
+
+However, when they are, we find it very useful to learn how to *count*
+the number of outcomes in the event, or in the sample space. Many
+classical probability calculations can be done by these methods.
+
+Basic techniques from combinatorial analysis come in handy for this type
+of question. Let's take a closer look to some relevant cases.
+
+Suppose you have a group of $m$ elements $a_1, \cdots ,a_m$ and another
+group of $n$ elements $b_1, \cdots, b_n$. You can form $mn$ pairs
+containing one element from each group. (Of course you can easily extend
+this reasoning to more than just two groups.) This is a useful fact when
+we are sampling with replacement and the order matters. Let's make this
+formal.
+
+::: {.callout-important title="Theorem"}
+**The multiplication rule.**
+
+Experiment with multiple stages, $k$ stages; in stage $i$, there are
+$n_i$ options. In total, the number of options is
+$$\prod \nolimits_{i=1}^k n_i.$$
+:::
+
+::: {.callout-tip title="Example"}
+What is the total number of outcomes?
+
+-   rolling two dice
+
+-   toss one coin *and* roll one die;
+
+-   10-digit phone numbers
+:::
+
+### Sampling with and without replacement {#sec:sampl-with-with}
+
+The total number of relevant outcomes may heavily depend on whether, in
+each of your $k$ stages of your experiment, the items that have already
+been chosen so far can still be chosen.
+
+::: {.callout-note title="Definition"}
+**Sampling with replacement.**
+
+Selecting/obtaining $k$ items from a total of $n$ items with
+replacement.
+:::
+
+Let's start with the simpler case of $k=1$, i.e., selecting one item out
+of $n$.
+
+Suppose you toss a six-sided die twice. You have $6$ simple outcomes on
+the first roll and $6$ possible outcomes in the second roll.
+
+In this type of problem, there are a few things to check.
+
+1\. Is the experiment performed with replacement? Yes; if the first roll
+is a $2$, nothing precludes the fact that the second roll is a $2$
+again.
+
+2\. Does the order matter? Yes; the pair $(2,5)$ corresponding to a $2$
+on the first roll and a $5$ on the second roll is not equal to the pair
+$(5,2)$ corresponding to a $5$ on the first roll and a $2$ on the second
+roll. We will revisit this when we learn about permutations.
+
+::: {.callout-tip title="Example"}
+Suppose a box contains $6$ numbered balls; for each selection, record
+the number and put the selected ball back to the box. Is this sampling
+with or without replacement? What is the total number of possible
+outcomes?
+:::
+
+(Note, the experiment where you roll two fair dice is the same
+experiment as one dice being independently rolled twice.)
+
+Next, what if the sampling is done without replacement?
+
+::: {.callout-note title="Definition"}
+**Sampling without replacement.**
+
+Selecting $k$ items from a total of $n$ items without replacement.
+:::
+
+Here is an example. We'd like to count how many different subsets of
+three people can become officers of an organization of $n=30$ people, if
+chosen randomly? Order doesn't matter here (we are not interested in the
+exact appointments for a given candidate). The random sampling of random
+three officers from $n$ people is a sampling conducted *without*
+replacement.
+
+Here are some other examples:
+
+1.  Texas Holdem: 3 common cards are dealt sequentially from a deck of
+    cards. 2 cards are dealt to each player from the same deck.
+
+2.  Blackjack: 2 cards are dealt to each player from the same pile of
+    cards.
+
+3.  Lotto numbers are drawn sequentially.
+
+### Permutation, Combinations, and Partitions {#sec:perm-comb-numb}
+
+We will learn three tools for counting. This is called
+**combinatorics**, and is an elegant branch of mathematics that we
+borrow from.
+
+1.  Permutations
+
+2.  Combinations
+
+3.  Partitions
+
+First, we use a core counting operation called factorials.
+
+::: {.callout-note title="Definition"}
+**Factorial.**
+
+Factorial $n!$ is defined as
+$$n! =n\times (n-1) \times ... \times 2 \times 1.$$
+:::
+
+A factorial is useful for counting permutations.
+
+::: {.callout-note title="Definition"}
+**All permutations.**
+
+The number of distinct orderings of $n$ elements is $n!$.
+:::
+
+Next, we define permutation number $P_{n,k}$, the way to order $k$
+elements chosen from $n$ elements; also called $k$-permutation.
+
+::: {.callout-note title="Definition"}
+**Permutation number.**
+
+Permutation number $P_{n,k}$ is the number of distinct orderings such
+that $k$ elements are selected from $n$ items **in order**, without
+replacement.
+$$P_{n,k} =   n!/(n-k)! = n \cdot (n-1) \cdot (n-2), \cdots, (n-r+1).$$
+**Note: Order matters!**
+:::
+
+Consider the example from before. There are 30 members in a student
+organization and they need to choose a president, a vice-president, and
+a treasurer. In how many ways can this be done? The size of the $n$
+distinct elements (persons) is $n =
+30$, the number of persons to be appointed is $r = 3$. The sampling is
+done without replacement (a president is chosen out of $30$ people, then
+among the $29$ people left a vice-president is chosen, and finally among
+the $28$ people left a treasurer is chosen).
+
+Does the order matter? Yes, the president is elected first, then the
+vice-president, and finally the treasurer (think about 'ranking' the 30
+candidates). The number of ways in which the three positions can be
+assigned is therefore
+$P_{30,3} = 30!/(30-3)! = 30 \cdot 29 \cdot 28 = 24360.$
+
+Note, the number of ways to choose $n$ out of $n$ elements is $P_{n,n}$
+simplifies to $n$ factorial ($n!$). In this case, no choosing occurs; we
+only need to count the ways to order.
+
+::: {.callout-tip title="Example"}
+**Choosing officers.**
+
+Suppose a club has 25 members, a president and a secretary are to be
+chosen from the membership. How many distinct configurations can we
+have?
+:::
+
+::: {.callout-tip title="Example"}
+**Bookshelf.**
+
+Suppose you have 10 books on your bookshelf, how many ways are there to
+arrange all of the books?
+:::
+
+::: {.callout-tip title="Example"}
+**Birthday problem.**
+
+What is the probability that at least two of the students in STAT131
+have the same birthday?
+
+Hint: $E=\{$at least two of the students have the same birthday$\}$ and
+we are interested in $\mathbb{P}(E)$.
+:::
+
+**Approximate factorials** Most computers cannot handle $n!$ and
+arithmetic operations when $n$ is big. The trick is to complete the
+arithmetic operations in log-scale and exponentiate the results in the
+end.
+
+To compute $\frac{P_{n,k}}{n^k}$, we compute
+$\log(P_{n,k}) - k \log (n)$ where
+$\log(P_{n,k}) = \log(n!)-\log((n-k)!) = \sum_{i=n-k+1}^n\log(i)$.
+Identity: $\frac{P_{n,k}}{n^k} = e^{\log(P_{n,k}) - k \log (n) }$ where
+$\log(\cdot)$ is the natural log.
+
+::: {.callout-note title="Definition"}
+**Combination number.**
+
+Suppose a set has $n$ elements, select $k$ elements without replacement.
+Each **subset** of size $k$ is a *combination* of $n$ elements taken $k$
+at a time. The number of distinct combinations:
+$$C_{n,k} = \frac{P_{n,k}}{k!} = \frac{n!} {(n-k)!k!}.$$ Also known as
+binomial coefficients $\binom{n}{k}$. **Note: Order doesn't matter!**
+:::
+
+The combination number is used in the famed binomial theorem.
+
+::: {.callout-important title="Theorem"}
+**Binomial theorem.**
+
+$$(x+y)^n = \sum_{i=0}^n \binom{n}{k} x^ky^{n-k}.$$
+:::
+
+::: {.callout-tip title="Example"}
+Complete square: $(x+y)^2= ?$ and $(x+y)^3= ?$.
+:::
+
+::: {.callout-important title="Lemma"}
+A few frequently used properties of binomial coefficients:
+
+-   $\binom{n}{0} = \binom{n}{n} =1$,
+
+-   $\binom{n}{k} = \binom{n}{n-k}$.
+
+-   $\binom{n}{k} + \binom{n}{k-1} = \binom{n+1}{k}$.
+
+-   Vandermonde's identity:
+    $$\binom{m+n}{k} = \sum_{j=0}^k\binom{m}{j} \binom{n}{k-j}.$$
+:::
+
+::: {.callout-tip title="Example"}
+**Texas Holdem.**
+
+A 5-card hand is dealt from a standard, well-shuffled 52-card deck. The
+hand is called a *full house* in poker if it consists of three cards of
+some rank and two cards of another rank. e.g. three $K$'s + two 7's,
+where ordering does not matter. What is the probability of a full house?
+:::
+
+::: {.callout-tip title="Example"}
+**Blood Alleles.**
+
+The gene for human blood type consists of a pair of alleles chosen from
+the three alleles commonly called O, A, and B. For example, two possible
+combinations of alleles (called genotypes) to form a blood-type gene
+would be BB and AO. We will not distinguish the same two alleles in
+different orders, so OA represents the same genotype as AO. How many
+genotypes are there for blood type?
+:::
+
+::: {.callout-tip title="Example"}
+**Fair coin tossed.**
+
+A fair coin is to be tossed 10 times. Determine the probability that
+exactly 3 heads will occur? Also determine the probability that three or
+fewer heads will occur?
+:::
+
+::: {.callout-tip title="Example"}
+**Sampling without replacement.**
+
+Suppose an urn contains 15 yellow and 30 blue balls, from which 10 balls
+will be selected at random. What is the probability that exactly three
+yellow balls will be selected?
+:::
+
+Next, suppose we want to partition a set of $n$ elements into $r$
+subsets so that the $i$'th subset contains $n_i$ elements, and
+$\sum_i n_i = n$. How many ways to do this?
+
+::: {.callout-note title="Definition"}
+**Partitions.**
+
+The number of ways to partition $n$ elements into $n_1, \cdots, n_r$
+groups is $$\binom{n}{n_1,\cdots, n_r}.$$ This is the *multinomial*
+coefficient.
+:::
+
+**Q:** Can you see how the combinations $C_{n,k}$ are a specific case of
+partitions, so that the binomial coefficient is a specific case of the
+multinomial coefficient?
+
+::: {.callout-tip title="Example"}
+How many different words (even meaningless) can be obtained by
+rearranging the word PEPPER?
+:::
+
+## In-class exercises \[Lec 3\] {#in-class-exercises-lec-3 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::

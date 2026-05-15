@@ -1,0 +1,33 @@
+---
+title: "Homework - Week 04"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec4-q4}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec4-q5}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec4-q6}
+:::
+
+::: {.callout-warning title="Problem 4"}
+\useproblem{lec4-q7}
+:::
+
+::: {.callout-warning title="Problem 5"}
+\useproblem{lec4-q8}
+:::
+
+::: {.callout-warning title="Problem 6"}
+\useproblem{lec4-q9}
+:::
+
+::: {.callout-warning title="Problem 7"}
+\useproblem{lec4-q10}
+:::

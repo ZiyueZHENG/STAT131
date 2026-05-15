@@ -1,0 +1,23 @@
+---
+title: "Discussion - Week 15"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+What is the moment generating function for a $\text{Unif}(a,b)$ random
+  variable? Using this,
+
+a. Prove that the mean (i.e., expectation) of a $\text{Unif}(a,b)$
+  random variable is $\frac{a+b}{2}$.
+b. Prove that the standard deviation of a $\text{Unif}(a,b)$ is $\frac{(b-a)^2}{12}$.
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose that the random variables $X$ and $Y$ are iid and that the mgf of
+  each is:
+  $$
+  \psi(t)=e^{t^2+3 t} \quad \text { for }-\infty<t<\infty .
+  $$
+  Find the mgf of $Z=2 X-3 Y+4$.
+:::

@@ -1,0 +1,333 @@
+---
+title: "Lecture 13: Expectations and Variance"
+format:
+  html
+---
+
+
+## Expectation \[DS 4.1-4.2\] \[Lec 13\]  {#sec:expectation}
+
+Given a random element $X$, how to give a **one-number** summary of it?
+
+Recall the concept of an *average* of some numbers (or weighted
+averages, weighted by some relative importance). In probability theory,
+the average of a random variable is called expectation. Expectation
+$\mathbb{E}[X]$ captures the *center* of a random variable.
+
+::: {.callout-note title="Definition"}
+**Expectation.**
+
+For discrete random variable $X$,
+$$\mathbb{E}[X] = \sum \nolimits_{x \in supp(X)} x f(x),$$ provided
+$\mathbb{E}[|X|] < \infty$.
+
+For continuous random variable $X$,
+$$\mathbb{E}[X] = \int\nolimits_{-\infty}^\infty  xf(x)dx,$$ provided
+$\mathbb{E}[|X|] < \infty$.
+:::
+
+The discrete version is essentially a weighted average of $X$, and the
+weights are the probabilities.
+
+The expectation a random variable is also called the "mean" of that
+random variable.
+
+::: {.callout-tip title="Example"}
+Find the expectation (mean) of the following random variables.
+
+-   The random variable $X=c$ with probability 1.
+
+-   Bernoulli random variable with parameter $p$.
+
+-   Uniform on $[a,b]$.
+
+-   The random variable $X$ with pdf symmetric about 0.
+:::
+
+Note that expectation can be non-existent, as the integral or the
+summation may not exist.
+
+**Cauchy distribution.**
+
+::: {.callout-tip title="Example"}
+Suppose the pmf of the random variable $X$ satisfies
+$$f(x) \propto \frac{1}{x^2}, \text{ for } x=1, 2,....$$ Prove that the
+expectation of $X$ does not exist.
+:::
+
+When do we know when the expectation of random variable $X$ exists? One
+way is to recognize that $E[X]$ is *bounded* if $X$ itself is bounded.
+To be more specific, if $P(X\ge a) =1$, then $\mathbb{E}[X] \ge a$; if
+$P(X\le a) =1$, then $\mathbb{E}[X] \le a$. So clearly, expectation
+exists for all absolutely bounded random variables.
+
+::: {.callout-note title="Definition"}
+**Moments.**
+
+For a random variable $X$, the means of powers $X^k$ are called
+*moments*, which have useful theoretical properties, and some of them
+are used for additional summaries of a distribution.
+:::
+
+(Later, we will learn about the *moment generating function* which a
+related tool that aids in deriving distributions of sums of independent
+random variables and limiting properties of distributions.)
+
+Next, the expectation of a *function* of the random variable can be
+computed as follows:
+
+::: {.callout-important title="Theorem"}
+**Expected value of function $h(X)$ of $X$.** []{#thm:lotus
+label="thm:lotus"} Suppose discrete $X\sim f$, function $h:\R \to \R$,
+then $$\mathbb{E} [h(X)] = \sum_{x \in supp(X)} h(x)f(x) ,$$ if the sum
+is finite.
+
+Suppose continuous $X\sim f$, function $h:\R \to \R$, then
+$$\mathbb{E} [h(X)] = \int_{-\infty}^\infty h(x)f(x) dx,$$ if the
+integral is finite.
+:::
+
+This theorem is sometimes called *the Law of the Unconscious
+Statistician (LOTUS)*.
+
+::: corollary
+The relation between the probability of an event $E$ and expectation is
+characterized as follows. $$\mathbb{P}(E)  = \mathbb{E}[ 1_E] ,$$ where
+$1_E$ denotes the indicator function of $E$.
+:::
+
+**Folded Normal.**
+
+::: {.callout-tip title="Example"}
+**The square root rule.**
+
+Suppose a randomly chosen student's exm score $X$ follows Unif$[0,100]$.
+The instructor applies a transformation to the scores to curve them,
+using: $$Y=h(X) = 10\times \sqrt{X}.$$ For a few concrete examples are:
+$h(0)=0$, $h(100)=100$, $h(36) =60$, $h(64)=80, \cdots .$
+
+-   Find the pdf of $Y$, and compare it with $f_X$.
+
+-   Compare the expected score: $EY-EX>0$?
+
+-   Compare the proportion of Fails.
+:::
+
+::: {.callout-important title="Theorem"}
+**Expectation of function of multiple RVs.**
+
+Suppose $Y=h(X_1,X_2,...,X_n)$, and *continuous* ${\bf{X}} \sim f$,
+$$\mathbb{E}[Y] = \mathbb{E} [h({\bf{X}})] =
+    \int_{-\infty}^\infty ... \int_{-\infty}^\infty
+    h(\mathbf{x})f(\mathbf{x}) d\mathbf{x},$$ if the integral is finite.
+
+Suppose $Y=h(X_1,X_2,...,X_n)$, and *discrete* ${\bf{X}} \sim f$,
+$$\mathbb{E}[Y] =\mathbb{E} [h(\mathbf{X})] =
+    \sum_{\mathbf{x} \in supp(\mathbf{X})} h(\mathbf{x})f(\mathbf{x}) ,$$
+if the sum is finite.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose a point $(X,Y)$ follows the uniform distribution on the square
+$[0,1]^2$. We hope to find the expected area of the rectangle determined
+by $(X,Y)$. That is to find $\mathbb{E}[XY]$ .
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $X,Y\distras{iid} Exp(\lambda)$, whose pdf is
+$f(x) = \lambda e^{-\lambda x}$ and let $$Z=
+  \begin{cases}
+    3X+1 & \text{ if } X\ge Y \\
+    6Y & \text{if } X< Y.
+  \end{cases}$$ Find $\mathbb{E}[Z]$.
+:::
+
+Next, we describe two properties of expectations.
+
+::: {.callout-important title="Theorem"}
+**Linearity.** []{#thm:linearity label="thm:linearity"} Expectation of a
+linear function of $X$: $$\mathbb{E}[aX+b] = a \mathbb{E}[X] +b.$$
+Expectation of a linear function of $\mathbf{X}$:
+$$\mathbb{E}[ \sum\nolimits_{i=1}^n a_i X_i+b] = \sum\nolimits_{i=1}^n
+    a_i \mathbb{E}[X_i] +b$$
+:::
+
+Linearity is a fundamental property of expectation, and it is a
+consequence of the integral operation.
+
+::: {.callout-tip title="Example"}
+Find the expectation of Binomial random variable $X$ with parameters
+$(n,p)$.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose a librarian randomly stacks $k$ different books on the shelf
+with the labels of their titles. What is the expected number of books
+under the correct labels?
+:::
+
+Next, when we have independent random variables
+
+::: {.callout-important title="Theorem"}
+Let $X_1,...X_n$ be independent random variables. Then
+$$\mathbb{E}[\prod\nolimits_{i=1}^n X_i ] = \prod\nolimits_{i=1}^n \mathbb{E}[ X_i ]$$
+:::
+
+Pause and think about the two theorems. They are quite different. The
+mean of the *product* of random variables is only the product of means
+when they are independent. However, the sum of random variables has an
+expectation regardless of independence.
+
+::: {.callout-tip title="Example"}
+Suppose $(X,Y) \distras{iid} N(0,1)$, The distribution of $X/Y$ is a
+Cauchy distribution, whose probability density is
+$f(z) = 1/(\pi (1+z^2))$ for $-\infty < z < \infty$. Find
+$\mathbb{E}[X/Y]$.
+:::
+
+The product property will be useful when we study moment generating
+functions.
+
+::: {.callout-tip title="Example"}
+Suppose $(X,Y) \distras{iid} N(0,1)$, find $\mathbb{E}[e^{aX+bY}]$.
+:::
+
+We end by discussing a salient feature of the expected value.
+
+::: {.callout-important title="Theorem"}
+The expectation or mean $E[X]$ *predicts* $X$ with the lowest mean
+squared error (MSE).
+:::
+
+Specifically, if you had to pick one value to predict the (inherently)
+random variable $X$, you should pick the mean, since it is the value
+that incurs the smallest *error*. Let's do short derivation; we seek a
+prediction $d$ of $Y$ such that its mean squared error
+$$\text{M.S.E} = \mathbb{E}[(Y-d)^2].$$ Expand this:
+$$\text{M.S.E} = \mathbb{E}[(Y-d)^2] = \mathbb{E}[ Y^2 - 2d Y + d^2] = (d - \mathbb{E}[Y])^2
+- [\mathbb{E}[Y]]^2 + \mathbb{E}[Y^2],$$ and notice that, since this is
+a quadratic equation in $d$, the choice of $d$ that minimizes this is
+$\mathbb{E}[Y]$.
+
+## Variance \[DS 4.3\] \[Lec 13\] {#sec:variance}
+
+In reality, the center of a distribution is not informative enough about
+the random quantity. We are interested in the how spread out the random
+variable is. Variance captures the *variability* or *spread* of a random
+variable.
+
+::: {.callout-note title="Definition"}
+**Variance.**
+
+Variance is defined as $$V[X] = \mathbb{E} [(X - \mathbb{E}[X]) ^2].$$
+:::
+
+Other notations: $Var(X)$, $\sigma^2(X)$ or $\sigma^2$ when there is no
+confusion.
+
+::: {.callout-note title="Definition"}
+**Standard deviation.**
+
+Standard deviation: $\sqrt{V[X]}$
+:::
+
+Note, since variance is defined as the expectation of a special function
+of $X$, it is possible for variance to not exist (i.e. be infinite).
+
+::: {.callout-tip title="Example"}
+**Variance.**
+
+Find the variance of the following random variables.
+
+-   The random variable $X=c$ with probability 1.
+
+-   Bernoulli with parameter $p$.
+
+-   Uniform on $[a,b]$.
+:::
+
+::: {.callout-important title="Lemma"}
+**Alternative expression of variance.**
+
+$$V[X] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2.$$
+:::
+
+::: proof
+*Proof.* (Hint: Use definition directly.) ◻
+:::
+
+::: {.callout-tip title="Example"}
+**Variance.**
+
+Find the variance of the following random variables using the
+alternative expression of variance.
+
+-   The random variable $X=c$ with probability 1.
+
+-   Bernoulli with parameter $p$.
+
+-   Uniform on $[a,b]$.
+:::
+
+Here are some elementary properties of the variance:
+
+1.  $V[X] \ge 0$ for all $X$.
+
+2.  $V[X]$ exists for all bounded random variable $X$.
+
+3.  $V[X] =0$ if and only if $\mathbb{P}(X=c) =1$ for some constant $c$
+    (i.e., $X$ is a constant).
+
+As with expectation, linear transformations of $X$ have an easier
+variance formula.
+
+::: {.callout-important title="Theorem"}
+Variance of a linear function of $X$: $$V[aX+b] = a^2 V[X]$$
+
+Variance of a linear function of $\mathbf{X}$ where $\{X_i\}$ are
+**independent**:
+$$V\left[ \sum\nolimits_{i=1}^n a_i X_i+b\right] = \sum\nolimits_{i=1}^n a^2_i V[X_i]$$
+:::
+
+::: corollary
+Important special cases of the above theorem [under
+independence]{.underline} are as follows.
+
+-   The variance of the sum of independent random variables. For all
+    $i=1,...,n$, choose $a_i=1$ and $b=0$ to get,
+    $$V\left[ \sum\nolimits_{i=1}^n  X_i\right] = \sum\nolimits_{i=1}^n
+          V[X_i]  .$$
+
+-   The variance of the sample mean. For all $i=1,...,n$, choose
+    $a_i=1/n$ and $b=0$ to see that,
+    $$V\left[ \frac{1}{n}\sum\nolimits_{i=1}^n  X_i\right]
+          =\frac{1}{n^2} \sum\nolimits_{i=1}^n
+          V[X_i] .$$
+
+-   The variance of the sample mean when $X_1, \cdots, X_n$ are iid[^1].
+    For all $i=1,...,n$, choose $a_i=1/n$ and $V[X_i]=\sigma^2$, and
+    $b=0$, so that:
+    $$V\left[ \frac{1}{n}\sum\nolimits_{i=1}^n  X_i\right]
+          =\frac{\sigma^2}{n} .$$
+:::
+
+::: {.callout-tip title="Example"}
+Find the variance of the $\text{Binom}(n,p)$ distribution.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose $Z_1,Z_2,...,Z_n$ is a sequence of *independent* random
+variables, and $Z_k \sim N(0,k)$ for $k=1,...,n$. Find the variance of
+the sample mean $\bar Z = \frac{1}{n}\sum_{i=1}^n Z_i$.
+:::
+
+## In-class exercise \[Lec 13\] {#in-class-exercise-lec-13 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: iid means that $X_1,\cdots, X_n$ are all independent and follow
+    the same distribution (that is, they are identically distributed).

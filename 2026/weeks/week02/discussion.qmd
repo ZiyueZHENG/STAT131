@@ -1,0 +1,18 @@
+---
+title: "Discussion - Week 02"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+If two balanced dice are rolled, what is the probability
+  that the sum of the two numbers that appear will be odd?
+:::
+
+::: {.callout-warning title="Problem 2"}
+If the probability that student 1 will fail a certain statistics
+  examination is 0.5, the probability that student 2 will fail the examination
+  is 0.2, and the probability that both student 1 and student 2 will fail the
+  examination is 0.1, what is the probability that at least one of these two
+  students will fail the examination?
+:::

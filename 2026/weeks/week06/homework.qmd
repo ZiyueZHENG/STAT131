@@ -1,0 +1,72 @@
+---
+title: "Homework - Week 06"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Say you are waiting for the first day it will rain, where the daily
+  probability of raining is $p$. Then the total number of days it will take to
+  rain, $X$, follows a geometric distribution with parameter $p$.  Prove that
+  this is the pmf of $X$:
+  $$f(x \mid p)=
+  \begin{cases}p(1-p)^x & \text { for } x=0,1,2, \ldots \\ 0 & \text { otherwise
+    }\end{cases}$$
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose that a box contains $A$ red balls and $B$ blue balls. Suppose also
+  that $n \ge 0$ balls are selected at random from the box without replacement,
+  and let $X$ denote the number of red balls that are obtained. (Clearly, we
+  must have $n \le A + B$ or we would run out of balls. Also, if $n = 0$, then
+  $X= 0$ because there are no balls, red or blue, drawn.) If $n \ge 1$, we let
+  the random variable $X_i$ be defined so that $X_i = 1$ if the $i$-th ball
+  drawn is red and $X_i = 0$ if not.
+
+a. What are $\mathbb{P}(X_2 = 1|X_1 = 1)$ and $\mathbb{P}(X_2 = 1|X_1 = 0)$?
+b. True or False? $X_1, \cdots, X_n$ are mutually independent. Justify your
+  answer.
+c. Use combinatorial arguments to derive the pmf of $X$.
+
+
+  (Make sure to precisely define the support of $X$.)
+:::
+
+::: {.callout-warning title="Problem 3"}
+At the US Postal office, the expected number of customers between 1pm and
+  2pm is usually $3$. The number behaves like a Poisson random variable. What is
+  the probability that 2 or more people will visit the postal office during that
+  time period?
+:::
+
+::: {.callout-warning title="Problem 4"}
+Denote as $f_1(x \mid n,p)$ the pmf of a Binomial distribution with
+  parameters $n$ and $p$. Also denote as $f_2(x \mid \lambda)$ the pmf of a
+  Poisson distribution with parameter $\lambda$.
+  Let $\{p_n\}_{n=1, \cdots, \infty}$ be a sequence of numbers between 0 and 1
+  such that $\lim_{n \to \infty}np_n = \lambda$. Prove that:
+  $$ \lim_{n\to\infty} f_1(x \mid n, p_n) = f_2(x \mid \lambda).$$
+  Note, this *formally* justifies why we can use a Poisson distribution with
+  mean $np$ to approximate a Binomial distribution with parameters $n$ and $p$
+  where $n$ is large and $p$ is close to 0.
+:::
+
+::: {.callout-warning title="Problem 5"}
+Suppose that in a large population the proportion of people who have a
+  certain rare disease is $0.01$. We shall determine the probability that in a
+  random group of $200$ people at least four people will have the disease, in
+  two ways:
+
+a. Calculate the exact probability.
+b. Calculate the approximate probability, using an appropriate Poisson
+  distribution.
+:::
+
+::: {.callout-warning title="Problem 6"}
+Consider three urns. Urn A contains 2 white and 3 red balls, urn B
+  contains 8 white and 4 red balls and urn C contains 1 white and and 3 red
+  balls. If one ball is selected from each urn, what is the probability that the
+  ball chosen from urn A was white, given that exactly 2 white balls were
+  selected? (Hint: consider defining random variables $X_i$ (for $i=1,2,3$) that
+  is valued 1 if a white ball is drawn from the $i$'th urn, zero otherwise.)
+:::

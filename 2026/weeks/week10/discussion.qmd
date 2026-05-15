@@ -1,0 +1,28 @@
+---
+title: "Discussion - Week 10"
+---
+
+*Instructions: In groups of two or three students, solve the following problems. Your TA will answer questions and provide hints, but won't solve the problem for you. Each student should submit a hard copy of their work to the TA at the end of the discussion.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that in a certain drug the concentration of a
+particular chemical is a random variable with a continuous
+distribution for which the pdf $g(\cdot)$ is defined as follows:
+
+$$
+g(x)=
+    \begin{cases}
+      \frac{3}{8}x^2 & \text{for}\ 0 \leq x \leq 2,\\
+      0 & \text{otherwise.}
+    \end{cases}
+$$
+
+Suppose that the concentrations \(X\) and \(Y\) of the chemical
+in two separate batches of the drug are independent random
+variables for each of which the pdf is $g(\cdot)$. Determine:
+
+a. The joint pdf of \(X\) and \(Y\).
+b. $\mathbb{P}(X=Y)$.
+c. $\mathbb{P}(X>Y)$.
+d. $\mathbb{P}(X+Y \leq 1)$.
+:::

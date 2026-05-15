@@ -1,0 +1,261 @@
+---
+title: "Lec 16: Convergence of Random variables"
+format:
+  html
+---
+
+
+## Modes of Convergence \[DS 6.2-6.3, AOS 6.1-6.3\] \[Lec 16\] {#sec:modes-convergence}
+
+**Sure convergence or pointwise convergence.**
+
+So far, the number of the random variables has been fixed as an integer
+$n\in \N_+$. But often, we would like to know what happens at the limit;
+when $n\to\infty$. Imagine a sequence of random variables
+$X_1, X_2, \cdots$. Do they *converge*, and in what sense?
+
+::: {.callout-note title="Definition"}
+**Convergence in probability.**
+
+$X_n$ converges to $b$ in probability, written $X_n \ipto X$, if for
+every $\epsilon>0$, $$\mathbb{P}(|X_n-b| >\epsilon) \to 0,$$ as
+$n\to \infty$.
+:::
+
+::: {.callout-tip title="Example"}
+Show the following by definition.
+
+-   If a sequence of random variables $X_n$ are independently
+    distributed as $\text{Bernoulli}(\frac{1}{n})$, show that
+    $X_n \ipto 0$.
+
+-   If $X_n$ is distributed as $N(\mu, \sigma^2/n)$, show that
+    $X_n\ipto \mu$.
+:::
+
+**Almost sure convergence.**
+
+**Shrinking Bernoulli's.**
+
+::: {.callout-note title="Definition"}
+**Convergence in distribution.**
+
+$X_n$ converges to $X$ in distribution, written $X_n \idto X$, if
+$$\lim_{n\to \infty} F_n(t) = F(t)$$ at all $t$ for which $F$ is
+continuous. The distribution on the right is called the *limiting*
+distribution.
+:::
+
+::: {.callout-tip title="Example"}
+Show the following: If $X_n$ are distributed as $Bin(n, \lambda/n)$ (for
+$\lambda>0$), then $X_n \idto \text{Poisson}(\lambda)$.
+:::
+
+::: {.callout-important title="Theorem"}
+[]{#thm:mgf-converge label="thm:mgf-converge"} Suppose random variable
+$X_i\sim F_i$ with mgf $\psi_i$, and some random variable $X^*$ has mgf
+$\psi^*$. If $\psi_i(t) \to \psi^*(t)$ for all $t$ in some interval
+around $t=0$, then $X_i \idto X^*$.
+:::
+
+::: {.callout-tip title="Example"}
+Show the following using moment generating functions: If $X_n$ are
+distributed as $Bin(n, \lambda/n)$ (for $\lambda>0$), then
+$X_n \idto \text{Poisson}(\lambda)$.
+:::
+
+**Convergence in quadratic mean.**
+
+**$L_p$ convergence.**
+
+## The Law of Large Numbers \[DS 6.2-6.3, AOS 6.1-6.3\] \[Lec 16\] {#sec:law-large-numbers}
+
+In various applications, the sample mean, or sample average:
+$$\bar X_n = \frac{1}{n} \sum\nolimits_{i=1}^n X_i = \frac{X_1 + X_2 + \cdots + X_n}{n}$$
+is of key importance. We will use $\bar X$ to denote the average of $n$
+random variables $X_1,\cdots, X_n$.
+
+What would happen as $n\to \infty$? In particular, does $\bar X_n$
+converge as $n\to \infty$? If so, (1) in what sense and (2) to what
+value does $\bar X_n$ converge to?
+
+We can be more concrete. Let's say we throw a coin multiple times, and
+record the numbers as $X_1, \cdots, X_n$. We can inuit (expect) that the
+average $(X_1 + X_2 + \cdots + X_n)/n$ will be close to $0.5$.
+
+The *laws of large numbers* establishes this rigorously, in a fairly
+general setting.
+
+#### Basic properties of sample mean
+
+Before answering the question of $n\to \infty$, we first examine
+properties of the sample mean when $n$ is finite.
+
+-   The mean of sample mean is
+    $$\mathbb{E}[\bar X_n] = \mathbb{E}[X_1],$$ (provided that
+    $\mathbb{E}[X_1]$ exists).
+
+-   The variance of sample mean is $$V(\bar X_n)= \frac{1}{n}V(X_1),$$
+    (provided that $V(X_1)$ exists.)
+
+Next, we learn our first, celebrated result about how the sample mean
+probabilistically *converges* to the true mean.
+
+::: {.callout-important title="Theorem"}
+**Weak Law of Large Numbers.**
+
+For iid sample $X_1,...,X_n$ whose mean and variance exist,
+$$\bar X_n \;\ipto \;\mathbb{E}[X_1].$$
+:::
+
+The qualifier "weak" is for convergence in probability -- wLLN for
+short. (There is also a *strong* law of large numbers, which is beyond
+the scope of this class.)
+
+::: proof
+*Proof.* Recall Chebyshev inequality. For random variable $X$ (whose
+variance exists), we have
+$$\mathbb{P}(|X-\mathbb{E}[X] |>t ) \le V(X)/t^2.$$
+
+Next, for iid $X_i$'s,
+$$\mathbb{P}( |\bar X_n- \mathbb{E}[X_1] | \ge t) \le \frac{V(X_1)}{nt^2}.$$
+
+As $t>0$ is arbitrary[^1], we can choose it to be very small. This
+proves that: $$\bar X_n \ipto \mathbb{E}[X_1].$$ ◻
+:::
+
+::: figure*
+![image](wlln.png){width=".7\\linewidth"}
+:::
+
+Next, we examine an interesting application of wLLN.
+
+::: {.callout-tip title="Example"}
+**Histogram.**
+
+A histogram is the result of binning data $X_1,\cdots, X_n$ and
+measuring the relative frequency in the bins. The histogram height from
+a bin between $c_1$ and $c_2$ is
+$$\bar Y_n = \frac{1}{n}\sum\nolimits_{i=1}^n1(X_i\in [c_1,c_2)
+    )$$ for some interval $[c_1,c_2)$. $\bar Y_n$ is the sample mean of
+iid Bernoulli random variables.
+
+By wLLN,
+$$\bar Y_n \ipto \mathbb{E}[1(X_1\in [c_1,c_2)] = \mathbb{P}(X_i \in [c_1,c_2)).$$
+:::
+
+::: {.callout-tip title="Example"}
+**Determine the required sample size.**
+
+Suppose $X_1,...,X_n\distras{iid} F$ whose mean and variance exist, and
+we have an upper bound on $V(X_1)$, say $V_0$, we have
+$$\mathbb{P}( |\bar X_n- \mathbb{E}[X_1] | \ge t) \le \frac{V_0}{nt^2}.$$
+In other words, with probability at least $1- \frac{V_0}{nt^2}$,
+$$|\bar X_n- \mathbb{E}[X_1] | \le t.$$
+
+Suppose we have a target/tolerable error $t_0$. We can *choose the
+sample size* $n$ to control the probability bound
+$$1- \frac{V_0}{nt_0^2}.$$
+
+For instance, $t_0=0.01$, $V_0=1$, if we hope to achieve 99% confidence,
+what sample size $n$ is needed?
+:::
+
+Note, we have required that the variance is finite ($V[X_i]<\infty$).
+
+**Strong Law of large numbers.**
+
+## The Central Limit Theorem \[DS 6.2-6.3, AOS 6.1-6.3\] \[Lec 16\] {#sec:centr-limit-theor}
+
+We finally arrive at the central limit theorem (CLT) which provides a
+simple yet powerful way of approximating probabilities.
+
+::: {.callout-important title="Theorem"}
+**Central Limit Theorem.**
+
+Take $X_1,X_2,...,X_n$ that are independent random variables each with
+mean $\mathbb{E}[X_1] =\mu$ and $V[X_1] =\sigma^2$. Then for each fixed
+number $t$,
+$$\lim_{n\to \infty} \mathbb{P}( \sqrt{n}(\bar{X}_n -\mu)/\sigma \le t ) = \Phi(t),$$
+where $\Phi(t)$ is the cdf of a standard normal ($\mathcal{N}(0,1)$)
+random variable. We write this as
+$$\sqrt{n}(\bar{X}_n -\mu)/\sigma  \idto N(0,1).$$
+:::
+
+::: proof
+*Proof.* The mgf of $\sqrt{n}(\bar{X}_n -\mu)/\sigma$ with $X_i$'s mgf
+$\psi$: $$\psi_n(t) = \mathbb{E}[e^{t \sqrt{n}(\bar{X}_n -\mu)/\sigma}]
+= \mathbb{E}[e^ {\frac{t}{\sqrt{n}} \sum_{i=1}^n
+  (\frac{X_i-\mu}{\sigma})}   ].$$ We would like to use
+Theorem [\[thm:mgf-converge\]](#thm:mgf-converge){reference-type="ref"
+reference="thm:mgf-converge"}; so, the goal is to show
+$\psi_n(t) \to e^{t^2/2}$ for $t$ in some interval around $t=0$.
+
+Let $Y_i =\frac{X_i-\mu}{\sigma}$, so $Y_i, i=1\cdots,n$ are iid with
+mean $0$ and variance $1$. With the Taylor expansion:
+$$\psi_Y(t) = \psi_Y(0) + \psi_Y^{(1)}(0) t + \frac{1}{2!} \psi_Y^{(2)}(0) t^2
++ \frac{1}{3!} \psi_Y^{(3)}(0) t^3+...,$$ it follows that
+$$\psi_n(t) = \mathbb{E}[e^ {\frac{t}{\sqrt{n}} \sum_{i=1}^n Y_i    }   ] = [\psi_Y({t}/{\sqrt{n}})]^n
+\to e^{t^2/2}.$$ ◻
+:::
+
+A direct implication is that: for $n$ large enough,
+$$\sqrt{n}(\bar{X}_n -\mu)/\sigma   \approx N(0,1).$$ which means that
+the "standardized" random variable $\sqrt{n}(\bar{X}_n -\mu)/\sigma$
+with a large but fixed $n$ follows the standard Normal distribution.
+
+Since we know very well how to handle Normal random variables and how to
+calculate probabilities from them, the CLT provides a simple yet
+powerful way of approximating probabilities.
+
+::: {.callout-tip title="Example"}
+**Normal approximation.**
+
+In many cases, for $n$ being a few tens, the approximation is reasonably
+accurate.
+
+-   Suppose $X_i \distras{iid} Ber(p)$ for $i=1,..,n$, and $n=100$. We
+    can apply the Normal approximation to the following probability
+    $$\mathbb{P}(\sum\nolimits_{i=1}^n X_i \ge 70).$$
+
+-   Suppose $X_i \distras{iid} Pois(\lambda)$ for $i=1,..,n$, and
+    $n=100$. We can apply the Normal approximation to the following
+    probability $$\mathbb{P}( |\bar{X}_n-\lambda|<c).$$
+
+-   Suppose $X_i \distras{iid} Exp(\lambda)$ for $i=1,..,n$, and
+    $n=100$. We can apply the Normal approximation to the following
+    probability $$\mathbb{P}( |\bar{X}_n- \lambda|<c).$$
+:::
+
+::: {.callout-tip title="Example"}
+**Confidence interval.**
+
+Find a *confidence interval* for the average of 50 test scores.
+:::
+
+::: {.callout-tip title="Example"}
+Suppose that the number of errors per computer program has a Poisson
+distribution with mean 5. There are 125 programs created by 125
+programmers. Let $X_1, \dots , X_{125}$ be the number of errors in the
+programs. What is the probability of the average number of errors being
+not so high, say within 0.5 of the mean 5?
+:::
+
+::: {.callout-tip title="Example"}
+**Determine the sample size.**
+
+Suppose $X_i \distras{iid} Pois(\lambda)$ for $i=1,..,n$. Determine $n$
+such that $$\mathbb{P}( |\bar{X}_n-\lambda|< 0.1 ) > 0.95.$$
+Alternatively, the Chebyshev inequality can also be used to provide an
+answer. Which one is more accurate?
+:::
+
+**Liapounov CLT.**
+
+**continuous mapping theorem.**
+
+**delta method.**
+
+**Variance stabilizing transformation.**
+
+[^1]: In other words, it holds for any $t$.

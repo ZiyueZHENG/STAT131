@@ -1,14 +1,17 @@
 project:
   type: "website"
-  title: "MY_COURSE_NAME 2022/23"
-  output-dir: _output
+  title: "Stat131: Introduction to probability theory"
+  output-dir: docs
+  pre-render: scripts/insert_problems.py
   render:
     - "index.qmd"
-    - "2023/*.qmd"
-    - "2023/weeks/week01/*.qmd"
+    - "2026/weeks/**/*.qmd"
+    - "!2026/weeks/**/*_source.qmd"
+    - "2026/playground/*.qmd"
 
 website:
-  title: "MY_COURSE_NAME 2022/23"
+  title: "Stat131: Introduction to probability theory"
+  site-url: "https://ziyuezheng.github.io/STAT131"
   page-navigation: true
   reader-mode: true
   open-graph: true
@@ -21,39 +24,135 @@ website:
     type: textbox
   sidebar:
     style: docked
+    collapse-level: 1
     contents:
-      - href: 2023/index.qmd
+      - href: index.qmd
         text: "🏠 Home"
-      # - href: 2023/syllabus.qmd
-      #   text: "📓 Syllabus"
-      # - href: 2023/communication.qmd
-      #   text: "📟 Communication"
-      # - href: 2023/assignments.qmd
-      #   text: "✍️ Assignments"
-      #   contents:
-      #     - href: 2023/assignments/assignment01.qmd
-      #       text: "📝 Assignment 01"
-      #     - href: 2023/assignments/assignment02.qmd
-      #       text: "📝 Assignment 02"
-      #     - href: 2023/assignments/group_project.qmd
-      #       text: "👥 Group Project"
-      - section: "🗓️ Weeks"
-        contents:
-         - href: 2023/weeks/week01/page.qmd
-           text: Week 01
-           contents:
-             - href: 2023/weeks/week01/page.qmd
-               text: 👨‍🏫 Lecture Material
-            #  - href: 2023/weeks/week01/lab.qmd
-            #    text: 💻 Lab Roadmap
-            #  - href: 2023/weeks/week01/appendix.qmd
-            #    text: 🔖 Appendix
 
+      - section: "🗓️ Lecture notes"
+        contents:
+          - href: 2026/weeks/week01/slides.qmd
+            text: Lecture 1
+          - href: 2026/weeks/week02/slides.qmd
+            text: Lecture 2
+          - href: 2026/weeks/week03/slides.qmd
+            text: Lecture 3
+          - href: 2026/weeks/week04/slides.qmd
+            text: Lecture 4
+          - href: 2026/weeks/week05/slides.qmd
+            text: Lecture 5
+          - href: 2026/weeks/week06/slides.qmd
+            text: Lecture 6
+          - href: 2026/weeks/week07/slides.qmd
+            text: Lecture 7
+          - href: 2026/weeks/week08/slides.qmd
+            text: Lecture 8
+          - href: 2026/weeks/week09/slides.qmd
+            text: Lecture 9
+          - href: 2026/weeks/week10/slides.qmd
+            text: Lecture 10
+          - href: 2026/weeks/week11/slides.qmd
+            text: Lecture 11
+          - href: 2026/weeks/week12/slides.qmd
+            text: Lecture 12
+          - href: 2026/weeks/week13/slides.qmd
+            text: Lecture 13
+          - href: 2026/weeks/week14/slides.qmd
+            text: Lecture 14
+          - href: 2026/weeks/week15/slides.qmd
+            text: Lecture 15
+          - href: 2026/weeks/week16/slides.qmd
+            text: Lecture 16
+          - href: 2026/weeks/week17/slides.qmd
+            text: Lecture 17
+
+      - section: "🔖 Homework"
+        contents:
+          - href: 2026/weeks/week01/homework.qmd
+            text: HW 1
+          - href: 2026/weeks/week02/homework.qmd
+            text: HW 2
+          - href: 2026/weeks/week03/homework.qmd
+            text: HW 3
+          - href: 2026/weeks/week04/homework.qmd
+            text: HW 4
+          - href: 2026/weeks/week05/homework.qmd
+            text: HW 5
+          - href: 2026/weeks/week06/homework.qmd
+            text: HW 6
+          - href: 2026/weeks/week07/homework.qmd
+            text: HW 7
+          - href: 2026/weeks/week08/homework.qmd
+            text: HW 8
+          - href: 2026/weeks/week09/homework.qmd
+            text: HW 9
+          - href: 2026/weeks/week10/homework.qmd
+            text: HW 10
+          - href: 2026/weeks/week11/homework.qmd
+            text: HW 11
+          - href: 2026/weeks/week12/homework.qmd
+            text: HW 12
+          - href: 2026/weeks/week13/homework.qmd
+            text: HW 13
+          - href: 2026/weeks/week14/homework.qmd
+            text: HW 14
+          - href: 2026/weeks/week15/homework.qmd
+            text: HW 15
+          - href: 2026/weeks/week16/homework.qmd
+            text: HW 16
+          - href: 2026/weeks/week17/homework.qmd
+            text: HW 17
+
+      - section: "💻 Discussion"
+        contents:
+          - href: 2026/weeks/week01/discussion.qmd
+            text: Discussion 1
+          - href: 2026/weeks/week02/discussion.qmd
+            text: Discussion 2
+          - href: 2026/weeks/week03/discussion.qmd
+            text: Discussion 3
+          - href: 2026/weeks/week04/discussion.qmd
+            text: Discussion 4
+          - href: 2026/weeks/week05/discussion.qmd
+            text: Discussion 5
+          - href: 2026/weeks/week06/discussion.qmd
+            text: Discussion 6
+          - href: 2026/weeks/week07/discussion.qmd
+            text: Discussion 7
+          - href: 2026/weeks/week08/discussion.qmd
+            text: Discussion 8
+          - href: 2026/weeks/week09/discussion.qmd
+            text: Discussion 9
+          - href: 2026/weeks/week10/discussion.qmd
+            text: Discussion 10
+          - href: 2026/weeks/week11/discussion.qmd
+            text: Discussion 11
+          - href: 2026/weeks/week12/discussion.qmd
+            text: Discussion 12
+          - href: 2026/weeks/week13/discussion.qmd
+            text: Discussion 13
+          - href: 2026/weeks/week14/discussion.qmd
+            text: Discussion 14
+          - href: 2026/weeks/week15/discussion.qmd
+            text: Discussion 15
+          - href: 2026/weeks/week16/discussion.qmd
+            text: Discussion 16
+          - href: 2026/weeks/week17/discussion.qmd
+            text: Discussion 17
+      
+      - section: "🛝 Playground"
+        contents:   
+         - href: 2026/playground/rolling-dice.qmd 
+           text: 🎲 Rolling dice
+         - href: 2026/playground/pdf-cdf-explorer.qmd
+           text: 📈 PDF and CDF Explorer
+
+        
   navbar:
     background: primary
   page-footer:
     background: light
-    left: "Copyright 2023, MY INSTITUTION" 
+    left: "Copyright 2026, MY INSTITUTION" 
 
 
 

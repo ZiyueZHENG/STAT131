@@ -1,0 +1,132 @@
+---
+title: "Lecture 12: Transformations of random variables (cont'd)"
+format:
+  html
+---
+
+
+## Generating random numbers \[DS 3.8, 3.9\] \[Lec 12\]
+
+Here is an interesting application of our tools (transforming random
+variables) from the previous section.
+
+Take any random variable $X$, and consider transforming it. When the
+transforming function is the cdf $F_X(X)$, the result is a uniform
+number between 0 and 1. This is called the *probability integral
+transformation.*
+
+::: {.callout-important title="Lemma"}
+**Probability integral transformation.**
+[]{#probability-integral-transform
+label="probability-integral-transform"} Suppose $X$ is a continuous
+random variable, $Y=F_X(X)$, then $Y\sim \text{Unif}[0,1]$.
+:::
+
+::: proof
+*Proof.* (Hint: Start with the CDF of $Y$. ) ◻
+:::
+
+This helps us simulate a random number from *any* distribution. This is
+sometimes called the "inverse cdf method".
+
+Suppose $Y\sim \text{Unif}[0,1]$. If $F$ is a continuous cdf with
+quantile function $F^{-1}$, then the random variable $F^{-1}(Y)$ follows
+a distribution with cdf $F$.
+
+To simulate random numbers from $F$:
+
+(1) First generate random numbers $u_1, u_2,\cdots, u_n$ from
+    $\text{Unif}[0,1]$;
+
+(2) Then, apply inverse-cdf transform $F^{-1}(u_i)$.
+
+The resulting random numbers $x_i = F^{-1}(u_i), i=1,\dots,n$ follow the
+distribution $F$.
+
+::: {.callout-tip title="Example"}
+**Modeling Wait Times.**
+
+Suppose we want to simulate the time between arrivals at a coffee shop,
+modeled by an Exponential distribution with rate $\lambda$ (which is
+used to model things like the time between radioactive decays or phone
+calls). The goal is to transform a "standard" random number
+$U \sim \text{Unif}(0, 1)$ -- which every calculator can produce -- into
+a wait time $X$. How would one do this?
+:::
+
+This is not just a theoretical exercise. Most computer software can only
+generate "pseudo-random" numbers from a $\text{Unif}(0, 1)$
+distribution. To get a random sample from an Exponential distribution,
+the computer also generates $u$ from $\text{Unif}(0,1)$ and simply
+calculates $-\frac{1}{\lambda}\ln(u)$.
+
+## Transformations of Several Random Variables \[DS 3.9\] \[Lec 12\] {#sec:transf-sever-rand}
+
+So far, we've learned how to transform one random variable. In this
+section, we will learn how to transform multiple random variables. For
+example, from two random variables $X, Y$, what is $X+Y$, $X-Y$? Given
+$X_1,\cdots, X_n$, what is $\min \{X_1,...,X_n\}$,
+$\max \{X_1,...,X_n\}$? We will learn the general principle now.
+
+::: {.callout-important title="Theorem"}
+**transformations of $n$ random variables.**
+
+First principle method for transformations of $n$ random variables:
+
+(1) Suppose the transformed random variable $Y=r(X_1,...,X_n)$, and we
+    know the joint pdf $f_{X_1,...,X_n}$. Again, we could find the cdf
+    of $Y$ by
+    $$F_Y(y) = \mathbb{P}(Y\le y) = \mathbb{P}(r(X_1,...,X_n) \le y)
+          = \int_{\{\bm{x}:r(\bm{x})\le y\}} f_{X_1,...,X_n}(\bm{x}) dx_1...dx_n$$
+    where $\bm{x} \equiv (x_1,...,x_n)$.
+
+(2) If $F_Y(y)$ is differentiable, we obtain pdf $f_Y(y)$ by taking
+    derivative: $f_Y(y) = F^\prime_Y(y)$.
+:::
+
+::: {.callout-tip title="Example"}
+**Convolution.**
+
+Suppose $X_1$ has pdf $f_1$, and $X_2$ has pdf $f_2$, and that
+$X_1 \perp X_2$. Find the distribution of $X_1+X_2$.
+:::
+
+::: {.callout-tip title="Example"}
+**Total Service Time.** Suppose that the first two customers in a line
+at the bank plan to leave together. Let $X_i$ be the time it takes to
+serve customer $i$ for $i = 1, 2$. Suppose also that $X_1$ and $X_2$ are
+independent random variables with common distribution having pdf
+$f(x) = 2e^{-2x}$ for $x > 0$ and $0$ otherwise. Since the customers
+will leave together, they are interested in the total time it takes to
+serve both of them, namely, $Y = X_1 + X_2$. Find the pdf of $Y$.
+:::
+
+(We will shortly learn about *expected values* of random variable $Y$.
+Think about this for the above problem: how long can the two customers
+expect to wait?)
+
+::: {.callout-tip title="Example"}
+**Maximum.**
+
+Suppose $X_1,...,X_n$ are independent random variables all distributed
+*identically*[^1] with cdf $F$. Find the distribution of
+$X_{(n)} := \mathop{\max}\limits_{1\le i \le n}\{X_i\}_{i=1,\cdots, n}$.
+:::
+
+::: {.callout-tip title="Example"}
+**Minimum.**
+
+Suppose $X_1,...,X_n \distras{iid} F$. Find the distribution of
+$X_{(1)} := \mathop{\min}\limits_{1\le i \le n} \{X_i\}_{i=1,\cdots, n}$.
+:::
+
+## In-class exercise \[Lec 12\] {#in-class-exercise-lec-12 .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+[^1]: We will sometimes abbreviate and write $X_i
+        \distras{iid} F$.

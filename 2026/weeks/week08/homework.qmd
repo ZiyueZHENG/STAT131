@@ -1,0 +1,69 @@
+---
+title: "Homework - Week 08"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+*Instructions: Show your work for full credit. Submit your scanned homework on % canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Suppose that the cdf of a random variable $X$ is as follows:
+
+
+$$
+F(x)= \begin{cases}e^{x-3} & \text { for } x \leq 3, \\ 1 & \text { for } x>3 .\end{cases}
+$$
+
+
+a. Find and sketch the pdf of $X$.
+b. Find and sketch the cdf of $X$.
+c. Find the first quartile.
+d. Find the median.
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose that $X$ has the uniform distribution on the interval $[0,5]$ and
+  that the *mixed* random variable $Y$ is defined by $Y=0$ if
+  $X \leq 1, Y=5$ if $X \geq 3$, and $Y=X$ otherwise. Sketch the cdf of $Y$.
+
+  (Hint: what are probabilities $\mathbb{P}(Y=0)$, $\mathbb{P}(Y=5)$? What about $\mathbb{P}(Y=y)$
+  for any other value $y \not\in \{0,5\}$? Use this to complete the cdf.)
+:::
+
+::: {.callout-warning title="Problem 3"}
+Suppose that a point in the $x y$-plane is chosen at random from the
+  interior of a circle for which the equation is $x^2+y^2=1$; and suppose that
+  the probability that the point will belong to each region inside the circle is
+  proportional to the area of that region. Let $Z$ denote a random variable
+  representing the distance from the center of the circle to the point. Find and
+  sketch the cdf of $Z$.
+:::
+
+::: {.callout-warning title="Problem 4"}
+Suppose that the c.d.f. of a random variable $X$ is as follows:
+
+$$
+F(x)= \begin{cases}0 & \text { for } x \leq 0 \\ \frac{1}{9} x^2 & \text { for } 0<x \leq 3 \\ 1 & \text { for } x>3\end{cases}
+$$
+
+
+Find and sketch the p.d.f. of $X$.
+:::
+
+::: {.callout-warning title="Problem 5"}
+Prove that the quantile function $F^{-1}(\cdot)$ of a general random
+  variable $X$ has the following property analogous to that of the cdf:
+  $F^{-1}(p)$ is a non-decreasing function of $p$ for $0<p <1$.
+:::
+
+::: {.callout-warning title="Problem 6"}
+Take a random variable $X$ with an exponential distribution whose
+  parameter is $\lambda$. What is the median?
+:::
+
+::: {.callout-warning title="Problem 7"}
+Suppose that the proportion $X$ of defective items in a large lot is
+   unknown and that $X$ has the beta distribution with parameters $\alpha$ and
+   $\beta$. If one item is selected at random from the lot, what is the
+   probability that it will be defective?
+:::

@@ -1,0 +1,83 @@
+---
+title: "Homework - Week 05"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Fun with probability mass functions.
+
+a. Suppose that a random variable X has the Bernoulli distribution with
+  parameter $p= 0.7$. Derive and sketch the probability mass function. Mark
+  the expectation as a vertical line.
+b. Suppose that a random variable X has the Binomial distribution with
+  parameters $n=2$ and $p= 0.7$. Derive and sketch the probability mass
+  function. Mark the expectation as a vertical line.
+c. Calculate the probability $\mathbb{P}(X \in (1.9,3])$ and
+  $\mathbb{P}(X \in (2,3])$ based on (b).
+:::
+
+::: {.callout-warning title="Problem 2"}
+Suppose $X$ has a binomial distribution with parameter $n=6$ and some $p$.
+
+a. Show that if $p=1/2$, $X=3$ is the most likely outcome.
+b. Derive the value of $p$ (smaller than $1/2$) at which the most
+  likely outcome *ceases* to be $X=3$.
+
+
+  than $3$.
+:::
+
+::: {.callout-warning title="Problem 3"}
+If 10 percent of the balls in a certain box are red, and if 20 balls are
+  selected from the box at random with replacement, what is the probability that
+  more than three red balls will be obtained?
+:::
+
+::: {.callout-warning title="Problem 4"}
+Suppose that an airplane engine will fail, when in flight, with
+  probability $1-p$ independently from engine to engine. Suppose that the
+  airplane will make a successful flight if at least $50\%$ of its engines
+  remain operative.
+
+a. What is the probability mass function of the (random) number of
+  operative engines of a given plane with $n=5$ engines? Derive and sketch it
+  for $p=0.1$.
+b. For what values of $p$ is a four-engine plane preferable to a two-engine
+  plane?
+c. If $p$ is revealed to be $0.1$, is it more probable for a two-engine or
+  a three-engine plane to have at least one engine fail?
+:::
+
+::: {.callout-warning title="Problem 5"}
+Suppose $X$ is the random variable denoting the outcome of a fair dice
+  roll. Also suppose a barista at a coffee shop is serving six customers
+  numbered $1,\cdots, 6$ and selects one at random (to gift a free muffin),
+  calling that customer number $Y$.
+
+a. Derive the probability mass functions of the two random variables
+  $X$ and $Y$. (Hint: it is possible for two random variables to have the same
+  *distribution*.)
+b. Prove that these two random variables are *independent*, by
+  proving that $\mathbb{P}(X=x, Y=y) = \mathbb{P}(X=x) \cdot \mathbb{P}(Y=y)$ for any $x,y$ values
+  between $1$ and $6$.
+b. What is the probability that $X=Y$?
+:::
+
+::: {.callout-warning title="Problem 6"}
+[**Practice**] A fair coin is independently flipped $10$ times, $3$
+  times by person A, and $7$ times by person B.  Show that the probability that
+  person A and person B flip the same number of heads is equal to the
+  probability that there are a total of $3$ heads.
+
+
+  (Hint 1: the event that person
+  A gets $j$ heads is independent of the event that person B gets $j$
+  heads. Then, what is the probability that person both A and B get $j$ heads?
+  Hint2: the Vandermonde's identity could be useful here.)
+
+
+  (More generally, prove that this holds for any fair coin flipped $n$ times,
+  $k$ times by person A, and $n-k$ times by person B, where the above problem is
+  the special case of $k=3$.)
+:::

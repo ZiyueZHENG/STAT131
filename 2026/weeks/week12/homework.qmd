@@ -1,0 +1,58 @@
+---
+title: "Homework - Week 12"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+a. Suppose that the random variable $X$ is uniform in $[0,1]$.
+  Construct a random variable $Y=r_1(X)$ for which the pdf will be:
+  $$g(y) =
+  \begin{cases} \frac{3}{8} y^2 & \text{ for } 0 < y < 2,\\
+    0 & \text{ otherwise}. \end{cases}
+b.
+  Next, let $Z$ be a random variable whose pdf is:
+  $$f(z) =
+  \begin{cases} \frac{1}{2} z & \text{ for } 0 < z < 2,\\
+  0 & \text{ otherwise}. \end{cases} Construct a random variable
+  $W = r_2(Z)$ whose pdf is $g$ from problem (a)? (Hint: start with a
+  transformation of $Z$ that makes it distributed as $\text{Unif}(0,1)$, then
+  use (a).)
+:::
+
+::: {.callout-warning title="Problem 2"}
+Explain how to use a uniform pseudo-random number generator to generate five
+  independent values from the distribution for which the pdf is:
+
+  $$g(y) = \begin{cases}
+             (2y+1)/2 & \text{ for } 0 < y < 1,\\
+             0 & \text{ otherwise }.
+           \end{cases}$$
+  (Optional but recommended: try your algorithm on a computer and show the results!
+  Submit your code and output for extra credit.)
+:::
+
+::: {.callout-warning title="Problem 3"}
+Suppose $X_1$ and $X_2$ are independent exponential random variables with
+  parameter $1$. Find the pdf of $Y = X_1 - X_2$.
+:::
+
+::: {.callout-warning title="Problem 4"}
+Suppose the $X_1, \cdots, X_n$ are random variables that are uniformly
+  distributed on $[0,1]$. Derive the pdf of the second largest of them, denoted
+  $X_{(n-1)}$.
+  (Hint: the event $\{X_{(n-1)} \leq t\}$ is the same as
+  $\{\text{At least } n-1 \text{ observations are smaller than or equal to }
+  t\}$. Can you see why?)
+:::
+
+::: {.callout-warning title="Problem 5"}
+Show that if $X_1\cdots,X_n$ are independent random variables,
+:::
+
+::: {.callout-warning title="Problem 6"}
+Suppose $X_1, \cdots X_n$ are Unif(0,1) random variables. Find the
+  smallest value of the *sample size* $n$ that ensures a high probability ($0.95$ or
+  higher) that the maximum $X_{(n)}$ of those $n$ random variables exceeds
+  $0.98$.
+:::

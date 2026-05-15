@@ -1,0 +1,270 @@
+---
+title: "Lecture 1: Classical probability theory"
+format:
+  html
+---
+
+## Sample spaces and events \[DS 1.1-1.4\] \[Lec 1\] {#sec:sample-spaces-events}
+
+::: {.callout-note title="Definition"}
+**Experiment.**
+
+The *experiment* is any process where its possible *outcomes* can be
+identified ahead of time. An *event* is a well-defined set of possible
+outcomes of the experiment.
+:::
+
+In the following two scenarios, the words following "the probability
+that" describe the event of interest.
+
+-   In an experiment in which the air temperature at a certain location
+    is to be observed every day at noon for 90 successive days, a person
+    might want to determine the probability that the average temperature
+    during this period will be less than some specified value.
+
+-   In an experiment in which a sample of 1000 transistors is to be
+    selected from a large shipment of similar items and each selected
+    item is to be inspected, a person might want to determine the
+    probability that not more than one of the selected transistors will
+    be defective.
+
+::: {.callout-note title="Definition"}
+**Sample space.**
+
+The sample space $\Omega$ is the set of all possible outcomes of an
+*experiment*.
+:::
+
+::: {.callout-tip title="Example"}
+**Coin tossing.**
+
+What is the sample space of the following experiments?
+
+-   Tossing a coin twice? three times?
+
+-   The letter grade?
+
+-   The human height (in feet) of a randomly chosen person?
+:::
+
+::: {.callout-note title="Definition"}
+**Events.**
+
+Events (say, $E$) are sets of outcomes that are subsets of the sample
+space (i.e., $E \in \Omega$).
+:::
+
+Events can consist of single outcome, or multiple outcomes.
+
+::: {.callout-tip title="Example"}
+**The letter grade.**
+
+If the experiment you're conducting is taking a class, and the result is
+a letter grade, what are the following events?
+
+-   Getting an A in the class.
+
+-   Passing the course.
+
+-   Failing the course.
+:::
+
+::: {.callout-tip title="Example"}
+**Two coin tosses.**
+
+If you toss a fair coin twice, what are the following events?
+
+-   Getting exactly one tail.
+
+-   Getting exactly one head.
+
+-   Getting more heads than tails.
+:::
+
+Note: These are discrete events, i.e. they are a collection of sample
+points from a *discrete* sample space. A discrete sample space $\Omega$
+is one that contains either a finite or countable number of distinct
+sample points.
+
+In this part of the course, just assume we deal with discrete events
+from a discrete sample spaces. Later, we will deal with continuous
+sample spaces.
+
+## Basic Set Theory \[DS 1.1-1.4\] \[Lec 1\] {#sec:basic-set-theory}
+
+In probability theory, the notion of an "event" is usually described in
+terms of a set (of outcomes). Therefore, before beginning our discussion
+of probability theory, we will review some basic facts about set theory.
+
+Note to students: I will cover this as a review, but I will assume you
+are proficient in basic set theory (unions, intersections, de Morgan's
+law, etc.).
+
+::: {.callout-note title="Definition"}
+Universal set, Set, Subset, Empty set
+:::
+
+::: {.callout-note title="Definition"}
+Venn diagram
+:::
+
+::: {.callout-note title="Definition"}
+**Set operations.**
+
+There are three basic set operations:
+
+-   Complement: $A^C$,
+
+-   Union: $A \cup B$
+
+-   Intersection: $A \cap B$
+:::
+
+#### Properties of complement
+
+-   $(A^C)^C = A$
+
+-   $\emptyset^C=\Omega$, $\Omega ^C=\emptyset$
+
+#### Properties of union
+
+-   $A\cup B = B \cup A$,
+
+    $A \cup A =  \rule{1cm}{0.15mm}$,
+    $A \cup A^C =  \rule{1cm}{0.15mm}$,
+    $A \cup \emptyset = \rule{1cm}{0.15mm}$,
+    $A \cup \Omega = \rule{1cm}{0.15mm}$
+
+    $A \cup B =\rule{1cm}{0.15mm}$, if $A \subset B$.
+
+#### Properties of intersection
+
+-   $A\cap B = B \cap A$,
+
+    $A \cap A =  \rule{1cm}{0.15mm}$,
+    $A \cap A^C =  \rule{1cm}{0.15mm}$,
+    $A \cap \emptyset = \rule{1cm}{0.15mm}$,
+    $A \cap \Omega = \rule{1cm}{0.15mm}$
+
+    $A \cap B =\rule{1cm}{0.15mm}$, if $A \subset B$.
+
+::: {.callout-note title="Definition"}
+**Disjoint.**
+
+Two sets are *disjoint*, if their intersection is empty.
+:::
+
+::: {.callout-important title="Theorem"}
+**De Morgan's law.**
+
+$$(A\cup B)^C = A^C \cap B^C.$$ $$(A\cap B)^C = A^C \cup B^C.$$
+:::
+
+This can be extended to the union or intersection of any $n > 0$ sets:
+
+1.  $\left(\cup_{i=1}^n A_i\right)^c=\cap_{i=1}^n A_i^c$
+
+2.  $\left(\cap_{i=1}^n A_i\right)^c=\cup_{i=1}^n A_i^c$.
+
+::: {.callout-important title="Theorem"}
+**Associative properties.**
+
+$$A\cup B \cup C= (A\cup B) \cup C = A\cup (B \cup C)$$
+$$A\cap B \cap C= (A\cap B) \cap C = A\cap (B \cap C)$$
+:::
+
+::: {.callout-important title="Theorem"}
+**Distributive properties.**
+
+$$A\cap (B \cup C)= (A\cap B) \cup (A \cap C)$$
+$$A\cup (B \cap C)= (A\cup B) \cap (A \cup C)$$
+:::
+
+::: {.callout-note title="Definition"}
+**Partition.**
+
+The collection of sets $\{E_i\}_{i=1}$ is a partition of $A$, if
+$$A = \cup_{i=1} E_i,  \text{ and }
+  E_i\cap E_j = \emptyset \text{ for all } i \neq j.$$
+:::
+
+The collection of sets can be either finite or infinite. Also, partition
+is not unique. For example,
+
+-   Define $E_i = \{i\}$ for $i=1,2,...$. Then, $\{E_i\}_{i=1}^\infty$
+    is a partition of positive integers. Also there are infinitely many
+    partitioning sets.
+
+-   Define $E_1=\{1,2\}$ and $E_2=\{3,4,...\}$. Then, $E_1$ and $E_2$ is
+    also a (finite) partition of positive integers.
+
+A set $A$ can always be partitioned with respect to another set $B$ as:
+$$A = (A\cap B) \cup (A \cap B^C),$$
+
+and the union of two sets can be partitioned by $A$ and the rest:
+$$A \cup B =  A \cup (B \cap A^C)$$
+
+You'll notice that partitioning components *must* be disjoint.\
+
+## Probability \[DS 1.1, 1.2, 1.5\] \[Lec 1\] {#sec: probability}
+
+What is probability, and how to interpretate it? Two ways:
+
+-   objective probability: long run relative frequency of a given event
+    (e.g., seeing heads in a coin flip).
+
+-   subjective probability: subjective belief in the rate of occurrence
+    of a given event.
+
+::: {.callout-tip title="Example"}
+What is the chance of raining tomorrow? As we cannot repeat tomorrow,
+the long run relative frequency interpretation is not convincing. In
+contrast, the subjective belief approach is more sensible.
+:::
+
+In either case, we may use the framework in this class without
+inconsistency. For example, the way we'd calculate the chances of
+raining two days in a row would be the same, regardless of which
+interpretation of probability we took.
+
+We will take the objective (*frequentist*) view often in this class.
+
+For probability calculations that we might find interesting, there are
+three simple conditions that must be met by the collection of sets that
+we call *events*. Let's formalize this.
+
+In a given experiment, we must assign to each event $A$ in the sample
+space $\Omega$ a number $$\mathbb{P}(A)$$ that indicates the probability
+that $A$ will occur.
+
+But not any function $\mathbb{P}()$ will work. In order to satisfy the
+mathematical definition of probability, the number $\mathbb{P}(A)$ that
+is assigned must satisfy three specific axioms.
+
+::: {.callout-note title="Definition"}
+**Axioms of probability.**
+
+Any probability (measure) should satisfy the following axioms.
+
+-   Axiom 1 (positivity): for every event $A$, $\mathbb{P}(A) \ge 0$.
+
+-   Axiom 2 (unity): $\mathbb{P}(\Omega) =1$.
+
+-   Axiom 3 (countable additivity): For every infinite sequence of
+    disjoint events $A_1, A_2,...$,
+    $$\mathbb{P}(\cup_{i=1}^\infty A_i) = \sum\nolimits_{i=1}^\infty\mathbb{P}(A_i).$$
+:::
+
+We will continue to cover this next time.
+
+## In-class exercise {#in-class-exercise .unnumbered}
+
+*Instructions: In groups of two or three students, solve the following
+problems.*
+
+::: enumerate
+:::
+
+You should try to answer these questions even if we haven't formally
+learned what some these concepts are yet. Building intuition will serve
+you well in this class!

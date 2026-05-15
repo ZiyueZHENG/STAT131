@@ -1,18 +1,86 @@
 ---
-title: "MY COURSE CODE - MY COURSE NAME"
+title: "Stat131: Introduction to probability theory (Section 03)"
 format:
-  html:
-    include-before-body: helpers/remove-nav.html
-    include-after-body: helpers/remove-title.html
+  html
 ---
 
-# 📑 Course Brief
+# Course Brief
 
 **Focus:** the focus of this course is to learn stuff
 
 **How:** hands-on learning
 
-# 🎯 Learning Objectives
+# Course Information
+
+**Lecture Times:** MWF 10:40 AM--11:45 AM  
+**Classroom:** Steven Acad 150  
+**Course Website:** Through Canvas
+
+# Instructor
+
+**Sangwon Hyun**  
+Students can address him as Professor Hyun or Dr. Hyun.
+
+**Office Hours:** Fridays 1:00 PM--2:00 PM, E2-539A  
+**E-mail:** [sangwonh@ucsc.edu](mailto:sangwonh@ucsc.edu)  
+**Website:** [sangwon-hyun.org](https://sangwon-hyun.org)
+
+**Short bio:** I am a statistician who works on a variety of scientific problems. These days I study microbes (plankton) and single-cell and genomic datasets in biomedicine and in the ocean, using statistical tools. If you are curious about my projects, you can check my webpage: [sangwon-hyun.org](https://sangwon-hyun.org).
+
+# Teaching Assistants
+
+::: {.columns}
+::: {.column width="50%"}
+
+## Ziyue Zheng
+
+**Discussion Section:** B  
+**Office Hours:** Wednesdays 12:00 PM--2:00 PM, E2-510  
+**E-mail:** [zzheng95@ucsc.edu](mailto:zzheng95@ucsc.edu)
+
+## Dingbang Ren
+
+**Discussion Sections:** A & C  
+**Office Hours:** Fridays 2:00 PM--4:00 PM, E2-514  
+**E-mail:** [diren@ucsc.edu](mailto:diren@ucsc.edu)
+
+:::
+::: {.column width="50%"}
+
+## Xi Chen
+
+**Discussion Section:** D  
+**Office Hours:**
+
+- Wednesdays 1:00 PM--2:00 PM, E2-510
+- Thursdays 11:00 AM--12:00 PM, virtually through Canvas/Zoom
+
+**E-mail:** [xchen376@ucsc.edu](mailto:xchen376@ucsc.edu)
+
+:::
+:::
+
+# Discussion Sections
+
+| Section | Time | Location | TA |
+|---|---:|---|---|
+| A | Fri 08:00 AM--09:05 AM | Kresge Acad 3301 | Dingbang Ren |
+| B | Wed 06:40 PM--07:45 PM | N. Sci Annex 102 | Ziyue Zheng |
+| C | Wed 02:40 PM--03:45 PM | N. Sci Annex 103 | Dingbang Ren |
+| D | Wed 04:00 PM--05:05 PM | N. Sci Annex 103 | Xi Chen |
+
+Attendance to discussion section is mandatory.
+
+# Office Hours
+
+Office hours are listed here:
+
+- **Sangwon Hyun (Instructor):** Fridays 1:00 PM--2:00 PM, E2-539A
+- **Xi Chen:** Wednesdays 1:00 PM--2:00 PM, E2-510; Thursdays 11:00 AM--12:00 PM virtually through Canvas/Zoom
+- **Ziyue Zheng:** Wednesdays 12:00 PM--2:00 PM, E2-510
+- **Dingbang Ren:** Fridays 2:00 PM--4:00 PM, E2-514
+
+# Learning Objectives
 
 - You will discover how to do X
 - Distinguish X from **X**
@@ -20,12 +88,4 @@ format:
 - Discover how to highlight `code` inline
 - Proceed to learn stuff
 
-
------------------
-
-**Select Academic Year/Term:**
-
-<a href="2023/index.qmd">
-    <button class="button-61">2022/23</button>
-</a>
-
+---

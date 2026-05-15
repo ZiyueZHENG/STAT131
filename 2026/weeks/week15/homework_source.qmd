@@ -1,0 +1,35 @@
+---
+title: "Homework - Week 15"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+*confidence % interval*
+
+*at most*
+
+*confidence interval*
+
+::: {.callout-warning title="Problem 1"}
+\useproblem{lec15-q4}
+:::
+
+::: {.callout-warning title="Problem 2"}
+\useproblem{lec15-q5}
+:::
+
+::: {.callout-warning title="Problem 3"}
+\useproblem{lec15-q6}
+:::
+
+::: {.callout-warning title="Problem 4"}
+\useproblem{lec15-q7}
+:::
+
+::: {.callout-warning title="Problem 5"}
+\useproblem{lec15-q8}
+:::
+
+::: {.callout-warning title="Problem 6"}
+\useproblem{lec15-q9}
+:::

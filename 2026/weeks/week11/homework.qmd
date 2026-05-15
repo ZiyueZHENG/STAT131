@@ -1,0 +1,61 @@
+---
+title: "Homework - Week 11"
+---
+
+*Instructions: Show your work for full credit. Submit your scanned homework on canvas.*
+
+::: {.callout-warning title="Problem 1"}
+Let $X$ be the rate at which customers are served in a queue, following an
+  exponential distribution with parameter $\lambda$.
+
+a. Find the pdf $f_Y(y)$ of the average waiting time $Y = 1/X$.
+b. Calculate $\int y f_Y(y) dy$. (this is called the "expectation"
+  or "expected value" of a random variable).
+:::
+
+::: {.callout-warning title="Problem 2"}
+Let's say a person calls a call center. Let $X$ be the amount of time
+  spent on hold and $Y$ be the total duration of the call. Suppose the
+  joint density is $f_{X,Y} (x,y)= e^{-y}$ in the region $0 < x <y <\infty$.
+
+a. What is the marginal density of $X$? of $Y$?
+b. The amount of time the consultant spends with the caller after the
+  call is answered is $W= Y-X$.  What is the probability density of $W$?
+  (Hint: use )
+:::
+
+::: {.callout-warning title="Problem 3"}
+Let's say a person calls a call center. Let $X$ be the amount of time
+   spent on hold and $Y$ be the total duration of the call. Suppose the
+   joint density is $f_{X,Y} (x,y)= e^{-y}$ in the region $0 < x <y <\infty$.
+
+a. What is the marginal density of $X$? of $Y$?
+b. The amount of time the consultant spends with the caller after the
+  call is answered is $W= Y-X$.  What is the probability density of $W$?
+:::
+
+::: {.callout-warning title="Problem 4"}
+Let random variable $Z$ have a Standard Normal distribution
+  $Z \sim \mathcal{N}(0, 1)$ with
+  $$f_Z(z) = \frac{1}{\sqrt{2\pi}}
+  e^{-z^2/2}.$$
+
+a. Find the probability density of $X = aZ + b$ for constants $a$ and $b$.
+b. Find the probability density of $X = Z^2$.
+:::
+
+::: {.callout-warning title="Problem 5"}
+Use the result from the previous problem to prove that the square of a Normal random
+  variable is (1) a Chi-squared distribution with 1 degree of freedom, and
+  equivalently (2) Gamma($1/2, 1/2$).
+
+
+- Suppose we have a random variable $U$ that is uniformly distributed on
+  the interval $(0, 1)$:
+  $$U \sim \text{Uniform}(0, 1).$$
+
+  Find the distribution of $Y$, defined as:
+  $$Y = -\frac{1}{\lambda} \ln(U). $$
+
+  (where $\lambda > 0$ is a constant).
+:::
